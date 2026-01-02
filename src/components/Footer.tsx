@@ -13,37 +13,59 @@ export default function Footer() {
               <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
                 <span className="text-xl font-bold">N</span>
               </div>
-              <span className="text-xl font-bold">Notepad AI</span>
+              <span className="text-xl font-bold text-white">Notepad AI</span>
             </div>
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-300 text-sm">
               Transform your writing experience with AI-powered tools and seamless document management.
             </p>
             {/* Social Links */}
             <div className="flex space-x-4 pt-4">
-              <a href="#" className="text-gray-400 hover:text-blue-500 transition-colors">
-                <FaGithub className="w-5 h-5" />
+              <a
+                href="https://github.com"
+                className="text-gray-400 hover:text-blue-500 transition-colors"
+                aria-label="Visit our GitHub"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaGithub className="w-5 h-5" aria-hidden="true" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-blue-500 transition-colors">
-                <FaTwitter className="w-5 h-5" />
+              <a
+                href="https://twitter.com"
+                className="text-gray-400 hover:text-blue-500 transition-colors"
+                aria-label="Follow us on Twitter"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaTwitter className="w-5 h-5" aria-hidden="true" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-blue-500 transition-colors">
-                <FaDiscord className="w-5 h-5" />
+              <a
+                href="https://discord.com"
+                className="text-gray-400 hover:text-blue-500 transition-colors"
+                aria-label="Join our Discord"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaDiscord className="w-5 h-5" aria-hidden="true" />
               </a>
-              <a href="mailto:contact@notepadai.com" className="text-gray-400 hover:text-blue-500 transition-colors">
-                <FaEnvelope className="w-5 h-5" />
+              <a
+                href="mailto:contact@notepadai.com"
+                className="text-gray-400 hover:text-blue-500 transition-colors"
+                aria-label="Email us at contact@notepadai.com"
+              >
+                <FaEnvelope className="w-5 h-5" aria-hidden="true" />
               </a>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-blue-500">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-4 text-blue-400">Quick Links</h3>
             <ul className="space-y-2">
               {['Home', 'Mobile', 'Features', 'Text to Docs', 'Text to PDF'].map((item) => (
                 <li key={item}>
-                  <Link 
+                  <Link
                     href={`/${item.toLowerCase().replace(/ /g, '-')}`}
-                    className="text-gray-400 hover:text-blue-500 transition-colors text-sm"
+                    className="text-gray-300 hover:text-blue-400 transition-colors text-sm"
                   >
                     {item}
                   </Link>
@@ -54,7 +76,7 @@ export default function Footer() {
 
           {/* Resources */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-blue-500">Resources</h3>
+            <h3 className="text-lg font-semibold mb-4 text-blue-400">Resources</h3>
             <ul className="space-y-2">
               {[
                 'How it works',
@@ -65,9 +87,9 @@ export default function Footer() {
                 'Privacy Policy'
               ].map((item) => (
                 <li key={item}>
-                  <Link 
+                  <Link
                     href={`/${item.toLowerCase().replace(/ /g, '-')}`}
-                    className="text-gray-400 hover:text-blue-500 transition-colors text-sm"
+                    className="text-gray-300 hover:text-blue-400 transition-colors text-sm"
                   >
                     {item}
                   </Link>
@@ -78,8 +100,8 @@ export default function Footer() {
 
           {/* Newsletter */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-blue-500">Stay Updated</h3>
-            <p className="text-sm text-gray-400 mb-4">
+            <h3 className="text-lg font-semibold mb-4 text-blue-400">Stay Updated</h3>
+            <p className="text-sm text-gray-300 mb-4">
               Subscribe to our newsletter for the latest updates and features.
             </p>
             <form className="space-y-2">
@@ -101,17 +123,17 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-[#2a2f3d]">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-300 text-sm">
               &copy; {new Date().getFullYear()} Notepad AI. All rights reserved.
             </p>
             <div className="flex space-x-6">
-              <Link href="/terms" className="text-gray-400 hover:text-blue-500 transition-colors text-sm">
+              <Link href="/terms" className="text-gray-300 hover:text-blue-400 transition-colors text-sm">
                 Terms of Service
               </Link>
-              <Link href="/privacy" className="text-gray-400 hover:text-blue-500 transition-colors text-sm">
+              <Link href="/privacy" className="text-gray-300 hover:text-blue-400 transition-colors text-sm">
                 Privacy Policy
               </Link>
-              <Link href="/cookies" className="text-gray-400 hover:text-blue-500 transition-colors text-sm">
+              <Link href="/cookies" className="text-gray-300 hover:text-blue-400 transition-colors text-sm">
                 Cookie Policy
               </Link>
             </div>

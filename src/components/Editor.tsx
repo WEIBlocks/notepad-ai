@@ -141,6 +141,76 @@ export default function Editor({
 		loadCSS('https://cdn.jsdelivr.net/npm/quill@1.3.7/dist/quill.snow.css');
 	}, []);
 
+	// Add aria-labels to Quill toolbar buttons for accessibility
+	useEffect(() => {
+		const addAriaLabels = () => {
+			const ariaLabels: Record<string, string> = {
+				'ql-bold': 'Bold',
+				'ql-italic': 'Italic',
+				'ql-underline': 'Underline',
+				'ql-strike': 'Strikethrough',
+				'ql-link': 'Insert link',
+				'ql-image': 'Insert image',
+				'ql-clean': 'Clear formatting',
+				'ql-blockquote': 'Blockquote',
+				'ql-code-block': 'Code block',
+			};
+
+			// Handle buttons with value attributes
+			const valueLabels: Record<string, Record<string, string>> = {
+				'ql-list': { 'ordered': 'Ordered list', 'bullet': 'Bullet list' },
+				'ql-indent': { '-1': 'Decrease indent', '+1': 'Increase indent' },
+				'ql-script': { 'sub': 'Subscript', 'super': 'Superscript' },
+			};
+
+			// Picker/dropdown labels
+			const pickerLabels: Record<string, string> = {
+				'ql-header': 'Heading style',
+				'ql-size': 'Font size',
+				'ql-align': 'Text alignment',
+				'ql-color': 'Text color',
+				'ql-background': 'Background color',
+				'ql-font': 'Font family',
+			};
+
+			// Add aria-labels to simple buttons
+			Object.entries(ariaLabels).forEach(([className, label]) => {
+				const buttons = document.querySelectorAll(`.${className}`);
+				buttons.forEach(button => {
+					if (!button.getAttribute('aria-label')) {
+						button.setAttribute('aria-label', label);
+					}
+				});
+			});
+
+			// Add aria-labels to buttons with values
+			Object.entries(valueLabels).forEach(([className, values]) => {
+				const buttons = document.querySelectorAll(`.${className}`);
+				buttons.forEach(button => {
+					const value = button.getAttribute('value');
+					if (value && values[value] && !button.getAttribute('aria-label')) {
+						button.setAttribute('aria-label', values[value]);
+					}
+				});
+			});
+
+			// Add aria-labels to picker dropdowns
+			Object.entries(pickerLabels).forEach(([className, label]) => {
+				const picker = document.querySelector(`.${className}`);
+				if (picker) {
+					const pickerLabel = picker.querySelector('.ql-picker-label');
+					if (pickerLabel && !pickerLabel.getAttribute('aria-label')) {
+						pickerLabel.setAttribute('aria-label', label);
+					}
+				}
+			});
+		};
+
+		// Run after a short delay to ensure Quill is mounted
+		const timer = setTimeout(addAriaLabels, 500);
+		return () => clearTimeout(timer);
+	}, []);
+
 	// Initialize content from props if provided
 	useEffect(() => {
 		if (isSharedNote && initialContent) {
@@ -897,6 +967,7 @@ export default function Editor({
       <button
         onClick={() => setIsSidebarOpen(true)}
         className="group relative p-1 sm:p-2 hover:bg-[#151823] rounded-lg text-gray-400 hover:text-[#4d9fff] transition-colors"
+        aria-label="Open notes sidebar"
       >
         <ViewColumnsIcon className="h-4 w-4 sm:h-5 sm:w-5" />
         <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-[#151823] text-xs text-gray-200 rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
@@ -1096,6 +1167,7 @@ export default function Editor({
               className="p-2 hover:bg-[#151823] rounded-lg text-gray-400 hover:text-[#4d9fff] disabled:opacity-50 disabled:hover:text-gray-400"
               disabled={findResults.length === 0}
               title="Previous"
+              aria-label="Find previous match"
             >
               <ChevronLeftIcon className="h-5 w-5" />
             </button>
@@ -1104,6 +1176,7 @@ export default function Editor({
               className="p-2 hover:bg-[#151823] rounded-lg text-gray-400 hover:text-[#4d9fff] disabled:opacity-50 disabled:hover:text-gray-400"
               disabled={findResults.length === 0}
               title="Next"
+              aria-label="Find next match"
             >
               <ChevronRightIcon className="h-5 w-5" />
             </button>
@@ -1166,6 +1239,7 @@ export default function Editor({
             className="p-1 sm:p-2 hover:bg-[#151823] rounded-lg text-gray-400 hover:text-[#4d9fff] disabled:opacity-50 disabled:hover:text-gray-400"
             disabled={findResults.length === 0}
             title="Previous"
+            aria-label="Find previous match"
           >
             <ChevronLeftIcon className="h-4 w-4 sm:h-5 sm:w-5" />
           </button>
@@ -1174,6 +1248,7 @@ export default function Editor({
             className="p-1 sm:p-2 hover:bg-[#151823] rounded-lg text-gray-400 hover:text-[#4d9fff] disabled:opacity-50 disabled:hover:text-gray-400"
             disabled={findResults.length === 0}
             title="Next"
+            aria-label="Find next match"
           >
             <ChevronRightIcon className="h-4 w-4 sm:h-5 sm:w-5" />
           </button>
@@ -1186,6 +1261,7 @@ export default function Editor({
             onClick={() => setShowFindReplace(false)}
             className="p-1 sm:p-2 hover:bg-[#151823] rounded-lg text-gray-400 hover:text-[#4d9fff]"
             title="Close"
+            aria-label="Close find and replace"
           >
             <XMarkIcon className="h-4 w-4 sm:h-5 sm:w-5" />
           </button>
@@ -1267,6 +1343,7 @@ export default function Editor({
 								<button
 									onClick={() => setIsSidebarOpen(false)}
 									className="p-2 hover:bg-[#151823] rounded-lg text-gray-400 hover:text-[#4d9fff] transition-colors"
+									aria-label="Close sidebar"
 								>
 									<ChevronLeftIcon className="h-5 w-5" />
 								</button>
