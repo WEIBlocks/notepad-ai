@@ -31,14 +31,14 @@ import {
 import ExportButton from "./ExportButton";
 import WordCount from "./WordCount";
 import DocumentList from "./DocumentList";
-import mammoth from "mammoth";
 import { useSearchParams } from 'next/navigation';
 import { v4 as uuidv4 } from 'uuid';
 import { docsStorage } from "@/utils/docsStorage";
-// import { Switch as HeadlessUISwitch } from '@headlessui/react';
-import confetti from 'canvas-confetti';
 import { Toaster, toast } from 'react-hot-toast';
-import QRCode from 'react-qr-code';
+
+// Lazy load heavy libraries to reduce initial bundle size
+const loadMammoth = () => import("mammoth");
+const loadConfetti = () => import("canvas-confetti");
 import SaveModal from './SaveModel';
 import ShareModal from './ShareModel';
 // Dynamically import ReactQuill only on client side
@@ -452,9 +452,10 @@ export default function Editor({
 				file.type ===
 				"application/vnd.openxmlformats-officedocument.wordprocessingml.document"
 			) {
-				// Handle .docx files
+				// Handle .docx files - dynamically load mammoth
+				const mammoth = await loadMammoth();
 				const arrayBuffer = await file.arrayBuffer();
-				const result = await mammoth.convertToHtml({ arrayBuffer });
+				const result = await mammoth.default.convertToHtml({ arrayBuffer });
 				content = result.value;
 			} else {
 				alert("Please select a .txt or .docx file.");
@@ -801,17 +802,18 @@ export default function Editor({
 	};
 
 	// Add this function to handle successful save
-	const handleSaveSuccess = (shareId: string) => {
+	const handleSaveSuccess = async (shareId: string) => {
 		setCurrentShareId(shareId);
-    setIsSaved(true);
-    setShowSaveModal(false);
-		
-		// Adjust confetti position to top
-		confetti({
+		setIsSaved(true);
+		setShowSaveModal(false);
+
+		// Dynamically load and trigger confetti
+		const confettiModule = await loadConfetti();
+		confettiModule.default({
 			particleCount: 100,
 			spread: 70,
-			origin: { y: 0.25 }, // Changed from 0.6 to 0.25 to show at top
-			gravity: 1.5 // Added gravity to make it fall naturally
+			origin: { y: 0.25 },
+			gravity: 1.5
 		});
 	};
 
