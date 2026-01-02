@@ -21,7 +21,7 @@ function FeatureCard({ title, description, delay }: { title: string; description
         <h3 className="text-lg sm:text-xl font-semibold text-blue-400 mb-4">
           {title}
         </h3>
-        <p className="text-sm sm:text-base text-gray-300">
+        <p className="text-sm sm:text-base text-gray-200">
           {description}
         </p>
       </div>
@@ -86,14 +86,14 @@ export default function Home() {
               What is an online notepad?
             </h2>
             <div className="space-y-4 sm:space-y-6">
-              <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
+              <p className="text-base sm:text-lg text-gray-200 leading-relaxed">
                 An online notepad is a versatile, browser-based text editor that allows you to create, save,
                 and share notes instantly without needing software installation or account creation. Unlike
                 traditional note-taking tools, online notepads are accessible from any device with an
                 internet connection, making them the perfect solution for people who require a flexible
                 and portable workspace.
               </p>
-              <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
+              <p className="text-base sm:text-lg text-gray-200 leading-relaxed">
                 Whether you&apos;re jotting down quick ideas, managing projects, or drafting documents, our
                 online notepad is designed to make your life easier.
               </p>
