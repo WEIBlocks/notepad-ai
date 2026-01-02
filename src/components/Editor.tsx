@@ -2,8 +2,6 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
-import "react-quill/dist/quill.snow.css";
-import "@/app/editor.css";
 import {
 	ArrowsPointingOutIcon,
 	ArrowsPointingInIcon,
@@ -41,7 +39,8 @@ const loadMammoth = () => import("mammoth");
 const loadConfetti = () => import("canvas-confetti");
 import SaveModal from './SaveModel';
 import ShareModal from './ShareModel';
-// Dynamically import ReactQuill only on client side
+
+// Dynamically import ReactQuill - CSS loaded separately via useEffect
 const ReactQuill = dynamic(
 	async () => {
 		const { default: RQ } = await import('react-quill');
@@ -50,8 +49,24 @@ const ReactQuill = dynamic(
 			return <RQ ref={forwardedRef} {...props} />;
 		};
 	},
-	{ ssr: false }
+	{
+		ssr: false,
+		loading: () => <div className="h-[300px] bg-[#151823] animate-pulse rounded-lg" />
+	}
 );
+
+// Helper to load CSS asynchronously (non-render-blocking)
+const loadCSS = (href: string) => {
+	if (typeof window === 'undefined') return;
+	if (document.querySelector(`link[href="${href}"]`)) return;
+
+	const link = document.createElement('link');
+	link.rel = 'stylesheet';
+	link.href = href;
+	link.media = 'print'; // Load as non-blocking
+	link.onload = () => { link.media = 'all'; }; // Apply after load
+	document.head.appendChild(link);
+};
 
 interface Document {
 	id: string;
@@ -119,6 +134,12 @@ export default function Editor({
 	const [shareUrl, setShareUrl] = useState("");
 	const [currentShareId, setCurrentShareId] = useState<string | null>(null);
 	const [isMobile, setIsMobile] = useState(false);
+
+	// Load editor CSS asynchronously (non-render-blocking)
+	useEffect(() => {
+		// Load Quill CSS from CDN (non-blocking)
+		loadCSS('https://cdn.jsdelivr.net/npm/quill@1.3.7/dist/quill.snow.css');
+	}, []);
 
 	// Initialize content from props if provided
 	useEffect(() => {
