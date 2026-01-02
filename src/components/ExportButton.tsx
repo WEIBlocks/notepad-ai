@@ -1,19 +1,13 @@
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ArrowDownTrayIcon } from "@heroicons/react/24/outline";
-import { saveAs } from "file-saver";
-import { jsPDF } from "jspdf";
-import {
-	Document,
-	Packer,
-	Paragraph,
-	TextRun,
-	HeadingLevel,
-	AlignmentType,
-	LevelFormat,
-	UnderlineType,
-} from "docx";
-import html2canvas from "html2canvas";
+
+// Dynamic imports for heavy libraries to reduce initial bundle size
+// These libraries ship with polyfills that add ~30KB to the main bundle
+const loadFileSaver = () => import("file-saver");
+const loadJsPDF = () => import("jspdf");
+const loadDocx = () => import("docx");
+const loadHtml2Canvas = () => import("html2canvas");
 
 interface ExportButtonProps {
 	content: string;
@@ -36,6 +30,12 @@ export default function ExportButton({
 	};
 
 	const exportAsPDF = async () => {
+		// Dynamically load heavy libraries
+		const [{ default: html2canvas }, { jsPDF }] = await Promise.all([
+			loadHtml2Canvas(),
+			loadJsPDF()
+		]);
+
 		// Create a temporary div to render the HTML content
 		const tempDiv = document.createElement("div");
 		tempDiv.innerHTML = content;
@@ -72,60 +72,66 @@ export default function ExportButton({
 		}
 	};
 
-	const getTextRuns = (element: HTMLElement): TextRun[] => {
-		const runs: TextRun[] = [];
-		const walker = document.createTreeWalker(
-			element,
-			NodeFilter.SHOW_TEXT | NodeFilter.SHOW_ELEMENT,
-			null
-		);
+	const exportAsDocx = async () => {
+		// Dynamically load heavy libraries
+		const [{ saveAs }, { Document, Packer, Paragraph, TextRun }] = await Promise.all([
+			loadFileSaver(),
+			loadDocx()
+		]);
 
-		let node: Node | null = walker.nextNode();
-		while (node) {
-			if (node.nodeType === Node.TEXT_NODE) {
-				const text = node.textContent || "";
-				if (text.trim()) {
-					const parent = node.parentElement;
-					if (parent) {
-						const style = window.getComputedStyle(parent);
-						const isSubscript =
-							parent.tagName.toLowerCase() === "sub" ||
-							style.verticalAlign === "sub";
-						const isSuperscript =
-							parent.tagName.toLowerCase() === "sup" ||
-							style.verticalAlign === "super";
+		// Helper function to get text runs from an element
+		const getTextRuns = (element: HTMLElement) => {
+			const runs: InstanceType<typeof TextRun>[] = [];
+			const walker = document.createTreeWalker(
+				element,
+				NodeFilter.SHOW_TEXT | NodeFilter.SHOW_ELEMENT,
+				null
+			);
 
-						runs.push(
-							new TextRun({
-								text,
-								bold: style.fontWeight === "bold" || style.fontWeight === "700",
-								italics: style.fontStyle === "italic",
-								underline: {
-									type: style.textDecoration.includes("underline")
-										? "single"
-										: "none",
-								},
-								color: style.color !== "rgb(0, 0, 0)" ? style.color : undefined,
-								highlight:
-									style.backgroundColor !== "rgba(0, 0, 0, 0)"
-										? style.backgroundColor
-										: undefined,
-								size: parseInt(style.fontSize) * 2, // Convert px to half-points
-								font: style.fontFamily.split(",")[0].replace(/['"]/g, ""),
-								subScript: isSubscript,
-								superScript: isSuperscript,
-							})
-						);
+			let node: Node | null = walker.nextNode();
+			while (node) {
+				if (node.nodeType === Node.TEXT_NODE) {
+					const text = node.textContent || "";
+					if (text.trim()) {
+						const parent = node.parentElement;
+						if (parent) {
+							const style = window.getComputedStyle(parent);
+							const isSubscript =
+								parent.tagName.toLowerCase() === "sub" ||
+								style.verticalAlign === "sub";
+							const isSuperscript =
+								parent.tagName.toLowerCase() === "sup" ||
+								style.verticalAlign === "super";
+
+							runs.push(
+								new TextRun({
+									text,
+									bold: style.fontWeight === "bold" || style.fontWeight === "700",
+									italics: style.fontStyle === "italic",
+									underline: {
+										type: style.textDecoration.includes("underline")
+											? "single"
+											: "none",
+									},
+									color: style.color !== "rgb(0, 0, 0)" ? style.color : undefined,
+									highlight:
+										style.backgroundColor !== "rgba(0, 0, 0, 0)"
+											? style.backgroundColor
+											: undefined,
+									size: parseInt(style.fontSize) * 2,
+									font: style.fontFamily.split(",")[0].replace(/['"]/g, ""),
+									subScript: isSubscript,
+									superScript: isSuperscript,
+								})
+							);
+						}
 					}
 				}
+				node = walker.nextNode();
 			}
-			node = walker.nextNode();
-		}
+			return runs;
+		};
 
-		return runs;
-	};
-
-	const exportAsDocx = async () => {
 		// Create a temporary div to parse HTML content
 		const tempDiv = document.createElement("div");
 		tempDiv.innerHTML = content;
@@ -230,7 +236,7 @@ export default function ExportButton({
 					}
 					return null;
 				})
-				.filter((node): node is Paragraph => node !== null);
+				.filter((node): node is InstanceType<typeof Paragraph> => node !== null);
 
 			// Create document
 			const doc = new Document({
@@ -251,7 +257,8 @@ export default function ExportButton({
 		}
 	};
 
-	const exportAsText = () => {
+	const exportAsText = async () => {
+		const { saveAs } = await loadFileSaver();
 		const text = content.replace(/<[^>]*>/g, ""); // Remove HTML tags
 		const blob = new Blob([text], { type: "text/plain;charset=utf-8" });
 		saveAs(blob, getFileName("txt"));

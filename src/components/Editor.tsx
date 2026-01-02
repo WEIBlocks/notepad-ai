@@ -995,7 +995,7 @@ export default function Editor({
 							stroke: #e5e7eb !important;
 						}
 
-						120px.ql-fill {
+						.ql-fill {
 							fill: #e5e7eb !important;
 						}
 

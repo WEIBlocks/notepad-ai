@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { 
 	HomeIcon, 
 	DocumentTextIcon, 
@@ -49,10 +50,12 @@ export default function Navigation() {
 						{/* Logo */}
 						<div className="flex-shrink-0 flex items-center">
 							<Link href="/" className="flex items-center gap-2">
-								<img 
-									src="/logo.png" 
-									alt="NotepadAI" 
-									className="h-14 w-14" 
+								<Image
+									src="/logo.webp"
+									alt="NotepadAI"
+									width={56}
+									height={56}
+									priority
 								/>
 								<span className="text-[#4d9fff] text-xl font-semibold">
 									NotepadAI

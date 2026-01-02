@@ -1,37 +1,38 @@
 import mongoose from 'mongoose';
 
 const noteSchema = new mongoose.Schema({
-  shareId: { 
-    type: String, 
-    required: true, 
-    unique: true 
+  shareId: {
+    type: String,
+    required: true,
+    unique: true
   },
-  content: { 
-    type: String, 
-    required: true 
+  content: {
+    type: String,
+    required: true
   },
-  title: { 
-    type: String, 
-    default: 'Untitled Note' 
+  title: {
+    type: String,
+    default: 'Untitled Note'
   },
-  expiresAt: { 
-    type: Date 
+  expiresAt: {
+    type: Date,
+    index: { expires: 0 } // TTL index: MongoDB will auto-delete documents when expiresAt is reached
   },
-  password: { 
+  password: {
     type: String,
     select: false // Important: This hides the password field by default
   },
-  isPasswordProtected: { 
-    type: Boolean, 
-    default: false 
+  isPasswordProtected: {
+    type: Boolean,
+    default: false
   },
-  allowEditing: { 
-    type: Boolean, 
-    default: false 
+  allowEditing: {
+    type: Boolean,
+    default: false
   },
-  createdAt: { 
-    type: Date, 
-    default: Date.now 
+  createdAt: {
+    type: Date,
+    default: Date.now
   }
 });
 

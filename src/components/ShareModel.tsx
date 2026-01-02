@@ -26,9 +26,17 @@ export default function ShareModal({
   const [localAllowEditing, setLocalAllowEditing] = useState(allowEditing);
 
   // Generate share URL with edit parameter
-  const shareUrl = shareId 
+  const shareUrl = shareId
     ? `${window.location.origin}/note/${shareId}${localAllowEditing ? '?edit=true' : ''}`
     : '';
+
+  // useEffect must be called before any conditional returns (React rules of hooks)
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, []);
 
   const handlePasswordVerification = async () => {
     try {
@@ -171,13 +179,6 @@ export default function ShareModal({
       </div>
     );
   }
-
-  useEffect(() => {
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
-  }, []);
 
   // Main share modal content
   const modalContent = (
