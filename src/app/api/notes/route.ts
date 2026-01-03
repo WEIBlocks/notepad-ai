@@ -32,6 +32,7 @@ export async function POST(req: Request) {
     // Create note
     const noteData = {
       content: data.content,
+      title: data.title || 'Untitled Note',
       shareId,
       password: hashedPassword,
       isPasswordProtected,

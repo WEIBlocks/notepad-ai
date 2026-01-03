@@ -9,6 +9,7 @@ interface SaveModalProps {
   onClose: () => void;
   onSave: (shareId: string) => void;
   content: string;
+  title: string;
   autoExpire: boolean;
   setAutoExpire: (value: boolean) => void;
   expireDays: string;
@@ -25,6 +26,7 @@ export default function SaveModal({
   onClose,
   onSave,
   content,
+  title,
   autoExpire,
   setAutoExpire,
   expireDays,
@@ -62,6 +64,7 @@ export default function SaveModal({
         },
         body: JSON.stringify({
           content,
+          title,
           autoExpire,
           expireDays: autoExpire ? expireDays : null,
           passwordProtect,

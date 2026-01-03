@@ -1457,6 +1457,7 @@ export default function Editor({
 					onClose={() => setShowSaveModal(false)}
 					onSave={handleSaveSuccess}
 					content={content}
+					title={documentName}
 					autoExpire={autoExpire}
 					setAutoExpire={setAutoExpire}
 					expireDays={expireDays}
