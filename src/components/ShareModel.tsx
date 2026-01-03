@@ -41,7 +41,8 @@ export default function ShareModal({
   const handlePasswordVerification = async () => {
     try {
       setIsLoading(true);
-      const response = await fetch(`/api/notes/${shareId}/verify`, {
+      // Use POST to /api/notes/[shareId] for password verification
+      const response = await fetch(`/api/notes/${shareId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -51,11 +52,11 @@ export default function ShareModal({
 
       const data = await response.json();
 
-      if (data.success) {
+      if (response.ok && data.content) {
         setIsPasswordVerified(true);
         toast.success('Password verified successfully!');
       } else {
-        toast.error('Invalid password');
+        toast.error(data.error || 'Invalid password');
       }
     } catch (error) {
       toast.error('Failed to verify password');

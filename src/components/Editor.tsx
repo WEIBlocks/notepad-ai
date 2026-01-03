@@ -134,6 +134,8 @@ export default function Editor({
 	const [shareUrl, setShareUrl] = useState("");
 	const [currentShareId, setCurrentShareId] = useState<string | null>(null);
 	const [isMobile, setIsMobile] = useState(false);
+	const [isNotePasswordProtected, setIsNotePasswordProtected] = useState(false);
+	const [noteAllowEditing, setNoteAllowEditing] = useState(false);
 
 	// Load editor CSS asynchronously (non-render-blocking)
 	useEffect(() => {
@@ -274,6 +276,14 @@ export default function Editor({
 		setContent("");
 		setDocumentName("Untitled Document");
 		setLastSaved(new Date().toISOString());
+		// Reset share state for new document
+		setIsSaved(false);
+		setCurrentShareId(null);
+		setIsNotePasswordProtected(false);
+		setNoteAllowEditing(false);
+		setPasswordProtect(false);
+		setPassword("");
+		setConfirmPassword("");
 		// Update URL without docId
 		window.history.pushState({}, '', '/');
 	};
@@ -896,6 +906,7 @@ export default function Editor({
 	const handleSaveSuccess = async (shareId: string) => {
 		setCurrentShareId(shareId);
 		setIsSaved(true);
+		setIsNotePasswordProtected(passwordProtect); // Store password protection state
 		setShowSaveModal(false);
 
 		// Dynamically load and trigger confetti
@@ -912,10 +923,8 @@ export default function Editor({
 	const saveButton = (
 		<button
 		  onClick={() => {
-			if (isSaved) {
-			  // Generate share URL when opening share modal
-			  const shareId = currentDocId;
-			  setShareUrl(`${window.location.origin}/note/${shareId}`);
+			if (isSaved && currentShareId) {
+			  // Open share modal with the correct shareId
 			  setShowShareModal(true);
 			} else {
 			  setShowSaveModal(true);
@@ -1426,9 +1435,9 @@ export default function Editor({
 				<ShareModal
 					onClose={() => setShowShareModal(false)}
 					shareId={currentShareId}
-					allowEditing={false}
-					setAllowEditing={() => {}}
-					isPasswordProtected={false}
+					allowEditing={noteAllowEditing}
+					setAllowEditing={setNoteAllowEditing}
+					isPasswordProtected={isNotePasswordProtected}
 				/>
 			)}
 			<Toaster position="top-right" />
