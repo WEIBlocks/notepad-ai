@@ -324,34 +324,23 @@ export default function Editor({
 
 	// Load documents from localStorage on component mount
 	useEffect(() => {
-		const savedDocs = localStorage.getItem("documents");
-		if (savedDocs) {
-			const docs = JSON.parse(savedDocs);
-			setDocuments(docs);
-			if (docs.length > 0) {
-				const lastDoc = docs[docs.length - 1];
-				setCurrentDocId(lastDoc.id);
-				setDocumentName(lastDoc.name);
-				setContent(lastDoc.content);
-				setLastSaved(lastDoc.lastSaved);
-				setHighlightPositions(lastDoc.highlights || []);
-				
-				// Clear any existing highlights on load
-				if (quillRef.current) {
-					const quill = quillRef.current.getEditor();
-					const delta = quill.getContents();
-					delta.ops = delta.ops.map((op: any) => {
-						if (op.attributes) {
-							delete op.attributes['background'];
-							delete op.attributes['class'];
-						}
-						return op;
-					});
-					quill.setContents(delta, 'silent');
-				}
-			}
+		// Skip if this is a shared note or if loading a specific doc from URL
+		if (isSharedNote) return;
+		const docIdFromUrl = searchParams.get('doc');
+		if (docIdFromUrl) return; // Don't override URL-loaded document
+
+		const allDocs = docsStorage.getAllDocs();
+		if (allDocs.length > 0) {
+			// Map to the Document interface format for the sidebar
+			setDocuments(allDocs.map(doc => ({
+				id: doc.id,
+				name: doc.title,
+				content: doc.content,
+				lastSaved: doc.lastModified,
+				highlights: []
+			})));
 		}
-	}, []);
+	}, [isSharedNote, searchParams]);
 
 
 	
