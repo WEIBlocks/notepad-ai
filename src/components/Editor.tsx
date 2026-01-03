@@ -86,14 +86,16 @@ interface EditorProps {
 	isSharedNote?: boolean;
 	allowEditing?: boolean;
 	sharedTitle?: string;
+	shareId?: string; // The shareId for shared notes to save back to the same document
 	onSave?: (content: string) => void;
 }
 
-export default function Editor({ 
+export default function Editor({
 	initialContent,
 	isSharedNote = false,
 	allowEditing = true,
 	sharedTitle,
+	shareId,
 	onSave
 }: EditorProps) {
 	const [isEditingName, setIsEditingName] = useState(false);
@@ -228,8 +230,34 @@ export default function Editor({
 	// Modify auto-save functionality to handle both cases
 	useEffect(() => {
 		if (isSharedNote) {
-			// For shared notes, use the provided onSave callback
-			if (onSave) {
+			// For shared notes with editing enabled, save to MongoDB via API
+			if (allowEditing && shareId && content) {
+				const saveToServer = async () => {
+					try {
+						const response = await fetch(`/api/notes/${shareId}`, {
+							method: 'PUT',
+							headers: {
+								'Content-Type': 'application/json',
+							},
+							body: JSON.stringify({ content }),
+						});
+
+						if (response.ok) {
+							setLastSaved(new Date().toLocaleString());
+						} else {
+							const data = await response.json();
+							console.error('Failed to save shared note:', data.error);
+						}
+					} catch (error) {
+						console.error('Error saving shared note:', error);
+					}
+				};
+
+				const saveTimeout = setTimeout(saveToServer, 1500); // Slightly longer delay for server saves
+				return () => clearTimeout(saveTimeout);
+			}
+			// For shared notes with onSave callback (legacy support)
+			else if (onSave) {
 				const saveTimeout = setTimeout(() => {
 					onSave(content);
 				}, 1000);
@@ -245,7 +273,7 @@ export default function Editor({
 					content: content,
 					lastModified: currentDate
 				};
-				
+
 				docsStorage.saveDoc(doc);
 				setLastSaved(currentDate);
 			};
@@ -253,7 +281,7 @@ export default function Editor({
 			const saveTimeout = setTimeout(autoSave, 1000);
 			return () => clearTimeout(saveTimeout);
 		}
-	}, [content, documentName, currentDocId, isSharedNote, onSave]);
+	}, [content, documentName, currentDocId, isSharedNote, onSave, allowEditing, shareId]);
 
 	// Load document if docId is in URL
 	useEffect(() => {

@@ -190,6 +190,7 @@ export default function ViewNote() {
         isSharedNote={true}
         allowEditing={isEditMode && note?.allowEditing}
         sharedTitle={note?.title || "Untitled Note"}
+        shareId={shareId as string}
       />
     </div>
   );
