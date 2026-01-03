@@ -1,5 +1,5 @@
 "use client";
-import { Suspense } from 'react';
+import { Suspense, useState } from 'react';
 import Editor from "@/components/Editor";
 import Loader from "@/components/Loader";
 import ScrollReveal from "@/components/ui/ScrollReveal";
@@ -7,10 +7,10 @@ import StatsSection from "@/components/ui/StatsSection";
 import GradientText from "@/components/ui/GradientText";
 
 // Feature card component with CSS animations
-function FeatureCard({ title, description, delay, index }: { title: string; description: string; delay: number; index: number }) {
+function FeatureCard({ icon, title, description, index }: { icon: string; title: string; description: string; index: number }) {
   return (
     <ScrollReveal delay={index * 100} direction="up">
-      <div className="group relative bg-[#1A1A1A] p-6 sm:p-8 rounded-2xl border border-gray-800/50 overflow-hidden transform-gpu hover:scale-[1.02] hover:border-purple-500/30 transition-all duration-500">
+      <div className="group relative bg-[#1A1A1A] p-6 sm:p-8 rounded-2xl border border-gray-800/50 overflow-hidden transform-gpu hover:scale-[1.02] hover:border-purple-500/30 transition-all duration-500 h-full">
         {/* Animated gradient background */}
         <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
         {/* Animated border glow */}
@@ -19,9 +19,12 @@ function FeatureCard({ title, description, delay, index }: { title: string; desc
         </div>
         {/* Content */}
         <div className="relative z-10">
-          <h3 className="text-lg sm:text-xl font-semibold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4">
-            {title}
-          </h3>
+          <div className="flex items-center gap-3 mb-4">
+            <span className="text-2xl">{icon}</span>
+            <h3 className="text-lg sm:text-xl font-semibold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              {title}
+            </h3>
+          </div>
           <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
             {description}
           </p>
@@ -35,40 +38,138 @@ function FeatureCard({ title, description, delay, index }: { title: string; desc
   );
 }
 
+// FAQ Accordion Item
+function FAQItem({ question, answer, isOpen, onToggle }: { question: string; answer: string; isOpen: boolean; onToggle: () => void }) {
+  return (
+    <div className="border border-gray-800 rounded-xl overflow-hidden">
+      <button
+        onClick={onToggle}
+        className="w-full flex items-center justify-between p-4 sm:p-6 text-left bg-[#1A1A1A] hover:bg-[#222] transition-colors"
+      >
+        <h3 className="text-base sm:text-lg font-medium text-white pr-4">{question}</h3>
+        <span className={`text-2xl text-purple-400 transition-transform duration-300 ${isOpen ? 'rotate-45' : ''}`}>+</span>
+      </button>
+      <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96' : 'max-h-0'}`}>
+        <p className="p-4 sm:p-6 pt-0 text-gray-300 leading-relaxed">{answer}</p>
+      </div>
+    </div>
+  );
+}
+
 export default function Home() {
-  const features1 = [
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
+  // 8 Features from SEO strategy
+  const features = [
     {
-      title: "AI-Powered Online Notepad",
-      description: "Notepad AI is a free online notepad designed for intelligent note-taking. With built-in Natural Language Processing, it helps you write, organize, and save your ideas in real-time.",
-      delay: 0.1,
+      icon: "🧠",
+      title: "AI-Powered Writing with NLP",
+      description: "Notepad AI uses advanced Natural Language Processing to understand and support your writing process. The NLP system detects patterns, recognizes intent, and adapts to your writing context automatically.",
     },
     {
+      icon: "⚡",
       title: "No Login, No Hassle",
-      description: "Start writing instantly with our no-login online notepad. It respects your privacy and keeps your notes secure using local storage and NLP-enhanced autosave.",
-      delay: 0.2,
+      description: "Start writing instantly without creating an account. No email verification, no passwords, no forms. Just open Notepad AI and begin taking notes. Your privacy is respected from the first keystroke.",
     },
     {
-      title: "Autosave & Local Privacy",
-      description: "All content is autosaved automatically and stored locally in your browser. This secure online notepad ensures that your notes are never lost or sent anywhere.",
-      delay: 0.3,
+      icon: "💾",
+      title: "Autosave & Local Storage",
+      description: "All content is autosaved automatically in real-time and stored locally in your browser. Your notes are never sent to external servers, ensuring complete privacy.",
+    },
+    {
+      icon: "📴",
+      title: "Works Completely Offline",
+      description: "After the initial page load, Notepad AI works without an internet connection. Write, edit, and organize notes anywhere, anytime — even in airplane mode.",
+    },
+    {
+      icon: "📄",
+      title: "Export to PDF & Docs",
+      description: "Convert your notes to professional PDF documents or editable Docs format with one click. All conversion happens locally in your browser — no data is uploaded to any server.",
+    },
+    {
+      icon: "🔗",
+      title: "Share Notes Securely",
+      description: "Share notes with a unique link. Add password protection for sensitive content. Recipients can view without creating an account. Perfect for collaboration.",
+    },
+    {
+      icon: "📱",
+      title: "Works on All Devices",
+      description: "Access Notepad AI from desktop, laptop, tablet, or smartphone. The responsive interface adapts to any screen size for comfortable note-taking on any device.",
+    },
+    {
+      icon: "🔒",
+      title: "Secure, Private, Free",
+      description: "Zero ads, zero tracking, zero data collection. Notepad AI is a completely free, privacy-focused notepad that respects your data. No analytics, no cookies tracking your behavior.",
     },
   ];
 
-  const features2 = [
+  // How It Works steps
+  const howItWorks = [
     {
-      title: "Smart AI-Enhanced Notepad",
-      description: "Experience seamless, intelligent note-taking with our AI-powered notepad. Backed by advanced NLP, it helps you write, organize, and refine your thoughts in real-time — all for free.",
-      delay: 0.1,
+      step: 1,
+      title: "Open & Start Writing",
+      description: "Visit notepad-ai.online in any browser. No download, no login, no setup. Just open and start typing immediately.",
     },
     {
-      title: "Instant Access, Zero Sign-Up",
-      description: "Start typing immediately — no accounts, no barriers. Our notepad is designed for speed, simplicity, and privacy, letting you focus on your thoughts without distractions.",
-      delay: 0.2,
+      step: 2,
+      title: "Let AI Assist You",
+      description: "As you write, the NLP system understands your context and helps structure your notes. Write naturally — the AI adapts to you.",
     },
     {
-      title: "Private by Design, Auto-Saved Locally",
-      description: "Your notes are automatically saved in your browser and never leave your device. With local storage and built-in autosave, your content stays private and protected.",
-      delay: 0.3,
+      step: 3,
+      title: "Auto-Save Protects Your Work",
+      description: "Every keystroke is saved automatically to your browser's local storage. No manual saving needed. Your work is always protected.",
+    },
+    {
+      step: 4,
+      title: "Export or Share",
+      description: "When ready, export to PDF, convert to Docs, or share via link. Add password protection for sensitive notes. All features are free.",
+    },
+  ];
+
+  // Use cases
+  const useCases = [
+    { icon: "🎓", title: "Students", description: "Take lecture notes, create study guides, organize research with AI assistance" },
+    { icon: "✍️", title: "Writers", description: "Draft articles, blog posts, and stories with intelligent writing support" },
+    { icon: "💼", title: "Professionals", description: "Capture meeting notes, create to-do lists, organize project ideas" },
+    { icon: "👨‍💻", title: "Developers", description: "Save code snippets, document APIs, keep technical notes" },
+    { icon: "📓", title: "Journalers", description: "Write daily entries with complete privacy — data never leaves your device" },
+    { icon: "✈️", title: "Travelers", description: "Work offline during flights, trains, or areas without internet" },
+  ];
+
+  // FAQs for homepage
+  const faqs = [
+    {
+      question: "What is Notepad AI?",
+      answer: "Notepad AI is a free AI-powered online notepad that uses Natural Language Processing (NLP) to help users write, organize, and save notes intelligently. It works offline, requires no login, and stores all data locally for complete privacy."
+    },
+    {
+      question: "Is Notepad AI free?",
+      answer: "Yes, Notepad AI is completely free to use. All features including AI-powered writing, offline mode, PDF export, note sharing, and password protection are available at no cost with no hidden fees."
+    },
+    {
+      question: "Do I need to create an account?",
+      answer: "No account or login is required. Simply visit notepad-ai.online and start writing immediately. Your notes are saved automatically in your browser's local storage."
+    },
+    {
+      question: "Does Notepad AI work offline?",
+      answer: "Yes, Notepad AI works completely offline after the initial page load. You can write and edit notes without an internet connection. All data is stored locally on your device."
+    },
+    {
+      question: "Is my data private?",
+      answer: "Yes, all notes are stored locally in your browser using local storage. No data is sent to external servers. Notepad AI has zero tracking, zero ads, and complete privacy by design."
+    },
+    {
+      question: "What is NLP in Notepad AI?",
+      answer: "NLP (Natural Language Processing) in Notepad AI analyzes your writing patterns, detects intent, and helps structure notes automatically. It adapts to your writing context to provide a smarter note-taking experience."
+    },
+    {
+      question: "Can I export notes to PDF?",
+      answer: "Yes, Notepad AI can export any note to PDF format with one click. The conversion happens entirely in your browser — no data is uploaded to any server."
+    },
+    {
+      question: "Can I share notes with others?",
+      answer: "Yes, you can share notes using a unique link. Recipients can view the note without creating an account. You can also add password protection for sensitive content."
     },
   ];
 
@@ -83,6 +184,19 @@ export default function Home() {
 
       {/* Stats Section */}
       <StatsSection />
+
+      {/* Entity Definition Section - Critical for GEO */}
+      <ScrollReveal className="max-w-[1370px] mx-auto px-4 sm:px-6 lg:px-14 relative py-8">
+        <div className="bg-gradient-to-r from-blue-900/20 to-purple-900/20 p-6 sm:p-8 rounded-2xl border border-gray-800">
+          <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
+            <strong className="text-white">Notepad AI</strong> is a free AI-powered online notepad that uses Natural Language Processing (NLP)
+            to help users write, organize, and save notes intelligently. Unlike traditional text editors, Notepad AI understands your writing
+            context, adapts to your patterns, and structures your notes automatically. It works completely offline after initial load, requires
+            no login or account creation, and stores all data locally in your browser for complete privacy. With features like real-time autosave,
+            PDF export, document conversion, and note sharing, Notepad AI is the smart, secure, and simple way to take notes online.
+          </p>
+        </div>
+      </ScrollReveal>
 
       {/* What is Online Notepad Section */}
       <ScrollReveal className="max-w-[1370px] mx-auto px-4 sm:px-6 lg:px-14 relative py-8">
@@ -142,17 +256,79 @@ export default function Home() {
       <div className="max-w-[1370px] mx-auto px-4 sm:px-6 lg:px-14 py-12 sm:py-16">
         <ScrollReveal>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-8 sm:mb-12">
-            <GradientText>Features</GradientText> that make us different
+            What Makes <GradientText>Notepad AI</GradientText> Different?
           </h2>
         </ScrollReveal>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {features1.map((card, index) => (
-            <FeatureCard key={index} {...card} index={index} />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {features.slice(0, 4).map((feature, index) => (
+            <FeatureCard key={index} {...feature} index={index} />
           ))}
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-6 gap-6 sm:gap-8">
-          {features2.map((card, index) => (
-            <FeatureCard key={index} {...card} index={index + 3} />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mt-6 gap-6">
+          {features.slice(4, 8).map((feature, index) => (
+            <FeatureCard key={index} {...feature} index={index + 4} />
+          ))}
+        </div>
+      </div>
+
+      {/* How It Works Section */}
+      <div className="max-w-[1370px] mx-auto px-4 sm:px-6 lg:px-14 py-12 sm:py-16">
+        <ScrollReveal>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-8 sm:mb-12 text-center">
+            How to Use <GradientText>Notepad AI</GradientText>
+          </h2>
+        </ScrollReveal>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {howItWorks.map((item, index) => (
+            <ScrollReveal key={index} delay={index * 100} direction="up">
+              <div className="relative bg-[#1A1A1A] p-6 rounded-2xl border border-gray-800 h-full">
+                <div className="absolute -top-4 left-6 w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">
+                  {item.step}
+                </div>
+                <h3 className="text-lg font-semibold text-white mt-4 mb-3">{item.title}</h3>
+                <p className="text-gray-300 text-sm leading-relaxed">{item.description}</p>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+      </div>
+
+      {/* Use Cases Section */}
+      <div className="max-w-[1370px] mx-auto px-4 sm:px-6 lg:px-14 py-12 sm:py-16">
+        <ScrollReveal>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-8 sm:mb-12 text-center">
+            Perfect for <GradientText>Everyone</GradientText>
+          </h2>
+        </ScrollReveal>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
+          {useCases.map((useCase, index) => (
+            <ScrollReveal key={index} delay={index * 50} direction="up">
+              <div className="bg-[#1A1A1A] p-4 sm:p-6 rounded-xl border border-gray-800 text-center hover:border-purple-500/30 transition-colors h-full">
+                <span className="text-3xl mb-3 block">{useCase.icon}</span>
+                <h3 className="text-white font-semibold mb-2">{useCase.title}</h3>
+                <p className="text-gray-400 text-xs sm:text-sm">{useCase.description}</p>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+      </div>
+
+      {/* FAQ Section */}
+      <div className="max-w-[1370px] mx-auto px-4 sm:px-6 lg:px-14 py-12 sm:py-16">
+        <ScrollReveal>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-8 sm:mb-12 text-center">
+            Frequently Asked <GradientText>Questions</GradientText>
+          </h2>
+        </ScrollReveal>
+        <div className="max-w-3xl mx-auto space-y-4">
+          {faqs.map((faq, index) => (
+            <FAQItem
+              key={index}
+              question={faq.question}
+              answer={faq.answer}
+              isOpen={openFAQ === index}
+              onToggle={() => setOpenFAQ(openFAQ === index ? null : index)}
+            />
           ))}
         </div>
       </div>

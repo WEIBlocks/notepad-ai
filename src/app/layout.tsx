@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import AppWrapper from "@/components/AppWrapper";
 import dynamic from "next/dynamic";
 import ScrollProgress from "@/components/ui/ScrollProgress";
+import { OrganizationSchema, WebApplicationSchema, FAQSchema, homepageFAQs } from "@/components/seo/SchemaMarkup";
 
 // Lazy load heavy background animations to improve LCP
 const AnimatedBackground = dynamic(() => import("@/components/AnimatedBackground"), {
@@ -22,9 +23,22 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-	title: "Free Online Notepad for Quick Notes – Secure, Simple & Fast",
-	description: "Take notes online with our free notepad. No sign-up, autosave enabled, fast and private. Perfect for writing, editing, and storing notes on the go.",
-	keywords: "online notepad, notepad online, notes online, write notes online, free online notepad, notepad AI, free online notepad with save feature, online notepad without login, secure AI-powered notepad online, AI note-taking tool, online notepad that auto saves, AI notepad for daily notes, fast online notepad for writing, minimal notepad web app, lightweight online notepad tool, AI writing assistant, smart note editor, online text editor with AI, GPT-powered notepad, intelligent online notebook, machine learning note app, context-aware note taking, Notepad AI online, notepad-ai.online, notepad-ai tool, notepad AI web app",
+	metadataBase: new URL("https://www.notepad-ai.online"),
+	title: "Free AI-Powered Online Notepad - NLP Note Taking | Notepad AI",
+	description: "Free AI-powered online notepad with Natural Language Processing. Write, organize, and save notes with autosave, offline mode, and complete privacy. No login required.",
+	keywords: "online notepad, free notepad, AI notepad, NLP notepad, notepad online, AI note taking, smart notepad, secure notepad, offline notepad, notepad AI, free online notepad, notepad without login, AI writing tool",
+	authors: [{ name: "Notepad AI" }],
+	robots: {
+		index: true,
+		follow: true,
+		googleBot: {
+			index: true,
+			follow: true,
+			"max-image-preview": "large",
+			"max-snippet": -1,
+			"max-video-preview": -1,
+		},
+	},
 	icons: {
 		icon: [
 			{ url: '/favicon.ico' },
@@ -34,8 +48,37 @@ export const metadata: Metadata = {
 		apple: '/apple-icon.png',
 	},
 	alternates: {
-		canonical: "https://www.notepad-ai.online/"
-	}
+		canonical: "https://www.notepad-ai.online/",
+		languages: {
+			"en": "https://www.notepad-ai.online/",
+			"es": "https://www.notepad-ai.online/es",
+			"pt": "https://www.notepad-ai.online/pt",
+			"fr": "https://www.notepad-ai.online/fr",
+			"x-default": "https://www.notepad-ai.online/",
+		},
+	},
+	openGraph: {
+		type: "website",
+		url: "https://www.notepad-ai.online/",
+		title: "Free AI-Powered Online Notepad - NLP Note Taking",
+		description: "Free AI-powered online notepad with NLP. Autosave, offline mode, complete privacy. No login required.",
+		siteName: "Notepad AI",
+		locale: "en_US",
+		images: [
+			{
+				url: "https://www.notepad-ai.online/og-image.png",
+				width: 1200,
+				height: 630,
+				alt: "Notepad AI - Free AI-Powered Online Notepad",
+			},
+		],
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "Free AI-Powered Online Notepad - NLP Note Taking",
+		description: "Free AI-powered online notepad with NLP. Autosave, offline mode, complete privacy.",
+		images: ["https://www.notepad-ai.online/twitter-image.png"],
+	},
 };
 
 export default function RootLayout({
@@ -46,6 +89,11 @@ export default function RootLayout({
 	return (
 		<html lang="en" className={`${inter.variable}`}>
 			<head>
+				{/* Schema.org structured data */}
+				<OrganizationSchema />
+				<WebApplicationSchema />
+				<FAQSchema faqs={homepageFAQs} />
+
 				{/* Defer GA until after page is fully loaded to improve LCP */}
 				<Script
 					src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`}

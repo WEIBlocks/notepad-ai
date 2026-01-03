@@ -1,166 +1,226 @@
-"use client";
 import Link from "next/link";
 import { Metadata } from "next";
-import Footer from "@/components/Footer";
-import { motion } from "framer-motion"; // Ensure framer-motion is installed
+import { BreadcrumbSchema } from "@/components/seo/SchemaMarkup";
 
+export const metadata: Metadata = {
+  title: "About Us - The Story Behind Notepad AI | Notepad AI",
+  description: "Learn about Notepad AI, our mission, and why we built a free AI-powered notepad focused on privacy, simplicity, and intelligent writing. Our story and values.",
+  keywords: "about notepad ai, notepad ai team, who made notepad ai, notepad ai story, about us, our mission",
+  alternates: {
+    canonical: "https://www.notepad-ai.online/about-us"
+  },
+  openGraph: {
+    title: "About Us - The Story Behind Notepad AI",
+    description: "Learn about Notepad AI, our mission, and why we built a free AI-powered notepad.",
+    url: "https://www.notepad-ai.online/about-us"
+  }
+};
 
 export default function About() {
+  const values = [
+    {
+      icon: "🔍",
+      title: "Transparency",
+      description: "We're clear about how things work. No hidden tracking, no secret data collection."
+    },
+    {
+      icon: "🌍",
+      title: "Accessibility",
+      description: "Free for everyone, works on any device."
+    },
+    {
+      icon: "⭐",
+      title: "Quality",
+      description: "We'd rather have fewer features that work perfectly than many features that don't."
+    },
+    {
+      icon: "🤝",
+      title: "Respect",
+      description: "We respect your time (fast, no bloat) and your privacy (no tracking)."
+    }
+  ];
+
+  const beliefs = [
+    {
+      icon: "🔒",
+      title: "Privacy First",
+      description: "Your notes are your business. We don't store them on our servers, we don't read them, we don't sell them. Everything stays on your device."
+    },
+    {
+      icon: "✨",
+      title: "Simplicity Matters",
+      description: "No account creation, no complex settings, no learning curve. Open and write. That's it."
+    },
+    {
+      icon: "🧠",
+      title: "AI Should Help, Not Intrude",
+      description: "Our NLP works silently in the background, understanding your writing and adapting to help you — without popups, suggestions you didn't ask for, or AI that takes over."
+    },
+    {
+      icon: "🆓",
+      title: "Free Means Free",
+      description: "No hidden fees, no premium tiers for basic features, no \"free trial\" that expires. Notepad AI is free for everyone, forever."
+    },
+    {
+      icon: "🌐",
+      title: "Works Everywhere",
+      description: "Desktop, mobile, tablet. Online, offline. Chrome, Safari, Firefox. We believe your notepad should work wherever you are."
+    }
+  ];
+
+  const upcomingFeatures = [
+    "Enhanced AI writing assistance",
+    "More export formats",
+    "Improved mobile experience",
+    "Optional cloud sync (privacy-preserving)",
+    "Collaboration features",
+    "Browser extensions"
+  ];
+
   return (
-    <div className="min-h-screen  text-white px-4 mt-20 sm:px-6 lg:px-8 py-12">
-      {/* Header */}
-      <section className="text-center mb-16">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-          About Us – Why Notepad AI Exists
-        </h1>
-      </section>
+    <>
+      <BreadcrumbSchema items={[
+        { name: "Home", url: "https://www.notepad-ai.online/" },
+        { name: "About Us", url: "https://www.notepad-ai.online/about-us" }
+      ]} />
 
-      {/* Introduction */}
-      <section className="mb-16 max-w-3xl mx-auto">
-        <p className="text-base sm:text-lg text-gray-400 mb-6">
-          It started with frustration.
-        </p>
-        <p className="text-base sm:text-lg text-gray-400 mb-6">
-          I needed a quick, simple way to take notes online - something
-          distraction-free, fast, and reliable. But every tool I tried either
-          felt bloated, asked for an account, bombarded me with ads, or missed
-          something essential: it didn&apos;t understand how I wanted to write.
-        </p>
-        <p className="text-base sm:text-lg text-gray-400 mb-6">
-          That&apos;s when I realized the real problem wasn&apos;t just missing
-          features - it was missing understanding. No tool adapted to how I
-          write. No tool used language as a guide. So I built Notepad AI - a
-          place where writing feels natural, intelligent, and private.
-        </p>
-      </section>
+      <div className="min-h-screen max-w-6xl mx-auto text-white px-4 mt-20 sm:px-6 lg:px-8 py-12">
+        {/* Hero Section */}
+        <section className="text-center mb-16">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+            About Notepad AI — Our Mission and Story
+          </h1>
+          <p className="text-lg text-gray-300 max-w-3xl mx-auto mb-8">
+            Building the future of simple, private, intelligent note-taking.
+          </p>
+        </section>
 
-      {/* Main Sections (Card Layout) */}
-	  <div className="max-w-[1370px] mx-auto px-4 sm:px-6 lg:px-14 py-12 sm:py-16">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-5 gap-6 sm:gap-8">
-        {[
-          {
-            title: "Built for Writers, Not Accounts",
-            description:
-              "You don&apos;t have to log in. You don&apos;t have to sign up. You just start writing. Notepad AI is designed for people who value clarity over clutter, ideas over interfaces.",
-            icon: "✍️",
-            delay: 0.1,
-          },
-          {
-            title: "NLP at the Core",
-            description:
-              "This isn&apos;t just a digital scratchpad. It&apos;s powered by Natural Language Processing, which understands your writing context, adapting quietly to support you.",
-            icon: "🧠",
-            delay: 0.3,
-          },
-          {
-            title: "Writing Should Be Private",
-            description:
-              "Everything happens in your browser. Nothing is stored unless you choose to save it. No tracking, no surveillance, just you and your thoughts.",
-            icon: "🔒",
-            delay: 0.5,
-          },
-          {
-            title: "Why I Keep Building It",
-            description:
-              "Because I still write notes every day. Each user who says, ‘This is what I needed,’ reminds me why I built it: to solve a real need simply and intelligently.",
-            icon: "🌱",
-            delay: 0.7,
-          },
-		  {
-			title: "Smart AI-Enhanced Notepad",
-			description: "Experience seamless, intelligent note-taking with our AI-powered notepad. Backed by advanced NLP, it helps you write, organize, and refine your thoughts in real-time — all for free.",
-			delay: 0.1,
-		  },
-		  {
-			title: "Instant Access, Zero Sign-Up",
-			description: "Start typing immediately — no accounts, no barriers. Our notepad is designed for speed, simplicity, and privacy, letting you focus on your thoughts without distractions.",
-			delay: 0.3,
-		  },
-        ].map((card, index) => (
-          <motion.div
-            key={index}
-            initial={{
-              opacity: 0,
-              x: 100,
-              rotateY: 10,
-            }}
-            whileInView={{
-              opacity: 1,
-              x: 0,
-              rotateY: 0,
-            }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{
-              duration: 0.8,
-              delay: card.delay,
-              type: "spring",
-              stiffness: 50,
-              damping: 20,
-            }}
-            whileHover={{
-              scale: 1.02,
-              rotateY: 5,
-              transition: { duration: 0.3 },
-            }}
-            className="group relative bg-[#1A1A1A] p-4 sm:p-6 rounded-2xl border border-gray-800 overflow-hidden transform-gpu"
+        {/* Our Mission */}
+        <section className="mb-16 bg-gradient-to-r from-blue-900/20 to-purple-900/20 p-6 sm:p-8 rounded-2xl border border-gray-800">
+          <h2 className="text-2xl font-bold text-white mb-6 text-center">Our Mission</h2>
+          <div className="space-y-4 text-gray-300 max-w-4xl mx-auto">
+            <p>
+              <strong className="text-white">Notepad AI</strong> was created with a simple belief: note-taking should be effortless, private, and intelligent.
+            </p>
+            <p>
+              We saw a world of note apps that were either too simple (like Windows Notepad) or too complex (like Evernote/Notion).
+              Apps that required accounts, stored your data on their servers, and tracked your behavior.
+            </p>
+            <p>
+              We wanted something different: <strong className="text-white">a notepad that respects your privacy, understands your writing, and just works.</strong>
+            </p>
+            <p className="text-center pt-4">
+              That's why we built Notepad AI.
+            </p>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="text-center mb-16">
+          <Link
+            href="/"
+            className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-medium hover:shadow-[0_0_30px_rgba(139,92,246,0.4)] transition-all duration-300"
           >
-            {/* Animated gradient background */}
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-            {/* Animated border glow */}
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-              <div className="absolute inset-px bg-gradient-to-r from-blue-500/50 via-purple-500/50 to-pink-500/50 blur-sm" />
+            Try Notepad AI →
+          </Link>
+        </section>
+
+        {/* What We Believe */}
+        <section className="mb-16">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8 text-center">
+            What We Believe
+          </h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {beliefs.slice(0, 3).map((belief, index) => (
+              <div key={index} className="bg-[#1A1A1A] p-6 rounded-2xl border border-gray-800 hover:border-purple-500/30 transition-colors">
+                <span className="text-3xl mb-4 block">{belief.icon}</span>
+                <h3 className="text-xl font-bold text-white mb-3">{belief.title}</h3>
+                <p className="text-gray-400">{belief.description}</p>
+              </div>
+            ))}
+          </div>
+          <div className="grid sm:grid-cols-2 gap-6 mt-6 max-w-3xl mx-auto">
+            {beliefs.slice(3).map((belief, index) => (
+              <div key={index} className="bg-[#1A1A1A] p-6 rounded-2xl border border-gray-800 hover:border-purple-500/30 transition-colors">
+                <span className="text-3xl mb-4 block">{belief.icon}</span>
+                <h3 className="text-xl font-bold text-white mb-3">{belief.title}</h3>
+                <p className="text-gray-400">{belief.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Our Values */}
+        <section className="mb-16">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8 text-center">
+            Our Values
+          </h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {values.map((value, index) => (
+              <div key={index} className="bg-[#1A1A1A] p-4 rounded-xl border border-gray-800 text-center">
+                <span className="text-2xl mb-2 block">{value.icon}</span>
+                <h3 className="text-white font-semibold mb-2">{value.title}</h3>
+                <p className="text-gray-400 text-sm">{value.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* What's Next */}
+        <section className="mb-16">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8 text-center">
+            What's Next
+          </h2>
+          <div className="bg-[#1A1A1A] p-6 sm:p-8 rounded-2xl border border-gray-800 max-w-3xl mx-auto">
+            <p className="text-gray-300 mb-6 text-center">
+              We're continuously improving Notepad AI based on user feedback. Upcoming features include:
+            </p>
+            <div className="grid sm:grid-cols-2 gap-3">
+              {upcomingFeatures.map((feature, index) => (
+                <div key={index} className="flex items-center gap-3 text-gray-400">
+                  <span className="text-blue-400">→</span>
+                  {feature}
+                </div>
+              ))}
             </div>
-            {/* Content */}
-            <div className="relative">
-              <div className="text-2xl sm:text-3xl mb-4">{card.icon}</div>
-              <motion.h3
-                className="text-lg sm:text-xl font-semibold text-blue-400 mb-4"
-                initial={{ x: 50, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.6, delay: card.delay + 0.2 }}
-              >
-                {card.title}
-              </motion.h3>
-              <motion.p
-                className="text-sm sm:text-base text-gray-400"
-                initial={{ x: 50, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.6, delay: card.delay + 0.4 }}
-              >
-                {card.description}
-              </motion.p>
+          </div>
+        </section>
+
+        {/* Get in Touch */}
+        <section className="mb-16">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8 text-center">
+            Get in Touch
+          </h2>
+          <div className="bg-[#1A1A1A] p-6 sm:p-8 rounded-2xl border border-gray-800 max-w-2xl mx-auto text-center">
+            <p className="text-gray-300 mb-6">
+              We love hearing from users! Whether you have feedback, feature requests, or just want to say hi:
+            </p>
+            <div className="space-y-3">
+              <p className="text-gray-400">
+                <span className="text-white font-semibold">Email:</span> hello@notepad-ai.online
+              </p>
+              <p className="text-gray-400">
+                <span className="text-white font-semibold">Twitter:</span> @notepadai
+              </p>
             </div>
-            {/* Animated corner accent */}
-            <motion.div
-              className="absolute -right-8 -top-8 w-16 sm:w-24 h-16 sm:h-24 bg-gradient-to-br from-blue-500/20 to-purple-500/20 blur-xl rotate-12 scale-0 group-hover:scale-100 transition-transform duration-700"
-              initial={{ rotate: 45 }}
-              whileHover={{ rotate: 90 }}
-            />
-          </motion.div>
-        ))}
+            <p className="text-gray-300 mt-6 pt-6 border-t border-gray-800">
+              Thank you for using Notepad AI. We're honored to be part of your writing journey.
+            </p>
+          </div>
+        </section>
+
+        {/* Final CTA */}
+        <section className="text-center bg-gradient-to-r from-blue-900/30 to-purple-900/30 p-8 rounded-2xl border border-gray-800">
+          <h2 className="text-2xl font-bold text-white mb-4">Ready to Start Writing?</h2>
+          <p className="text-gray-400 mb-6">Experience intelligent, private note-taking — completely free.</p>
+          <Link
+            href="/"
+            className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-medium hover:shadow-[0_0_30px_rgba(139,92,246,0.4)] transition-all duration-300"
+          >
+            Open Notepad AI →
+          </Link>
+        </section>
       </div>
-
-      {/* Closing Message */}
-      <section className="mt-16 text-center max-w-2xl mx-auto">
-        <p className="text-base sm:text-lg text-gray-400 mb-4">
-          Thank you for using Notepad AI.
-        </p>
-        <p className="text-base sm:text-lg text-gray-400">
-          This tool is personal. I hope it feels that way when you use it, too.
-        </p>
-      </section>
-
-      {/* CTA */}
-      <section className="mt-12 text-center">
-        <Link
-          href="/"
-          className="inline-block bg-blue-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-medium hover:bg-blue-700 transition-colors"
-        >
-          Start Writing Now
-        </Link>
-      </section>
-     
-    </div>
-	</div>
+    </>
   );
 }
