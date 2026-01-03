@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FaGithub, FaTwitter, FaDiscord, FaEnvelope } from 'react-icons/fa';
+// import { FaGithub, FaTwitter, FaDiscord, FaEnvelope } from 'react-icons/fa';
 
 export default function Footer() {
   const productLinks = [
@@ -56,7 +56,7 @@ export default function Footer() {
               Free AI-powered online notepad with NLP. Take notes with autosave, offline mode, and complete privacy. No login required.
             </p>
             {/* Social Links */}
-            <div className="flex space-x-4 pt-4">
+            {/* <div className="flex space-x-4 pt-4">
               <a
                 href="https://github.com"
                 className="text-gray-400 hover:text-blue-500 transition-colors"
@@ -91,7 +91,7 @@ export default function Footer() {
               >
                 <FaEnvelope className="w-5 h-5" aria-hidden="true" />
               </a>
-            </div>
+            </div> */}
           </div>
 
           {/* Product Links */}
