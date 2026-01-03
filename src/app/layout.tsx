@@ -6,6 +6,7 @@ import Script from "next/script";
 import Footer from "@/components/Footer";
 import AppWrapper from "@/components/AppWrapper";
 import dynamic from "next/dynamic";
+import ScrollProgress from "@/components/ui/ScrollProgress";
 
 // Lazy load heavy background animations to improve LCP
 const AnimatedBackground = dynamic(() => import("@/components/AnimatedBackground"), {
@@ -60,6 +61,9 @@ export default function RootLayout({
 				</Script>
 			</head>
 			<body className="min-h-full relative">
+				{/* Scroll progress indicator */}
+				<ScrollProgress />
+
 				{/* Lazy-loaded animated background for better LCP */}
 				<AnimatedBackground />
 
