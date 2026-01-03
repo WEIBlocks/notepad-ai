@@ -138,6 +138,7 @@ export default function Editor({
 	const [isMobile, setIsMobile] = useState(false);
 	const [isNotePasswordProtected, setIsNotePasswordProtected] = useState(false);
 	const [noteAllowEditing, setNoteAllowEditing] = useState(false);
+	const [isInitialContentLoaded, setIsInitialContentLoaded] = useState(false);
 
 	// Load editor CSS asynchronously (non-render-blocking)
 	useEffect(() => {
@@ -217,8 +218,12 @@ export default function Editor({
 
 	// Initialize content from props if provided
 	useEffect(() => {
-		if (isSharedNote && initialContent) {
-			setContent(initialContent);
+		if (isSharedNote) {
+			// Set content even if empty string (but not undefined)
+			if (initialContent !== undefined) {
+				setContent(initialContent);
+				setIsInitialContentLoaded(true);
+			}
 			if (sharedTitle) {
 				setDocumentName(sharedTitle);
 			}
@@ -231,7 +236,8 @@ export default function Editor({
 	useEffect(() => {
 		if (isSharedNote) {
 			// For shared notes with editing enabled, save to MongoDB via API
-			if (allowEditing && shareId && content) {
+			// Only save AFTER initial content has been loaded to prevent overwriting with empty content
+			if (allowEditing && shareId && isInitialContentLoaded) {
 				const saveToServer = async () => {
 					try {
 						const response = await fetch(`/api/notes/${shareId}`, {
@@ -257,7 +263,7 @@ export default function Editor({
 				return () => clearTimeout(saveTimeout);
 			}
 			// For shared notes with onSave callback (legacy support)
-			else if (onSave) {
+			else if (onSave && isInitialContentLoaded) {
 				const saveTimeout = setTimeout(() => {
 					onSave(content);
 				}, 1000);
@@ -281,7 +287,7 @@ export default function Editor({
 			const saveTimeout = setTimeout(autoSave, 1000);
 			return () => clearTimeout(saveTimeout);
 		}
-	}, [content, documentName, currentDocId, isSharedNote, onSave, allowEditing, shareId]);
+	}, [content, documentName, currentDocId, isSharedNote, onSave, allowEditing, shareId, isInitialContentLoaded]);
 
 	// Load document if docId is in URL
 	useEffect(() => {
@@ -1043,22 +1049,26 @@ export default function Editor({
     >
       <MagnifyingGlassIcon className="h-4 w-4 sm:h-5 sm:w-5" />
     </button>
-    {/* New Document */}
-    <button
-      onClick={createNewDocument}
-      className="p-1 sm:p-2 md:p-3 hover:bg-[#151823] rounded-lg transition-colors text-gray-300 hover:text-blue-400"
-      title="New Document"
-    >
-      <PlusIcon className="h-4 w-4 sm:h-5 sm:w-5" />
-    </button>
-    {/* Open Document */}
-    <button
-      onClick={() => fileInputRef.current?.click()}
-      className="p-1 sm:p-2 md:p-3 hover:bg-[#151823] rounded-lg transition-colors text-gray-300 hover:text-blue-400"
-      title="Open Document"
-    >
-      <FolderOpenIcon className="h-4 w-4 sm:h-5 sm:w-5" />
-    </button>
+    {/* New Document - Only show for non-shared notes */}
+    {!isSharedNote && (
+      <button
+        onClick={createNewDocument}
+        className="p-1 sm:p-2 md:p-3 hover:bg-[#151823] rounded-lg transition-colors text-gray-300 hover:text-blue-400"
+        title="New Document"
+      >
+        <PlusIcon className="h-4 w-4 sm:h-5 sm:w-5" />
+      </button>
+    )}
+    {/* Open Document - Only show for non-shared notes */}
+    {!isSharedNote && (
+      <button
+        onClick={() => fileInputRef.current?.click()}
+        className="p-1 sm:p-2 md:p-3 hover:bg-[#151823] rounded-lg transition-colors text-gray-300 hover:text-blue-400"
+        title="Open Document"
+      >
+        <FolderOpenIcon className="h-4 w-4 sm:h-5 sm:w-5" />
+      </button>
+    )}
     {/* Print */}
     <button
       onClick={handlePrint}
@@ -1081,8 +1091,8 @@ export default function Editor({
         <ArrowsPointingOutIcon className="h-4 w-4 sm:h-5 sm:w-5" />
       )}
     </button>
-    {/* Save/Share Button */}
-    {saveButton}
+    {/* Save/Share Button - Only show for non-shared notes (owners) */}
+    {!isSharedNote && saveButton}
     {/* Remove mobile dropdown since all buttons are now visible */}
   </div>
 </div>
