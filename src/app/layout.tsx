@@ -94,6 +94,14 @@ export default function RootLayout({
 				<WebApplicationSchema />
 				<FAQSchema faqs={homepageFAQs} />
 
+				{/* Google AdSense */}
+				<Script
+					async
+					src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7980957176016794"
+					crossOrigin="anonymous"
+					strategy="lazyOnload"
+				/>
+
 				{/* Defer GA until after page is fully loaded to improve LCP */}
 				<Script
 					src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`}
