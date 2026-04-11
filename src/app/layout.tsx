@@ -24,9 +24,9 @@ const inter = Inter({
 
 export const metadata: Metadata = {
 	metadataBase: new URL("https://www.notepad-ai.online"),
-	title: "Free AI-Powered Online Notepad - NLP Note Taking | Notepad AI",
-	description: "Free AI-powered online notepad with Natural Language Processing. Write, organize, and save notes with autosave, offline mode, and complete privacy. No login required.",
-	keywords: "online notepad, free notepad, AI notepad, NLP notepad, notepad online, AI note taking, smart notepad, secure notepad, offline notepad, notepad AI, free online notepad, notepad without login, AI writing tool",
+	title: "Free AI Notepad Online — No Login, Works Offline | Notepad AI",
+	description: "Free AI-powered online notepad with NLP. No login, no account, works offline — notes saved privately in your browser. 100% free, zero tracking, zero ads.",
+	keywords: "online notepad, free notepad, AI notepad, NLP notepad, notepad online, AI note taking, smart notepad, secure notepad, offline notepad, notepad AI, free online notepad, notepad no login, notepad no account, notepad no signup, online notepad offline, private notepad no cloud, browser notepad local storage, notepad no ads, AI writing tool, NLP note taking",
 	authors: [{ name: "Notepad AI" }],
 	robots: {
 		index: true,
@@ -60,8 +60,8 @@ export const metadata: Metadata = {
 	openGraph: {
 		type: "website",
 		url: "https://www.notepad-ai.online/",
-		title: "Free AI-Powered Online Notepad - NLP Note Taking",
-		description: "Free AI-powered online notepad with NLP. Autosave, offline mode, complete privacy. No login required.",
+		title: "Free AI Notepad Online — No Login, Works Offline | Notepad AI",
+		description: "Free AI-powered online notepad with NLP. No login, works offline, notes saved locally. 100% private — zero tracking, zero ads.",
 		siteName: "Notepad AI",
 		locale: "en_US",
 		images: [
@@ -75,8 +75,8 @@ export const metadata: Metadata = {
 	},
 	twitter: {
 		card: "summary_large_image",
-		title: "Free AI-Powered Online Notepad - NLP Note Taking",
-		description: "Free AI-powered online notepad with NLP. Autosave, offline mode, complete privacy.",
+		title: "Free AI Notepad Online — No Login, Works Offline | Notepad AI",
+		description: "Free AI-powered online notepad with NLP. No login, works offline, notes saved locally. 100% private.",
 		images: ["https://www.notepad-ai.online/twitter-image.png"],
 	},
 };

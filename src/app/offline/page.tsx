@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Metadata } from "next";
-import { BreadcrumbSchema } from "@/components/seo/SchemaMarkup";
+import { BreadcrumbSchema, FAQSchema } from "@/components/seo/SchemaMarkup";
 
 export const metadata: Metadata = {
   title: "Offline Notepad - Take Notes Without Internet | Notepad AI",
@@ -79,12 +79,22 @@ export default function Offline() {
     }
   ];
 
+  const offlineFAQsSchema = [
+    { question: "Does Notepad AI work offline?", answer: "Yes. Notepad AI works fully offline after the initial page load. All features including writing, editing, autosave, PDF export, and word counting work without any internet connection." },
+    { question: "How do I use Notepad AI offline?", answer: "Simply visit notepad-ai.online once with an internet connection. The app automatically caches itself using PWA technology. After that, open it anytime without internet — all features work normally." },
+    { question: "Can I use an online notepad without internet?", answer: "Yes. Notepad AI is specifically built to work offline. After the first load, it functions identically whether you are online or offline. Notes are saved in your browser's localStorage, not the cloud." },
+    { question: "Do my notes save when I'm offline?", answer: "Yes. Notes autosave in real-time to your browser's local storage whether you are online or offline. Nothing is sent to any server — your notes stay on your device." },
+    { question: "Does offline mode work on mobile?", answer: "Yes, offline mode works on all devices — iPhone, Android, tablets, and desktop. You can add Notepad AI to your home screen for app-like offline access." },
+    { question: "Will I lose my notes if I clear my browser cache?", answer: "Notes are stored in localStorage, which is separate from the browser cache. However, clearing all site data will delete notes. Export important notes to PDF or Docs before clearing site data." },
+  ];
+
   return (
     <>
       <BreadcrumbSchema items={[
         { name: "Home", url: "https://www.notepad-ai.online/" },
         { name: "Offline", url: "https://www.notepad-ai.online/offline" }
       ]} />
+      <FAQSchema faqs={offlineFAQsSchema} />
 
       <div className="min-h-screen max-w-6xl mx-auto text-white px-4 mt-20 sm:px-6 lg:px-8 py-12">
         {/* Hero Section */}

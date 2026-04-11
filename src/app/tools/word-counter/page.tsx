@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Metadata } from "next";
-import { BreadcrumbSchema, SoftwareApplicationSchema } from "@/components/seo/SchemaMarkup";
+import { BreadcrumbSchema, SoftwareApplicationSchema, FAQSchema } from "@/components/seo/SchemaMarkup";
 
 export const metadata: Metadata = {
   title: "Free Word Counter Online - Count Words Instantly | Notepad AI",
@@ -67,6 +67,7 @@ export default function WordCounter() {
         { name: "Tools", url: "https://www.notepad-ai.online/tools" },
         { name: "Word Counter", url: "https://www.notepad-ai.online/tools/word-counter" }
       ]} />
+      <FAQSchema faqs={faqs} />
       <SoftwareApplicationSchema
         name="Notepad AI Word Counter"
         description="Free online word counter tool that counts words, characters, sentences, and paragraphs in real-time."

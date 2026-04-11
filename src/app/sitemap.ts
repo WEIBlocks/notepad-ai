@@ -59,7 +59,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 			url: `${baseUrl}/offline`,
 			lastModified: new Date(),
 			changeFrequency: 'weekly',
-			priority: 0.8,
+			priority: 0.9,
 		},
 		{
 			url: `${baseUrl}/text-to-docs`,
@@ -79,13 +79,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
 			url: `${baseUrl}/tools/word-counter`,
 			lastModified: new Date(),
 			changeFrequency: 'weekly',
-			priority: 0.7,
+			priority: 0.9,
 		},
 		{
 			url: `${baseUrl}/tools/character-counter`,
 			lastModified: new Date(),
 			changeFrequency: 'weekly',
-			priority: 0.7,
+			priority: 0.9,
 		},
 
 		// Resources
@@ -126,6 +126,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
 			lastModified: new Date(),
 			changeFrequency: 'monthly',
 			priority: 0.5,
+		},
+		{
+			url: `${baseUrl}/blog/what-is-nlp-note-taking`,
+			lastModified: new Date(),
+			changeFrequency: 'monthly',
+			priority: 0.8,
+		},
+		{
+			url: `${baseUrl}/blog/best-online-notepad-2026`,
+			lastModified: new Date(),
+			changeFrequency: 'monthly',
+			priority: 0.8,
+		},
+		{
+			url: `${baseUrl}/blog/google-keep-alternative`,
+			lastModified: new Date(),
+			changeFrequency: 'monthly',
+			priority: 0.7,
 		},
 
 		// Multilingual

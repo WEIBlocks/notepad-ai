@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Metadata } from "next";
-import { BreadcrumbSchema, SoftwareApplicationSchema } from "@/components/seo/SchemaMarkup";
+import { BreadcrumbSchema, SoftwareApplicationSchema, FAQSchema } from "@/components/seo/SchemaMarkup";
 
 export const metadata: Metadata = {
   title: "Free Character Counter Online - Count Characters Instantly | Notepad AI",
@@ -71,6 +71,7 @@ export default function CharacterCounter() {
         { name: "Tools", url: "https://www.notepad-ai.online/tools" },
         { name: "Character Counter", url: "https://www.notepad-ai.online/tools/character-counter" }
       ]} />
+      <FAQSchema faqs={faqs} />
       <SoftwareApplicationSchema
         name="Notepad AI Character Counter"
         description="Free online character counter tool that counts characters with and without spaces in real-time."

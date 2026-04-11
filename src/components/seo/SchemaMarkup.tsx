@@ -211,35 +211,51 @@ export const SoftwareApplicationSchema = ({
 export const homepageFAQs: FAQItem[] = [
   {
     question: "What is Notepad AI?",
-    answer: "Notepad AI is a free AI-powered online notepad that uses Natural Language Processing (NLP) to help users write, organize, and save notes intelligently. It works offline, requires no login, and stores all data locally for complete privacy."
+    answer: "Notepad AI is a free AI-powered online notepad that uses Natural Language Processing (NLP) to help users write, organize, and save notes intelligently. It works offline, requires no login, and stores all data locally in your browser for complete privacy."
   },
   {
     question: "Is Notepad AI free?",
     answer: "Yes, Notepad AI is completely free to use. All features including AI-powered writing, offline mode, PDF export, note sharing, and password protection are available at no cost with no hidden fees."
   },
   {
-    question: "Do I need to create an account?",
-    answer: "No account or login is required. Simply visit notepad-ai.online and start writing immediately. Your notes are saved automatically in your browser's local storage."
+    question: "Do I need to create an account or login?",
+    answer: "No account, no login, and no signup is required. Simply visit notepad-ai.online and start writing immediately. Your notes are saved automatically in your browser's local storage — no registration ever needed."
   },
   {
     question: "Does Notepad AI work offline?",
-    answer: "Yes, Notepad AI works completely offline after the initial page load. You can write and edit notes without an internet connection. All data is stored locally on your device."
+    answer: "Yes, Notepad AI works completely offline after the initial page load. You can write, edit, and organize notes without any internet connection. All data is stored locally on your device using browser localStorage."
   },
   {
-    question: "Is my data private?",
-    answer: "Yes, all notes are stored locally in your browser using local storage. No data is sent to external servers. Notepad AI has zero tracking, zero ads, and complete privacy by design."
+    question: "Is my data private and secure?",
+    answer: "Yes, completely. All notes are stored locally in your browser using localStorage. No data is ever sent to external servers. Notepad AI has zero tracking, zero ads, zero data collection, and complete privacy by design. Your notes never leave your device."
+  },
+  {
+    question: "Can I use Notepad AI without creating an account?",
+    answer: "Yes. Notepad AI is specifically designed to work without any account or signup. Open it in your browser and start writing instantly. No email, no password, no forms — just a notepad."
+  },
+  {
+    question: "What is NLP note taking?",
+    answer: "NLP (Natural Language Processing) note taking uses AI to understand your writing context in real time. In Notepad AI, the NLP engine detects whether you're writing a list, an outline, or free text, and adapts accordingly. It helps structure your notes automatically and adapts to your writing rhythm without interrupting your flow."
+  },
+  {
+    question: "How is Notepad AI different from Google Keep or Evernote?",
+    answer: "Unlike Google Keep and Evernote, Notepad AI requires zero login, stores all data locally in your browser (not in the cloud), works fully offline, has no ads, and uses NLP AI to assist your writing. There is no account required, no sync to any server, and no tracking of any kind."
   },
   {
     question: "Can I export notes to PDF?",
     answer: "Yes, Notepad AI can export any note to PDF format with one click. The conversion happens entirely in your browser — no data is uploaded to any server."
   },
   {
+    question: "Does it have a word counter and character counter?",
+    answer: "Yes. Notepad AI includes a built-in real-time word counter, character counter, sentence counter, paragraph counter, and estimated reading time. All counting happens instantly as you type, with no need to copy text to a separate tool."
+  },
+  {
     question: "Can I share notes with others?",
     answer: "Yes, you can share notes using a unique link. Recipients can view the note without creating an account. You can also add password protection for sensitive content."
   },
   {
-    question: "What is NLP in Notepad AI?",
-    answer: "NLP (Natural Language Processing) in Notepad AI helps understand your writing patterns, detect intent, and structure notes automatically. It adapts to your writing context to provide a smarter note-taking experience."
+    question: "Does Notepad AI work on mobile?",
+    answer: "Yes. Notepad AI is fully responsive and works on all devices — iPhone, Android, tablets, and desktops. It also works offline on mobile after the first load, making it perfect for taking notes during flights, commutes, or in areas without WiFi."
   }
 ];
 

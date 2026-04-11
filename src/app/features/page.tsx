@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { BreadcrumbSchema } from "@/components/seo/SchemaMarkup";
+import { BreadcrumbSchema, FAQSchema } from "@/components/seo/SchemaMarkup";
 
 export const metadata: Metadata = {
   title: "Features - AI Notepad with NLP, Offline Mode & Privacy | Notepad AI",
@@ -130,12 +130,23 @@ export default function Features() {
     { feature: "Zero Tracking", notepadAI: true, windowsNotepad: true, googleDocs: false, evernote: false },
   ];
 
+  const featuresFAQsSchema = [
+    { question: "What AI features does Notepad AI have?", answer: "Notepad AI includes NLP-powered writing assistance that detects writing patterns, recognizes intent, and helps structure notes automatically. It adapts to your writing context without interrupting your flow." },
+    { question: "Does Notepad AI have autosave?", answer: "Yes. Notepad AI saves every keystroke in real-time to your browser's local storage. There is no manual save required and no risk of losing your work." },
+    { question: "Does Notepad AI have a word counter?", answer: "Yes. Notepad AI includes a built-in real-time word counter, character counter, sentence counter, paragraph counter, and estimated reading time — all updating instantly as you type." },
+    { question: "Can I use Notepad AI without the internet?", answer: "Yes. All features including AI writing, autosave, word counting, PDF export, and the editor itself work completely offline after the first page load." },
+    { question: "Does Notepad AI have ads?", answer: "No. Notepad AI is completely ad-free. There is no advertising, no tracking scripts, and no data collection of any kind." },
+    { question: "Can I export notes from Notepad AI?", answer: "Yes. You can export notes to PDF, convert them to a Docs format, download as plain text, or copy to clipboard. All export processing happens locally in your browser." },
+    { question: "Is Notepad AI good for students?", answer: "Yes. Students use Notepad AI for lecture notes, study guides, and research drafts. It works offline during lectures, requires no login, autosaves automatically, and exports to PDF — all for free." },
+  ];
+
   return (
     <>
       <BreadcrumbSchema items={[
         { name: "Home", url: "https://www.notepad-ai.online/" },
         { name: "Features", url: "https://www.notepad-ai.online/features" }
       ]} />
+      <FAQSchema faqs={featuresFAQsSchema} />
 
       <div className="min-h-screen max-w-6xl mx-auto text-white px-4 mt-20 sm:px-6 lg:px-8 py-12">
         {/* Hero Section */}
