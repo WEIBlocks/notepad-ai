@@ -256,6 +256,18 @@ export const homepageFAQs: FAQItem[] = [
   {
     question: "Does Notepad AI work on mobile?",
     answer: "Yes. Notepad AI is fully responsive and works on all devices — iPhone, Android, tablets, and desktops. It also works offline on mobile after the first load, making it perfect for taking notes during flights, commutes, or in areas without WiFi."
+  },
+  {
+    question: "How many sentences does Notepad AI count?",
+    answer: "Notepad AI counts sentences in real-time as you type — there is no limit. It detects sentences by identifying ending punctuation marks (periods, exclamation marks, and question marks). The sentence count is displayed alongside word count, character count, and paragraph count in the built-in writing metrics panel."
+  },
+  {
+    question: "Is Notepad AI a private notepad that stores nothing online?",
+    answer: "Yes. Notepad AI is a fully local-first notepad. All notes are stored in your browser's localStorage — nothing is ever uploaded to any server, cloud service, or database. There is no account, no sync, and no analytics. Your notes exist only on your device, in your browser."
+  },
+  {
+    question: "What is the best free notepad with no cloud?",
+    answer: "Notepad AI is the best free notepad with no cloud storage. It saves everything to browser localStorage only, requires no login or account, works offline after the first page load, and has zero tracking or data collection. Your notes never leave your device."
   }
 ];
 

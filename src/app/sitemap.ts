@@ -87,6 +87,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 			changeFrequency: 'weekly',
 			priority: 0.9,
 		},
+		{
+			url: `${baseUrl}/tools/sentence-counter`,
+			lastModified: new Date(),
+			changeFrequency: 'weekly',
+			priority: 0.9,
+		},
 
 		// Resources
 		{
@@ -159,6 +165,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 		},
 		{
 			url: `${baseUrl}/blog/online-notepad-for-students`,
+			lastModified: new Date(),
+			changeFrequency: 'monthly',
+			priority: 0.8,
+		},
+		{
+			url: `${baseUrl}/blog/private-notepad-no-cloud`,
 			lastModified: new Date(),
 			changeFrequency: 'monthly',
 			priority: 0.8,
