@@ -268,6 +268,22 @@ export const homepageFAQs: FAQItem[] = [
   {
     question: "What is the best free notepad with no cloud?",
     answer: "Notepad AI is the best free notepad with no cloud storage. It saves everything to browser localStorage only, requires no login or account, works offline after the first page load, and has zero tracking or data collection. Your notes never leave your device."
+  },
+  {
+    question: "Does Notepad AI have dark mode?",
+    answer: "Yes, Notepad AI features a full dark mode interface by default. The entire editor and UI are built with a dark theme optimized for long writing sessions, reducing eye strain in low-light environments. No toggle or setting is needed — dark mode is always on, making it one of the best free online notepads with dark mode."
+  },
+  {
+    question: "What happens to my notes if I clear my browser cache?",
+    answer: "Notepad AI stores your notes in browser localStorage, which is separate from the browser cache. Clearing your browser cache does not delete your notes. However, if you specifically clear 'site data' or 'local storage' for notepad-ai.online, your notes will be removed. To keep notes safe long-term, use the Export to PDF feature to save a permanent copy to your device."
+  },
+  {
+    question: "Is Notepad AI a good alternative to QuillBot's online notepad?",
+    answer: "Yes. While QuillBot's notepad requires a QuillBot account to save notes, Notepad AI is completely account-free — no login, no signup, ever. Notepad AI also works fully offline, includes AI-powered NLP writing assistance, has built-in word/character/sentence counters, and supports PDF export. It's a strong free alternative to QuillBot's notepad for users who value privacy and simplicity."
+  },
+  {
+    question: "Is it safe to write sensitive notes in an online notepad?",
+    answer: "With Notepad AI, yes — it is safe to write sensitive notes. All notes are stored exclusively in your browser's localStorage and never transmitted to any server. There is no cloud storage, no account, and no analytics. For extra protection, Notepad AI also supports password-protecting individual notes before sharing them. Your notes exist only on your device and are never accessible to Notepad AI or any third party."
   }
 ];
 
