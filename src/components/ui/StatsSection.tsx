@@ -5,7 +5,15 @@ import AnimatedCounter from "./AnimatedCounter";
 // Defensible product facts only — no fabricated user metrics.
 // If/when real analytics are wired (Vercel Analytics, Plausible, GA),
 // migrate to dynamic values per APEX audit Section 5 (Option C).
-const stats = [
+type StatItem = {
+  value: number;
+  suffix: string;
+  label: string;
+  icon: string;
+  decimals?: number;
+};
+
+const stats: StatItem[] = [
   { value: 100, suffix: "%", label: "Free Forever", icon: "free" },
   { value: 0, suffix: "", label: "Logins Required", icon: "no-login" },
   { value: 4, suffix: "+", label: "Languages", icon: "languages" },
