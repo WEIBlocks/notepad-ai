@@ -99,6 +99,32 @@ export default function sitemap(): MetadataRoute.Sitemap {
 			changeFrequency: 'monthly',
 			priority: 0.9,
 		},
+		// Wave 1 — Counter Family Expansion (5 pages)
+		{ url: `${baseUrl}/tools/line-counter`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+		{ url: `${baseUrl}/tools/syllable-counter`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+		{ url: `${baseUrl}/tools/reading-time-calculator`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+		{ url: `${baseUrl}/tools/speaking-time-calculator`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+		{ url: `${baseUrl}/tools/word-frequency-counter`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+
+		// Wave 2 — Case Converters (5 pages)
+		{ url: `${baseUrl}/tools/text-case-converter`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+		{ url: `${baseUrl}/tools/uppercase-converter`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+		{ url: `${baseUrl}/tools/lowercase-converter`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+		{ url: `${baseUrl}/tools/title-case-converter`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+		{ url: `${baseUrl}/tools/sentence-case-converter`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+
+		// Wave 3 — Text Cleaners (5 pages)
+		{ url: `${baseUrl}/tools/remove-line-breaks`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+		{ url: `${baseUrl}/tools/remove-extra-spaces`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+		{ url: `${baseUrl}/tools/text-reverser`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+		{ url: `${baseUrl}/tools/duplicate-line-remover`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+		{ url: `${baseUrl}/tools/text-sorter`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+
+		// Wave 4 — Generators & Encoders (4 pages)
+		{ url: `${baseUrl}/tools/lorem-ipsum-generator`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+		{ url: `${baseUrl}/tools/password-generator`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+		{ url: `${baseUrl}/tools/base64-encoder-decoder`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+		{ url: `${baseUrl}/tools/text-to-speech`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
 
 		// Resources
 		{

@@ -123,3 +123,68 @@
 - GEO citation baseline — run 20-query check across Perplexity / ChatGPT / Claude / Gemini
 
 ---
+
+## Week of 2026-05-18 (Sprint 2 — Programmatic Burst Complete)
+
+### Research findings
+- **Vercel MCP connector installed.** Confirmed team `weiBlocks` / project `notepad-ai-2c9u`. Latest production deploy was `dpl_HBRuqh2ize4N2RtikoEmLeWwZBQV` (commit 8b9765a) — paragraph counter shipped successfully.
+- **User directive:** ship all remaining 19 programmatic-burst tool pages + navigation/footer updates so we can move to pure SEO/GEO work.
+- **Architecture decision:** new tool pages embed the working tool ABOVE the fold (improves user intent fulfillment + SoftwareApplication schema integrity), rather than the older /tools/sentence-counter pattern that CTAs to the editor. Existing tool pages left untouched.
+
+### Changes made
+- **Navigation** (`src/components/layout/Navigation.tsx`) — REWRITTEN. Added Tools dropdown with 5 categories (Counters, Time Calculators, Case Converters, Text Cleaners, Generators & Encoders) covering all 22 tool pages. Desktop hover menu, mobile accordion fallback.
+- **Footer** (`src/components/Footer.tsx`) — Tools column expanded from 6 links to 27 across 3 categorized columns (Counters / Convert & Clean / Generate). Grid expanded from 6 cols to 8.
+- **Shared widget infrastructure:**
+  - `src/components/tools/TextTransformTool.tsx` — NEW. Generic UI shell for transform tools (input + output panes, optional mode selector slot, copy/clear actions). Auto-updates output as user types.
+  - `src/components/tools/textCaseHelpers.ts` — NEW. Pure helper functions for 6 case modes (upper, lower, title, sentence, alternating, inverse).
+- **Wave 1 — 5 counter widgets + 5 pages** (aggregate ~33K/mo):
+  - `/tools/line-counter` (3.2k/mo) + `LineCounterTool`
+  - `/tools/syllable-counter` (5.8k/mo) + `SyllableCounterTool` — uses English vowel-group heuristic
+  - `/tools/reading-time-calculator` (8.2k/mo) + `ReadingTimeTool` — 200 wpm baseline
+  - `/tools/speaking-time-calculator` (4.1k/mo) + `SpeakingTimeTool` — 130 wpm baseline
+  - `/tools/word-frequency-counter` (2.1k/mo) + `WordFrequencyTool` — custom widget with top-20 table + CSV export
+- **Wave 2 — 5 case converter widgets + 5 pages** (aggregate ~26K/mo):
+  - `/tools/text-case-converter` (8.5k/mo) — all-in-one with 6-mode selector
+  - `/tools/uppercase-converter` (4.2k/mo)
+  - `/tools/lowercase-converter` (3.8k/mo)
+  - `/tools/title-case-converter` (6.5k/mo)
+  - `/tools/sentence-case-converter` (2.9k/mo)
+- **Wave 3 — 5 text cleaner widgets + 5 pages** (aggregate ~25K/mo):
+  - `/tools/remove-line-breaks` (7.2k/mo) — 3 modes (replace with space / remove entirely / preserve paragraphs)
+  - `/tools/remove-extra-spaces` (4.8k/mo)
+  - `/tools/text-reverser` (5.5k/mo) — 3 modes (characters / words / lines)
+  - `/tools/duplicate-line-remover` (3.2k/mo) — case-sensitive + trim toggles
+  - `/tools/text-sorter` (4.5k/mo) — 8 sort modes
+- **Wave 4 — 4 generator/encoder widgets + 4 pages** (aggregate ~80K/mo):
+  - `/tools/lorem-ipsum-generator` (15k/mo) — paragraph + sentence sliders
+  - `/tools/password-generator` (25k/mo) — uses crypto.getRandomValues, entropy meter
+  - `/tools/base64-encoder-decoder` (28k/mo) — full UTF-8 support via TextEncoder/TextDecoder
+  - `/tools/text-to-speech` (12k/mo) — Web Speech API, voice + rate + pitch controls
+- **Sitemap** (`src/app/sitemap.ts`) — Added all 19 new tool URLs at priority 0.9.
+
+### New pages created
+19 tool pages, aggregate addressable volume **~165,000 searches/month**. All purely client-side. All follow the embedded-tool-above-the-fold pattern. All include BreadcrumbSchema + FAQSchema + SoftwareApplicationSchema. All have 5-8 FAQs answering primary PAA queries.
+
+### Files touched (count)
+- 1 helper module
+- 2 shared UI components (TextTransformTool + textCaseHelpers)
+- 19 client tool widget components (one per page)
+- 19 page.tsx files
+- Navigation.tsx (rewritten)
+- Footer.tsx (Tools column 3x expanded)
+- sitemap.ts (19 entries added)
+**Total: ~43 files**
+
+### Git
+- ALL changes are committed-ready but NOT YET PUSHED. User must run weekly-push.sh.
+- The push script now auto-typechecks (if node_modules exists) — strongly recommended to install: `cd /Users/usamalatif/Desktop/Apps/notepad-ai && npm install` (one-time, then every future push is auto-validated).
+
+### Skipped (next priorities — focus SHIFT to SEO + GEO only per user directive)
+- `/blog/quillbot-notepad-alternative` (2.8k/mo) — comparison post for QuillBot, still pending
+- ProductHunt launch + 8 dev directory submissions — blocked on user creating accounts (USER_ACTION_QUEUE.md item B1)
+- HARO/Connectively daily routine — blocked on user signup
+- GEO citation baseline — 20-query check across Perplexity / ChatGPT / Claude / Gemini / Google AI Overviews
+- Internal-linking refresh on existing blog posts to include new tool pages
+- Multilingual mirroring of top 5 highest-volume tool pages to /es, /pt, /fr (would add ~80K/mo to addressable volume)
+
+---

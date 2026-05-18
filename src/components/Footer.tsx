@@ -10,11 +10,38 @@ export default function Footer() {
     { name: 'Offline', href: '/offline' },
   ];
 
-  const toolsLinks = [
-    { name: 'Text to PDF', href: '/text-to-pdf' },
-    { name: 'Text to Docs', href: '/text-to-docs' },
+  const toolsCounterLinks = [
     { name: 'Word Counter', href: '/tools/word-counter' },
     { name: 'Character Counter', href: '/tools/character-counter' },
+    { name: 'Sentence Counter', href: '/tools/sentence-counter' },
+    { name: 'Paragraph Counter', href: '/tools/paragraph-counter' },
+    { name: 'Line Counter', href: '/tools/line-counter' },
+    { name: 'Syllable Counter', href: '/tools/syllable-counter' },
+    { name: 'Word Frequency', href: '/tools/word-frequency-counter' },
+    { name: 'Reading Time', href: '/tools/reading-time-calculator' },
+    { name: 'Speaking Time', href: '/tools/speaking-time-calculator' },
+  ];
+
+  const toolsTransformLinks = [
+    { name: 'Case Converter', href: '/tools/text-case-converter' },
+    { name: 'UPPERCASE', href: '/tools/uppercase-converter' },
+    { name: 'lowercase', href: '/tools/lowercase-converter' },
+    { name: 'Title Case', href: '/tools/title-case-converter' },
+    { name: 'Sentence case', href: '/tools/sentence-case-converter' },
+    { name: 'Remove Line Breaks', href: '/tools/remove-line-breaks' },
+    { name: 'Remove Extra Spaces', href: '/tools/remove-extra-spaces' },
+    { name: 'Text Reverser', href: '/tools/text-reverser' },
+    { name: 'Duplicate Line Remover', href: '/tools/duplicate-line-remover' },
+    { name: 'Text Sorter', href: '/tools/text-sorter' },
+  ];
+
+  const toolsGenerateLinks = [
+    { name: 'Lorem Ipsum', href: '/tools/lorem-ipsum-generator' },
+    { name: 'Password Generator', href: '/tools/password-generator' },
+    { name: 'Base64 Encode/Decode', href: '/tools/base64-encoder-decoder' },
+    { name: 'Text to Speech', href: '/tools/text-to-speech' },
+    { name: 'Text to PDF', href: '/text-to-pdf' },
+    { name: 'Text to Docs', href: '/text-to-docs' },
     { name: 'Share Notes', href: '/share' },
     { name: 'Password Protect', href: '/password-protect' },
   ];
@@ -43,7 +70,7 @@ export default function Footer() {
     <footer className="bg-[#0a0a0a] text-white border-t mt-5 border-[#2a2f3d]">
       <div className="max-w-7xl mx-auto px-4 py-12">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-8 gap-8">
           {/* Brand Section */}
           <div className="col-span-2 md:col-span-3 lg:col-span-2 space-y-4">
             <div className="flex items-center space-x-2">
@@ -111,11 +138,45 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Tools Links */}
+          {/* Tools — Counters */}
           <div>
-            <h3 className="text-sm font-semibold mb-4 text-blue-300 uppercase tracking-wider">Tools</h3>
+            <h3 className="text-sm font-semibold mb-4 text-blue-300 uppercase tracking-wider">Counters</h3>
             <ul className="space-y-2">
-              {toolsLinks.map((link) => (
+              {toolsCounterLinks.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-300 hover:text-blue-300 transition-colors text-sm"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Tools — Transform */}
+          <div>
+            <h3 className="text-sm font-semibold mb-4 text-blue-300 uppercase tracking-wider">Convert & Clean</h3>
+            <ul className="space-y-2">
+              {toolsTransformLinks.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-300 hover:text-blue-300 transition-colors text-sm"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Tools — Generate */}
+          <div>
+            <h3 className="text-sm font-semibold mb-4 text-blue-300 uppercase tracking-wider">Generate</h3>
+            <ul className="space-y-2">
+              {toolsGenerateLinks.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
