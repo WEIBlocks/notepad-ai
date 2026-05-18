@@ -80,3 +80,46 @@
 - GEO: Submit to online directories (ProductHunt, AlternativeTo, SaasWorthy) to increase AI engine citations
 
 ---
+
+## Week of 2026-05-18
+
+### Research findings
+- **APEX audit conducted.** Full audit saved to `/Users/usamalatif/Desktop/SEO Agents/notepad-ai-apex-audit-2026-05-18.md`. Key findings: (a) Homepage `StatsSection` showed FAKE metrics — 50K users, 1M notes, 99.9% uptime, 4.9 rating — none real, all E-E-A-T integrity risk. (b) Pre-hydration counters render literal `0` values to search engines that don't execute JS. (c) Site has 37 routes vs only 11 originally planned — strategy doc + weekly log execution is mature. (d) ZERO backlink strategy documented anywhere — single biggest bottleneck at DR 1.2.
+- **Programmatic burst spec produced.** Saved to `/Users/usamalatif/Desktop/SEO Agents/notepad-ai-programmatic-burst-spec-v1.md`. 20 utility tool pages mapped across 4 waves with aggregate ~165K/mo addressable volume. Includes shared `<TextToolShell>` pattern (Section 6) as the leverage point.
+- **Backlink Campaign #1 playbook produced.** Saved to `/Users/usamalatif/Desktop/SEO Agents/notepad-ai-backlink-campaign-1.md`. ProductHunt launch + 8 dev directory submissions with exact pitch copy + HARO daily routine + Reddit/HN strategy. 10-day execution timeline. Conservative targets: 10 RDs by Week 4, 20 by Week 8, 30 by Week 12.
+- **Prior NotePad Agent artifacts reviewed.** Found earlier audit (April 11) and keyword research xlsx in `/SEO Agents/NotePad Agent/`. No contradictions with current state. Competitor list captured: quillbot.com/notepad, smartonlinenotepad.com, screenapp.io, canva.com/notes, anotepad.com, granola.ai, shrib.com, notebixby.com.
+
+### Changes made
+- `src/components/ui/StatsSection.tsx` — **FIXED FABRICATED METRICS.** Replaced 50K users / 1M notes / 99.9% uptime / 4.9 rating with defensible product facts: 100% Free Forever / 0 Logins Required / 4+ Languages / 9+ Built-in Tools. Each value is objectively true today. Added 4 new semantic icons (shield-check, open-padlock, globe, settings-gear). Inline comment points to APEX audit Section 5 with Option C migration path for real metrics once analytics are wired.
+- `src/components/tools/TextToolShell.tsx` — **NEW SHARED COMPONENT.** Generic UI shell for embedded text tool widgets per APEX burst spec Section 6. Pure UI — accepts text + onTextChange + primaryStat + optional secondaryStats + extraActions + readOnly. Handles copy-to-clipboard, clear, responsive layout, dark-theme Tailwind. Privacy helper text included. Each new tool page is now ~30-min job.
+- `src/components/tools/ParagraphCounterTool.tsx` — **NEW.** Client wrapper that wraps TextToolShell with paragraph counter logic. Splits text on `/\n\s*\n+/` (web-standard blank-line detection, matches MLA/APA/Chicago). Computes paragraphs (primary), sentences/words/characters (secondary).
+- `src/app/tools/paragraph-counter/page.tsx` — **NEW PAGE.** Full SEO landing targeting "free paragraph counter online" (~9.5K/mo, KD Low). Embedded working tool above the fold (different from existing `/tools/sentence-counter` pattern which CTAs to editor — new pages have the tool ON the page for user intent + schema integrity). Quick-answer entity definition (GEO Law 1), how-to-use, what-counts-as-paragraph, tracked metrics grid, paragraph-length reference table, use cases, 3 related tools, 8 FAQs, final CTA. Schema: BreadcrumbSchema + FAQSchema + SoftwareApplicationSchema.
+- `src/app/sitemap.ts` — Added `/tools/paragraph-counter` entry (priority 0.9, monthly changefreq).
+
+### New pages created
+- `/tools/paragraph-counter` — target keyword: "free paragraph counter online", est. volume: 9.5k/mo
+
+### Automation infrastructure (one-time, persists)
+- `USER_ACTION_QUEUE.md` created in `/Users/usamalatif/Desktop/SEO Agents/` — single file where the user checks all blocking/pending manual actions.
+- `weekly-push.sh` created in `/Users/usamalatif/Desktop/SEO Agents/` — one-command commit + push for the user. Handles stuck `.git/index.lock` cleanup automatically.
+- Scheduled task `apex-notepad-ai-weekly-sprint` created — runs every Monday at 09:00 local. Will pick next priority work item from burst spec, build it, update logs, queue any user actions. User receives a notification when each run completes.
+- Vercel MCP connector suggested to user — would give deploy-status visibility but not yet installed.
+
+### Git
+- Commits NOT YET PUSHED. Five files changed in this sprint:
+  - `src/components/ui/StatsSection.tsx` (StatsSection fix from prior session — still unpushed)
+  - `src/components/tools/TextToolShell.tsx` (NEW)
+  - `src/components/tools/ParagraphCounterTool.tsx` (NEW)
+  - `src/app/tools/paragraph-counter/page.tsx` (NEW)
+  - `src/app/sitemap.ts` (MODIFIED)
+- **USER ACTION REQUIRED.** Push via `bash /Users/usamalatif/Desktop/SEO\ Agents/weekly-push.sh "APEX sprint 2026-05-18: stats fix + paragraph counter tool"`. The script clears the FUSE-stuck `.git/index.lock` automatically.
+
+### Skipped (next week candidates — for the Monday auto-sprint)
+- `/tools/line-counter` (3.2k/mo) — Wave 1, page #2. Uses TextToolShell. Should be ~30-min build.
+- `/tools/syllable-counter` (5.8k/mo) — Wave 1, page #3. Syllable detection algorithm needs care.
+- `/tools/reading-time-calculator` (8.2k/mo) — Wave 1, page #4. Simple ÷ 200 wpm.
+- `/blog/quillbot-notepad-alternative` (2.8k/mo) — competitor-alternative blog, high-value comparison
+- ProductHunt launch + dev directory submissions — pre-drafted in `notepad-ai-backlink-campaign-1.md`, blocked on user creating accounts (per USER_ACTION_QUEUE.md item B1)
+- GEO citation baseline — run 20-query check across Perplexity / ChatGPT / Claude / Gemini
+
+---
