@@ -132,6 +132,32 @@ export default function NoteTakingTips() {
           </section>
         </div>
 
+        {/* Free Tools — internal linking refresh 2026-05-18 */}
+        <section className="mb-12">
+          <h2 className="text-2xl font-bold text-white mb-6">Tools That Improve Your Note-Taking</h2>
+          <p className="text-gray-400 mb-6">
+            Pair these habits with Notepad AI&apos;s free utilities for sharper, more measurable notes:
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <Link href="/tools/reading-time-calculator" className="bg-[#1A1A1A] p-4 rounded-xl border border-gray-800 hover:border-purple-500/30 transition-colors">
+              <h3 className="text-blue-400 font-semibold mb-1 text-sm">Reading Time →</h3>
+              <p className="text-gray-400 text-xs">How long will my notes take to review?</p>
+            </Link>
+            <Link href="/tools/syllable-counter" className="bg-[#1A1A1A] p-4 rounded-xl border border-gray-800 hover:border-purple-500/30 transition-colors">
+              <h3 className="text-blue-400 font-semibold mb-1 text-sm">Syllable Counter →</h3>
+              <p className="text-gray-400 text-xs">Useful for memorable phrases</p>
+            </Link>
+            <Link href="/tools/word-frequency-counter" className="bg-[#1A1A1A] p-4 rounded-xl border border-gray-800 hover:border-purple-500/30 transition-colors">
+              <h3 className="text-blue-400 font-semibold mb-1 text-sm">Word Frequency →</h3>
+              <p className="text-gray-400 text-xs">See what your notes are really about</p>
+            </Link>
+            <Link href="/tools/text-case-converter" className="bg-[#1A1A1A] p-4 rounded-xl border border-gray-800 hover:border-purple-500/30 transition-colors">
+              <h3 className="text-blue-400 font-semibold mb-1 text-sm">Case Converter →</h3>
+              <p className="text-gray-400 text-xs">Tidy up pasted text</p>
+            </Link>
+          </div>
+        </section>
+
         {/* CTA */}
         <div className="mt-12 p-8 bg-gradient-to-r from-blue-900/30 to-purple-900/30 rounded-2xl border border-gray-800 text-center">
           <h3 className="text-xl font-bold text-white mb-4">Start Taking Better Notes</h3>

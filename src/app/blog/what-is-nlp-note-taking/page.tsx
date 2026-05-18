@@ -227,6 +227,32 @@ export default function WhatIsNLPNoteTaking() {
           </div>
         </section>
 
+        {/* Free Tools — internal linking refresh 2026-05-18 */}
+        <section className="mb-12">
+          <h2 className="text-2xl font-bold text-white mb-6">Language Tools That Use the Same Principles</h2>
+          <p className="text-gray-400 mb-6">
+            NLP analyzes the same patterns these free Notepad AI tools surface — try them on your own text:
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <Link href="/tools/syllable-counter" className="bg-[#1A1A1A] p-4 rounded-xl border border-gray-800 hover:border-purple-500/30 transition-colors">
+              <h3 className="text-blue-400 font-semibold mb-1 text-sm">Syllable Counter →</h3>
+              <p className="text-gray-400 text-xs">Vowel-group detection algorithm</p>
+            </Link>
+            <Link href="/tools/word-frequency-counter" className="bg-[#1A1A1A] p-4 rounded-xl border border-gray-800 hover:border-purple-500/30 transition-colors">
+              <h3 className="text-blue-400 font-semibold mb-1 text-sm">Word Frequency →</h3>
+              <p className="text-gray-400 text-xs">Stop-word filtering, top-20 analysis</p>
+            </Link>
+            <Link href="/tools/reading-time-calculator" className="bg-[#1A1A1A] p-4 rounded-xl border border-gray-800 hover:border-purple-500/30 transition-colors">
+              <h3 className="text-blue-400 font-semibold mb-1 text-sm">Reading Time →</h3>
+              <p className="text-gray-400 text-xs">Readability metric — 200 wpm</p>
+            </Link>
+            <Link href="/tools/text-case-converter" className="bg-[#1A1A1A] p-4 rounded-xl border border-gray-800 hover:border-purple-500/30 transition-colors">
+              <h3 className="text-blue-400 font-semibold mb-1 text-sm">Case Converter →</h3>
+              <p className="text-gray-400 text-xs">Text normalization (NLP step 1)</p>
+            </Link>
+          </div>
+        </section>
+
         {/* Related Links */}
         <section className="mb-12">
           <h2 className="text-xl font-bold text-white mb-4">Related Resources</h2>

@@ -188,3 +188,41 @@
 - Multilingual mirroring of top 5 highest-volume tool pages to /es, /pt, /fr (would add ~80K/mo to addressable volume)
 
 ---
+
+## Week of 2026-05-18 (Sprint 3 — Internal Linking Refresh + GSC Push)
+
+### Research findings
+- **Sprint 2 deployed successfully** (commit db601c4 / dpl_8c5whX9oB7ffbTtL2nqQTMupPisH). All 22 tool pages live in production. Sitemap.xml serving all 55 URLs including the 19 new tool entries.
+- **GSC sitemap resubmitted by user** (2026-05-18). Expect first batch of new tool URLs to be indexed within 3-14 days; full discovery typically completes in 14-30 days.
+- **Internal-linking gap identified:** 11 existing blog posts had ZERO links to the 19 new tool pages. Means new pages were only discoverable via sitemap + footer. This is a massive missed opportunity — established posts have crawl frequency and link equity that should propagate to new pages.
+
+### Changes made
+- **All 11 existing blog posts** received a new "Free Tools" callout section between the FAQ/Related and final CTA. Each post got 4 thematically-curated tool links:
+  - `/blog/best-online-notepad-2026` → paragraph-counter, reading-time, password-generator, base64
+  - `/blog/evernote-alternative-free` → paragraph-counter, reading-time, word-frequency, text-case-converter
+  - `/blog/google-keep-alternative` → duplicate-line-remover, text-sorter, line-counter, text-case-converter
+  - `/blog/note-taking-tips` → reading-time, syllable, word-frequency, text-case-converter
+  - `/blog/notepad-dark-mode` → lorem-ipsum, password-generator, base64, text-case-converter
+  - `/blog/notion-alternative-simple` → paragraph-counter, reading-time, word-frequency, lorem-ipsum
+  - `/blog/offline-note-taking` → paragraph-counter, password-generator, base64, text-to-speech
+  - `/blog/online-notepad-for-students` → paragraph-counter, syllable, reading-time, word-frequency
+  - `/blog/private-notepad-no-cloud` → password-generator, base64, paragraph-counter, text-case-converter
+  - `/blog/what-is-ai-notepad` → text-to-speech, lorem-ipsum, word-frequency, syllable
+  - `/blog/what-is-nlp-note-taking` → syllable, word-frequency, reading-time, text-case-converter
+- **Total new internal links: 44** (11 posts × 4 tool links each)
+- Dark-theme card-grid styling matches the rest of the site. Topic-specific intro line per post makes each callout SEO-unique (not boilerplate).
+
+### Deliverables saved to SEO Agents workspace
+- `notepad-ai-geo-baseline-2026-05-18.md` — GEO citation baseline tracker. 20 target queries × 5 AI engines (Perplexity, ChatGPT, Claude, Gemini, Google AI Overviews). Self-contained, user runs the queries when ready (~45 min). Establishes Day-0 measurement layer for quarterly tracking.
+
+### Git
+- All blog post changes committed-ready but NOT yet pushed. User runs weekly-push.sh when ready.
+
+### Skipped (next sprint candidates)
+- **Multilingual tool page mirroring** — Top 5 highest-volume tools mirrored to /es, /pt, /fr would add ~80K/mo addressable volume. Requires translated content per locale.
+- **`/blog/quillbot-notepad-alternative`** — comparison post for QuillBot, still queued.
+- **Wave 5 tool ideas** — `paragraph-counter` and other counter pages are doing well; potential next adds: `text-diff` (3-8K), `find-and-replace-online` (3.5K), `slug-generator` (2K), `uuid-generator` (12K), `markdown-to-html` (15K).
+- **GSC indexation review** — re-check in 7-14 days to see how many of the 19 new tool URLs got indexed. Use that data to prioritize content refreshes.
+- **GEO baseline run** — saved tracker is ready; user runs ~45 min check whenever convenient.
+
+---

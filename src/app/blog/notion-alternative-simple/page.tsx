@@ -238,6 +238,32 @@ export default function NotionAlternativeSimple() {
           </div>
         </section>
 
+        {/* Free Tools — internal linking refresh 2026-05-18 */}
+        <section className="mb-12">
+          <h2 className="text-2xl font-bold text-white mb-6">Tools Notion Charges For — Free in Notepad AI</h2>
+          <p className="text-gray-400 mb-6">
+            Notion bundles everything (and charges for AI). Notepad AI keeps it simple — and ships these utilities free, browser-only:
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <Link href="/tools/paragraph-counter" className="bg-[#1A1A1A] p-4 rounded-xl border border-gray-800 hover:border-purple-500/30 transition-colors">
+              <h3 className="text-blue-400 font-semibold mb-1 text-sm">Paragraph Counter →</h3>
+              <p className="text-gray-400 text-xs">Live as you write</p>
+            </Link>
+            <Link href="/tools/reading-time-calculator" className="bg-[#1A1A1A] p-4 rounded-xl border border-gray-800 hover:border-purple-500/30 transition-colors">
+              <h3 className="text-blue-400 font-semibold mb-1 text-sm">Reading Time →</h3>
+              <p className="text-gray-400 text-xs">Sized to your audience</p>
+            </Link>
+            <Link href="/tools/word-frequency-counter" className="bg-[#1A1A1A] p-4 rounded-xl border border-gray-800 hover:border-purple-500/30 transition-colors">
+              <h3 className="text-blue-400 font-semibold mb-1 text-sm">Word Frequency →</h3>
+              <p className="text-gray-400 text-xs">Catch overused phrases</p>
+            </Link>
+            <Link href="/tools/lorem-ipsum-generator" className="bg-[#1A1A1A] p-4 rounded-xl border border-gray-800 hover:border-purple-500/30 transition-colors">
+              <h3 className="text-blue-400 font-semibold mb-1 text-sm">Lorem Ipsum →</h3>
+              <p className="text-gray-400 text-xs">Custom placeholder text</p>
+            </Link>
+          </div>
+        </section>
+
         {/* Final CTA */}
         <section className="text-center bg-gradient-to-r from-blue-900/30 to-purple-900/30 p-8 rounded-2xl border border-gray-800">
           <h2 className="text-2xl font-bold text-white mb-4">The Simplest Note-Taking App — Open Right Now</h2>

@@ -241,6 +241,32 @@ export default function EvernoteAlternativeFree() {
           </div>
         </section>
 
+        {/* Free Tools — internal linking refresh 2026-05-18 */}
+        <section className="mb-12">
+          <h2 className="text-2xl font-bold text-white mb-6">Writing Tools You&apos;ll Get Free</h2>
+          <p className="text-gray-400 mb-6">
+            Evernote Premium locks features behind paywalls. Notepad AI gives you these writing utilities free, with no signup:
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <Link href="/tools/paragraph-counter" className="bg-[#1A1A1A] p-4 rounded-xl border border-gray-800 hover:border-purple-500/30 transition-colors">
+              <h3 className="text-blue-400 font-semibold mb-1 text-sm">Paragraph Counter →</h3>
+              <p className="text-gray-400 text-xs">Live counts as you write</p>
+            </Link>
+            <Link href="/tools/reading-time-calculator" className="bg-[#1A1A1A] p-4 rounded-xl border border-gray-800 hover:border-purple-500/30 transition-colors">
+              <h3 className="text-blue-400 font-semibold mb-1 text-sm">Reading Time →</h3>
+              <p className="text-gray-400 text-xs">Estimate at 200 wpm baseline</p>
+            </Link>
+            <Link href="/tools/word-frequency-counter" className="bg-[#1A1A1A] p-4 rounded-xl border border-gray-800 hover:border-purple-500/30 transition-colors">
+              <h3 className="text-blue-400 font-semibold mb-1 text-sm">Word Frequency →</h3>
+              <p className="text-gray-400 text-xs">Spot overused words</p>
+            </Link>
+            <Link href="/tools/text-case-converter" className="bg-[#1A1A1A] p-4 rounded-xl border border-gray-800 hover:border-purple-500/30 transition-colors">
+              <h3 className="text-blue-400 font-semibold mb-1 text-sm">Case Converter →</h3>
+              <p className="text-gray-400 text-xs">6 modes — Title, Sentence, more</p>
+            </Link>
+          </div>
+        </section>
+
         {/* Final CTA */}
         <section className="text-center bg-gradient-to-r from-blue-900/30 to-purple-900/30 p-8 rounded-2xl border border-gray-800">
           <h2 className="text-2xl font-bold text-white mb-4">Switch from Evernote Today — It&apos;s Free</h2>

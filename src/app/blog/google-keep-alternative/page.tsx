@@ -210,6 +210,32 @@ export default function GoogleKeepAlternative() {
           </div>
         </section>
 
+        {/* Free Tools — internal linking refresh 2026-05-18 */}
+        <section className="mb-12">
+          <h2 className="text-2xl font-bold text-white mb-6">List & Note Tools Google Keep Doesn&apos;t Have</h2>
+          <p className="text-gray-400 mb-6">
+            Notepad AI ships with utilities that make managing lists, notes, and snippets faster — free, no signup, fully private:
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <Link href="/tools/duplicate-line-remover" className="bg-[#1A1A1A] p-4 rounded-xl border border-gray-800 hover:border-purple-500/30 transition-colors">
+              <h3 className="text-blue-400 font-semibold mb-1 text-sm">Duplicate Line Remover →</h3>
+              <p className="text-gray-400 text-xs">Strip repeated list items</p>
+            </Link>
+            <Link href="/tools/text-sorter" className="bg-[#1A1A1A] p-4 rounded-xl border border-gray-800 hover:border-purple-500/30 transition-colors">
+              <h3 className="text-blue-400 font-semibold mb-1 text-sm">Text Sorter →</h3>
+              <p className="text-gray-400 text-xs">8 sort modes (A→Z, length, numeric)</p>
+            </Link>
+            <Link href="/tools/line-counter" className="bg-[#1A1A1A] p-4 rounded-xl border border-gray-800 hover:border-purple-500/30 transition-colors">
+              <h3 className="text-blue-400 font-semibold mb-1 text-sm">Line Counter →</h3>
+              <p className="text-gray-400 text-xs">How many items in your list?</p>
+            </Link>
+            <Link href="/tools/text-case-converter" className="bg-[#1A1A1A] p-4 rounded-xl border border-gray-800 hover:border-purple-500/30 transition-colors">
+              <h3 className="text-blue-400 font-semibold mb-1 text-sm">Case Converter →</h3>
+              <p className="text-gray-400 text-xs">Normalize note formatting</p>
+            </Link>
+          </div>
+        </section>
+
         {/* Final CTA */}
         <section className="text-center bg-gradient-to-r from-blue-900/30 to-purple-900/30 p-8 rounded-2xl border border-gray-800">
           <h2 className="text-2xl font-bold text-white mb-4">Switch from Google Keep Today</h2>

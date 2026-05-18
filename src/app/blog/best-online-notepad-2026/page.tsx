@@ -235,6 +235,32 @@ export default function BestOnlineNotepad2026() {
           </div>
         </section>
 
+        {/* Free Tools — internal linking refresh 2026-05-18 */}
+        <section className="mb-12">
+          <h2 className="text-2xl font-bold text-white mb-6">Free Tools Included with Notepad AI</h2>
+          <p className="text-gray-400 mb-6">
+            Beyond text editing, Notepad AI ships with a growing suite of free, browser-only utilities — no signup, all private:
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <Link href="/tools/paragraph-counter" className="bg-[#1A1A1A] p-4 rounded-xl border border-gray-800 hover:border-purple-500/30 transition-colors">
+              <h3 className="text-blue-400 font-semibold mb-1 text-sm">Paragraph Counter →</h3>
+              <p className="text-gray-400 text-xs">Live counts for essays + blog posts</p>
+            </Link>
+            <Link href="/tools/reading-time-calculator" className="bg-[#1A1A1A] p-4 rounded-xl border border-gray-800 hover:border-purple-500/30 transition-colors">
+              <h3 className="text-blue-400 font-semibold mb-1 text-sm">Reading Time →</h3>
+              <p className="text-gray-400 text-xs">Estimate read duration at 200 wpm</p>
+            </Link>
+            <Link href="/tools/password-generator" className="bg-[#1A1A1A] p-4 rounded-xl border border-gray-800 hover:border-purple-500/30 transition-colors">
+              <h3 className="text-blue-400 font-semibold mb-1 text-sm">Password Generator →</h3>
+              <p className="text-gray-400 text-xs">Crypto-secure passwords in your browser</p>
+            </Link>
+            <Link href="/tools/base64-encoder-decoder" className="bg-[#1A1A1A] p-4 rounded-xl border border-gray-800 hover:border-purple-500/30 transition-colors">
+              <h3 className="text-blue-400 font-semibold mb-1 text-sm">Base64 Encode/Decode →</h3>
+              <p className="text-gray-400 text-xs">Full UTF-8 support for developers</p>
+            </Link>
+          </div>
+        </section>
+
         {/* CTA */}
         <section className="text-center bg-gradient-to-r from-blue-900/30 to-purple-900/30 p-8 rounded-2xl border border-gray-800">
           <h2 className="text-2xl font-bold text-white mb-4">Start with the #1 Free AI Notepad</h2>

@@ -295,6 +295,32 @@ export default function PrivateNotepadNoCloud() {
           </div>
         </section>
 
+        {/* Free Tools — internal linking refresh 2026-05-18 */}
+        <section className="mb-12">
+          <h2 className="text-2xl font-bold text-white mb-6">Other Privacy-First Tools in Notepad AI</h2>
+          <p className="text-gray-400 mb-6">
+            Every Notepad AI tool runs entirely in your browser — no server, no logging, no analytics on what you paste:
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <Link href="/tools/password-generator" className="bg-[#1A1A1A] p-4 rounded-xl border border-gray-800 hover:border-purple-500/30 transition-colors">
+              <h3 className="text-blue-400 font-semibold mb-1 text-sm">Password Generator →</h3>
+              <p className="text-gray-400 text-xs">crypto.getRandomValues, never uploaded</p>
+            </Link>
+            <Link href="/tools/base64-encoder-decoder" className="bg-[#1A1A1A] p-4 rounded-xl border border-gray-800 hover:border-purple-500/30 transition-colors">
+              <h3 className="text-blue-400 font-semibold mb-1 text-sm">Base64 Encode/Decode →</h3>
+              <p className="text-gray-400 text-xs">UTF-8 safe, browser-only</p>
+            </Link>
+            <Link href="/tools/paragraph-counter" className="bg-[#1A1A1A] p-4 rounded-xl border border-gray-800 hover:border-purple-500/30 transition-colors">
+              <h3 className="text-blue-400 font-semibold mb-1 text-sm">Paragraph Counter →</h3>
+              <p className="text-gray-400 text-xs">Live counts, zero uploads</p>
+            </Link>
+            <Link href="/tools/text-case-converter" className="bg-[#1A1A1A] p-4 rounded-xl border border-gray-800 hover:border-purple-500/30 transition-colors">
+              <h3 className="text-blue-400 font-semibold mb-1 text-sm">Case Converter →</h3>
+              <p className="text-gray-400 text-xs">Transform sensitive text locally</p>
+            </Link>
+          </div>
+        </section>
+
         {/* Final CTA */}
         <section className="text-center bg-gradient-to-r from-blue-900/30 to-purple-900/30 p-8 rounded-2xl border border-gray-800">
           <h2 className="text-2xl font-bold text-white mb-4">Write Privately — Nothing Leaves Your Device</h2>
