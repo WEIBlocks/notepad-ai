@@ -190,12 +190,59 @@ export default function Home() {
         <div className="bg-gradient-to-r from-blue-900/20 to-purple-900/20 p-6 sm:p-8 rounded-2xl border border-gray-800">
           <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
             <strong className="text-white">Notepad AI</strong> is a free AI-powered online notepad that uses Natural Language Processing (NLP)
-            to help users write, organize, and save notes intelligently. Unlike traditional text editors, Notepad AI understands your writing
-            context, adapts to your patterns, and structures your notes automatically. It works completely offline after initial load, requires
-            no login or account creation, and stores all data locally in your browser for complete privacy. With features like real-time autosave,
-            PDF export, document conversion, and note sharing, Notepad AI is the smart, secure, and simple way to take notes online.
+            to help users write, organize, and save notes intelligently. Updated for 2026, Notepad AI works completely offline after initial load,
+            requires no login or account creation, and stores all data locally in your browser for complete privacy.
+            With 19+ free built-in tools — paragraph counter, password generator, base64 encoder, text-to-speech, and more — plus real-time autosave,
+            PDF/Docs export, and secure note sharing, Notepad AI is the smart, secure, and simple way to take notes online.
           </p>
         </div>
+      </ScrollReveal>
+
+      {/* Comparison Table — GEO Law 4 (Own comparison formats) + Freshness signal for 2026 */}
+      <ScrollReveal className="max-w-[1370px] mx-auto px-4 sm:px-6 lg:px-14 relative py-8">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-6 text-center">
+          Notepad AI vs Other Online Notepads <GradientText>(2026)</GradientText>
+        </h2>
+        <p className="text-gray-400 text-center max-w-3xl mx-auto mb-8 leading-relaxed">
+          How Notepad AI stacks up against popular browser-based note-taking tools. Updated 2026 — the only AI-powered notepad with full offline
+          mode, local-only storage, and no signup.
+        </p>
+        <div className="overflow-x-auto bg-[#1A1A1A] rounded-2xl border border-gray-800/50">
+          <table className="w-full border-collapse text-sm">
+            <thead>
+              <tr className="bg-gradient-to-r from-blue-900/30 to-purple-900/30">
+                <th className="p-4 text-left text-gray-300 border-b border-gray-800 font-semibold">Notepad</th>
+                <th className="p-4 text-center text-gray-300 border-b border-gray-800 font-semibold">AI / NLP</th>
+                <th className="p-4 text-center text-gray-300 border-b border-gray-800 font-semibold">No Login</th>
+                <th className="p-4 text-center text-gray-300 border-b border-gray-800 font-semibold">Works Offline</th>
+                <th className="p-4 text-center text-gray-300 border-b border-gray-800 font-semibold">Local Storage Only</th>
+                <th className="p-4 text-center text-gray-300 border-b border-gray-800 font-semibold">Built-in Tools</th>
+                <th className="p-4 text-center text-gray-300 border-b border-gray-800 font-semibold">Free</th>
+              </tr>
+            </thead>
+            <tbody className="text-gray-300">
+              {[
+                ["Notepad AI", "✅ NLP", "✅", "✅", "✅", "19+", "✅"],
+                ["Hyper Notepad", "❌", "✅", "❌", "⚠️ Server", "Few", "Freemium"],
+                ["QuillBot Notepad", "✅ AI", "Account to save", "❌", "❌ Cloud", "Few", "✅"],
+                ["ProtectedText", "❌", "✅", "❌", "✅ Encrypted server", "—", "✅"],
+                ["aNotepad", "❌", "✅", "❌", "❌ Server", "Few", "✅"],
+                ["Google Keep", "❌", "❌ Google login", "Limited", "❌ Google cloud", "Few", "✅"],
+                ["Evernote", "✅ AI (paid)", "❌ Account", "Paid tier", "❌ Cloud", "Few", "Freemium"],
+              ].map((row, i) => (
+                <tr key={i} className={`hover:bg-[#0f0f0f] ${i === 0 ? "bg-blue-900/10" : ""}`}>
+                  <td className={`p-4 border-b border-gray-800/50 font-medium ${i === 0 ? "text-white" : "text-gray-300"}`}>{row[0]}</td>
+                  {row.slice(1).map((cell, j) => (
+                    <td key={j} className="p-4 text-center border-b border-gray-800/50 text-sm">{cell}</td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-xs text-gray-500 text-center mt-4">
+          Comparison last verified 2026-05-18. &quot;Server&quot; indicates notes are sent to provider&apos;s servers; &quot;Local&quot; means notes stay in your browser only.
+        </p>
       </ScrollReveal>
 
       {/* What is Online Notepad Section */}

@@ -226,3 +226,36 @@
 - **GEO baseline run** — saved tracker is ready; user runs ~45 min check whenever convenient.
 
 ---
+
+## Week of 2026-05-18 (Sprint 4 — GEO Focus: SERP Baseline + Homepage Comparison)
+
+### Research findings
+- **Autonomous SERP baseline check completed** via WebSearch (US results, signed-out). 5 strategic queries run.
+- **🎉 Notepad AI ranks #1 for `free ai notepad private offline no account`** — our flagship niche query. Beating QuillBot (DR 90+), screenapp.io, shrib.com, etc. The exact query intent ("AI + privacy + offline + no account") matches our title tag word-for-word.
+- **❌ Not in top 10 for broader queries:** "best free online notepad no login no signup 2026" (hypernotepad wins with "designed in 2026" framing), "free paragraph counter online" (Grammarly DR 95 dominates), "free password generator crypto secure" (password manager brands win), "free base64 encoder decoder" (domain-keyword-match sites win).
+- **Strategic insight:** Our positioning works for niche queries. The win is to **defend + widen the niche**, not fight head-to-head on head terms. Long-tail with privacy/offline/no-upload modifiers is the path.
+- **Hypernotepad's "2026" freshness signal** is a direct competitive trigger. Notepad AI needs explicit current-year framing to compete on the broader query.
+- **SERP baseline document saved:** `/Users/usamalatif/Desktop/SEO Agents/notepad-ai-serp-baseline-2026-05-18.md` — full query-by-query breakdown with competitor analysis.
+
+### Changes made
+- **`src/app/page.tsx` (homepage) — TWO GEO improvements:**
+  1. **Entity Definition section** updated with explicit "2026" freshness signal AND mention of the 19+ free built-in tools. Original abstract description became a more substantive product summary.
+  2. **NEW: Comparison Table section** added directly after the entity definition. 7-row × 6-column table comparing Notepad AI vs Hyper Notepad, QuillBot Notepad, ProtectedText, aNotepad, Google Keep, Evernote across: AI/NLP capability, no-login, offline support, local-storage-only, built-in tools count, free. Highlights Notepad AI row in blue. Includes "2026" in heading + closing note "Comparison last verified 2026-05-18". This is **GEO Law 4 in action** — AI engines cite comparison tables verbatim.
+
+### Deliverables saved to SEO Agents workspace
+- `notepad-ai-serp-baseline-2026-05-18.md` — Google SERP baseline. 5 queries × top 10 organic + analysis. Companion to the LLM citation baseline tracker (`notepad-ai-geo-baseline-2026-05-18.md`).
+
+### Why this matters for GEO
+The comparison table is the single highest-citation-density block we can add to the homepage. AI engines (Perplexity especially) heavily weight comparison tables when answering "what's the best X for Y" queries. Combined with the existing FAQ schema (19 homepage FAQs) and the new entity definition with freshness signals, we now have **three citation-magnet blocks** on the homepage — each independently citable.
+
+### Git
+- Sprint 3 (internal linking refresh) and Sprint 4 (GEO comparison) changes are stacked — push when ready.
+
+### Skipped (next sprint candidates)
+- **Comparison tables on top 4 tool pages** — same logic as homepage. Add to /tools/paragraph-counter, /tools/password-generator, /tools/base64-encoder-decoder, /tools/lorem-ipsum-generator next sprint.
+- **WebApplicationSchema dateModified field** — would signal freshness directly to Google + AI engines.
+- **Wave 5 tool ideas** — text-diff (3-8K), find-and-replace-online (3.5K), uuid-generator (12K), markdown-to-html (15K).
+- **GSC indexation review** — re-check in 7-14 days.
+- **GEO baseline LLM run** — saved tracker ready for user (~45 min).
+
+---
