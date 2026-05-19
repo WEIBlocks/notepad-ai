@@ -1,0 +1,489 @@
+# Notepad AI — Complete Site Content (2026)
+
+> Concatenated content for AI engine ingestion. Includes homepage overview, all 22 tool pages with their Quick Answer summaries and top FAQs, blog post abstracts, and policy/about content. Last updated 2026-05-18.
+
+Notepad AI is a free AI-powered online notepad that uses Natural Language Processing (NLP) to help users write, organize, and save notes intelligently. It works completely offline after initial load, requires no login or account creation, and stores all data locally in your browser for complete privacy. Available in English, Spanish, Portuguese, and French.
+
+The product ships with 22 free built-in tools (counters, case converters, text cleaners, generators, encoders). Every tool runs entirely in your browser with no signup, no upload, no tracking. URL: https://www.notepad-ai.online
+
+---
+
+## Homepage
+
+**URL:** https://www.notepad-ai.online/
+**Title:** Free AI Notepad Online — No Login, Works Offline | Notepad AI
+
+### Entity Definition
+Notepad AI is a free AI-powered online notepad that uses Natural Language Processing (NLP) to help users write, organize, and save notes intelligently. Updated for 2026, Notepad AI works completely offline after initial load, requires no login or account creation, and stores all data locally in your browser for complete privacy. With 19+ free built-in tools — paragraph counter, password generator, base64 encoder, text-to-speech, and more — plus real-time autosave, PDF/Docs export, and secure note sharing, Notepad AI is the smart, secure, and simple way to take notes online.
+
+### Comparison — Notepad AI vs Other Online Notepads (2026)
+
+| Notepad | AI/NLP | No Login | Works Offline | Local Storage Only | Built-in Tools | Free |
+|---|---|---|---|---|---|---|
+| Notepad AI | Yes (NLP) | Yes | Yes | Yes | 19+ | Yes |
+| Hyper Notepad | No | Yes | No | Server | Few | Freemium |
+| QuillBot Notepad | Yes (AI) | Account to save | No | Cloud | Few | Yes |
+| ProtectedText | No | Yes | No | Encrypted server | — | Yes |
+| aNotepad | No | Yes | No | Server | Few | Yes |
+| Google Keep | No | Google login required | Limited | Google cloud | Few | Yes |
+| Evernote | Yes (AI, paid) | Account required | Paid tier | Cloud | Few | Freemium |
+
+### Top Homepage FAQs
+
+**Q: What is Notepad AI?**
+Notepad AI is a free AI-powered online notepad that uses Natural Language Processing (NLP) to help users write, organize, and save notes intelligently. It works offline, requires no login, and stores all data locally for complete privacy.
+
+**Q: Is Notepad AI free?**
+Yes, Notepad AI is completely free to use. All features including AI-powered writing, offline mode, PDF export, note sharing, and password protection are available at no cost with no hidden fees.
+
+**Q: Do I need to create an account?**
+No account or login is required. Simply visit notepad-ai.online and start writing immediately. Your notes are saved automatically in your browser's local storage.
+
+**Q: Does Notepad AI work offline?**
+Yes, Notepad AI works completely offline after the initial page load. You can write and edit notes without an internet connection. All data is stored locally on your device.
+
+**Q: Is my data private?**
+Yes, all notes are stored locally in your browser using local storage. No data is sent to external servers. Notepad AI has zero tracking, zero ads, and complete privacy by design.
+
+**Q: What is NLP in Notepad AI?**
+NLP (Natural Language Processing) in Notepad AI analyzes your writing patterns, detects intent, and helps structure notes automatically. It adapts to your writing context to provide a smarter note-taking experience.
+
+**Q: Can I export notes to PDF?**
+Yes, Notepad AI can export any note to PDF format with one click. The conversion happens entirely in your browser — no data is uploaded to any server.
+
+**Q: Does Notepad AI have dark mode?**
+Yes. Notepad AI ships with a built-in dark mode for late-night writing and developer workflows. Dark mode is free — unlike some competitors who put dark mode behind a paywall.
+
+---
+
+## Tool: Word Counter
+
+**URL:** https://www.notepad-ai.online/tools/word-counter
+
+Free online word counter that counts words and characters in real-time. No signup, browser-only, works offline after first load.
+
+---
+
+## Tool: Character Counter
+
+**URL:** https://www.notepad-ai.online/tools/character-counter
+
+Free online character counter. Counts characters with and without spaces. No login, browser-only.
+
+---
+
+## Tool: Sentence Counter
+
+**URL:** https://www.notepad-ai.online/tools/sentence-counter
+
+Free online sentence counter. Detects sentences by punctuation marks (period, exclamation mark, question mark). Real-time counting in your browser. Also tracks paragraphs, words, characters, reading time, and speaking time. Targets keyword "free sentence counter online" with ~18K monthly searches.
+
+---
+
+## Tool: Paragraph Counter
+
+**URL:** https://www.notepad-ai.online/tools/paragraph-counter
+**Target keyword:** free paragraph counter online (~9,500/mo)
+
+### Quick Answer
+A paragraph counter counts the number of paragraphs in a piece of text by detecting paragraph breaks (typically blank lines between blocks of text). Notepad AI's free paragraph counter shows your paragraph count live as you type, along with word, sentence, and character counts. Everything runs in your browser — no uploads, no login, no signup. Works offline after first load.
+
+### Top FAQs
+**Q: How does the paragraph counter detect paragraphs?**
+It splits text on blank lines. Any block of text separated from another by one or more empty lines counts as a paragraph. This matches the standard convention used in MLA, APA, and Chicago style guides.
+
+**Q: How long should a paragraph be?**
+Academic paragraphs typically run 5-8 sentences. Blog posts and web copy work best at 2-4 sentences. Business emails are often 1-3 sentences. News articles use very short paragraphs (1-2 sentences).
+
+**Q: Why does my paragraph count differ from Microsoft Word's?**
+Word counts every Enter press as a new paragraph. This counter uses the web-standard blank-line method, which more accurately reflects how paragraphs appear in published content.
+
+---
+
+## Tool: Line Counter
+
+**URL:** https://www.notepad-ai.online/tools/line-counter
+**Target keyword:** line counter online free (~3,200/mo)
+
+### Quick Answer
+A line counter counts the number of lines (newline-separated rows) in a block of text. Notepad AI's free line counter shows both total lines (every newline) and non-empty lines (rows with actual content), updating live as you type. Useful for CSV row counts, code line counts, list sizing, and log analysis. Works in your browser — no uploads.
+
+### Top FAQs
+**Q: What's the difference between total lines and non-empty lines?**
+Total lines includes every newline-terminated row, including blank ones. Non-empty lines only counts rows that contain at least one non-whitespace character. Use non-empty for actual content, total for layout/spacing checks.
+
+**Q: Can I use this to count lines in CSV or code?**
+Yes — it's especially useful for CSV row counts and source code line counts. Just paste in and see the total.
+
+---
+
+## Tool: Syllable Counter
+
+**URL:** https://www.notepad-ai.online/tools/syllable-counter
+**Target keyword:** syllable counter online (~5,800/mo)
+
+### Quick Answer
+A syllable counter counts the rhythmic units in a piece of text. Notepad AI's syllable counter uses an English vowel-group heuristic with silent-e and "le" rule adjustments — accurate for ~95% of common English. Updates live as you type, runs entirely in your browser. Useful for poetry (haiku 5-7-5, sonnets), lyrics, speech writing, and readability checks.
+
+### Top FAQs
+**Q: How accurate is the syllable counter?**
+The counter uses an English vowel-group heuristic with adjustments for silent trailing 'e' and the 'le' rule. It's accurate for ~95% of common English words.
+
+**Q: Why is poetry meter often based on syllables?**
+Many poetic forms (haiku 5-7-5, iambic pentameter, sonnets) rely on syllable counts. Counting syllables helps you fit a strict meter without manually tapping out each word.
+
+**Q: What's a typical syllables-per-word average?**
+Conversational English averages 1.4-1.5 syllables per word. Academic or technical text averages 1.7-2.0. Higher averages indicate denser, harder-to-read text.
+
+---
+
+## Tool: Reading Time Calculator
+
+**URL:** https://www.notepad-ai.online/tools/reading-time-calculator
+**Target keyword:** reading time calculator (~8,200/mo)
+
+### Quick Answer
+A reading time calculator estimates how long it takes a typical adult reader to silently read a piece of text. Notepad AI's calculator uses 200 words per minute, the well-established research benchmark (Brysbaert 2019 meta-analysis). Updates live as you type. Runs entirely in your browser.
+
+### Reading Speed Reference
+- Adult silent reading (avg): 200-250 wpm
+- Leisure / fiction: 180-220 wpm
+- Technical / academic: 100-140 wpm
+- Skim reading: 400-700 wpm
+- Audio narration: 150-160 wpm
+
+### Top FAQs
+**Q: What reading speed does the calculator use?**
+200 words per minute — the well-established average for adult silent reading on screen. Brysbaert (2019) meta-analysis settled the academic debate around this number.
+
+**Q: How long is the average blog post?**
+Most blog posts are 800-2,500 words = 4-13 minutes of reading at 200 wpm. SEO long-form posts often run 2,500-4,000 words = 13-20 minutes.
+
+---
+
+## Tool: Speaking Time Calculator
+
+**URL:** https://www.notepad-ai.online/tools/speaking-time-calculator
+**Target keyword:** speaking time calculator (~4,100/mo)
+
+### Quick Answer
+A speaking time calculator estimates how long it takes to read text aloud at a natural conversational pace. Notepad AI's calculator uses 130 words per minute — the Toastmasters / voiceover industry baseline. Useful for presentations, podcasts, voiceover work, and event speeches.
+
+### Speaking Speed Reference
+- Conversational (default): 120-150 wpm
+- Newscaster: 150-170 wpm
+- Audiobook narration: 150-160 wpm
+- Slow / formal: 100-120 wpm
+
+### Top FAQs
+**Q: Why 130 wpm instead of 150?**
+Toastmasters and most professional voiceover guides cite 125-150 wpm as the comfortable conversational range. We use 130 as a conservative middle.
+
+**Q: How long is a typical TED talk?**
+18 minutes — the famous TED format. That's roughly 2,340 words at 130 wpm.
+
+---
+
+## Tool: Word Frequency Counter
+
+**URL:** https://www.notepad-ai.online/tools/word-frequency-counter
+**Target keyword:** word frequency counter (~2,100/mo)
+
+### Quick Answer
+A word frequency counter shows which words appear most often in a piece of text. Notepad AI's counter ranks the top 20 words, filters common stop words (the, a, is) by default, and lets you export results as CSV. Everything runs in your browser — no uploads.
+
+### Top FAQs
+**Q: What are stop words?**
+Stop words are extremely common words (the, a, an, is, are, of, in) that carry little semantic weight. Filtering them out shows you the words that actually characterize your text.
+
+**Q: Why are some inflected words counted separately?**
+The counter doesn't stem words (so 'run', 'runs', and 'running' count separately). Stemming requires language-specific rules and can confuse counts.
+
+---
+
+## Tool: Text Case Converter (All-in-One)
+
+**URL:** https://www.notepad-ai.online/tools/text-case-converter
+**Target keyword:** text case converter (~8,500/mo)
+
+### Quick Answer
+A text case converter changes the capitalization style of a piece of text. Notepad AI's converter supports six modes: UPPERCASE, lowercase, Title Case, Sentence case, aLtErNaTiNg, and iNVERSE — switchable with one click.
+
+### Case Style Reference
+- UPPERCASE — Headings, emphasis, acronyms (NASA, FBI, HTML)
+- lowercase — Code identifiers, URLs, casual text
+- Title Case — Article titles, headings, book names ("Hello World")
+- Sentence case — Standard body text, paragraphs ("Hello world")
+- aLtErNaTiNg — Memes, ironic emphasis ("hElLo WoRlD")
+- iNVERSE — Undo accidental Caps Lock, stylistic effect
+
+---
+
+## Tool: Uppercase Converter
+
+**URL:** https://www.notepad-ai.online/tools/uppercase-converter
+
+Free online uppercase converter. Convert any text to ALL CAPS instantly. No signup, browser-only. Appropriate for headings, acronyms, constants in code, emphasis in short bursts. Avoid in body text as UPPERCASE reads as shouting in digital communication.
+
+---
+
+## Tool: Lowercase Converter
+
+**URL:** https://www.notepad-ai.online/tools/lowercase-converter
+
+Free online lowercase converter. Convert text to all lowercase letters instantly. The natural body-text case in English. Also required for code identifiers, URLs, and email addresses.
+
+---
+
+## Tool: Title Case Converter
+
+**URL:** https://www.notepad-ai.online/tools/title-case-converter
+**Target keyword:** title case converter (~6,500/mo)
+
+### Quick Answer
+Title Case is a capitalization style where the first letter of every word is uppercase, with the rest lowercase. Example: "The Quick Brown Fox Jumps Over The Lazy Dog". Standard style for book titles, article headlines, song names, and section headings.
+
+---
+
+## Tool: Sentence Case Converter
+
+**URL:** https://www.notepad-ai.online/tools/sentence-case-converter
+
+Sentence case capitalizes only the first letter of each sentence. Everything else is lowercase. Standard style for paragraphs, blog body text, and prose. Used by Google, Apple, GitHub for UI copy.
+
+---
+
+## Tool: Remove Line Breaks
+
+**URL:** https://www.notepad-ai.online/tools/remove-line-breaks
+**Target keyword:** remove line breaks online (~7,200/mo)
+
+### Quick Answer
+Strip line breaks from any text in your browser. Three modes: (1) Replace with space — converts every line break into a single space (re-joining wrapped paragraphs); (2) Remove entirely — deletes line breaks without inserting anything; (3) Keep paragraph breaks — preserves blank lines (paragraph boundaries) while removing within-paragraph line breaks.
+
+---
+
+## Tool: Remove Extra Spaces
+
+**URL:** https://www.notepad-ai.online/tools/remove-extra-spaces
+**Target keyword:** remove extra spaces from text (~4,800/mo)
+
+Free online tool to remove extra spaces from text. Collapses double/triple spaces and tabs into single spaces, trims line whitespace, preserves newlines. Useful for cleaning up text copied from PDFs or Word docs.
+
+---
+
+## Tool: Text Reverser
+
+**URL:** https://www.notepad-ai.online/tools/text-reverser
+**Target keyword:** text reverser online (~5,500/mo)
+
+Reverse text by characters, words, or lines. Three modes in one tool. Useful for palindrome checks, anagram puzzles, log flipping (recent first), reversing sorted lists, mirror text.
+
+---
+
+## Tool: Duplicate Line Remover
+
+**URL:** https://www.notepad-ai.online/tools/duplicate-line-remover
+
+Strip duplicate lines from any list. Case-sensitive option, whitespace trim option, preserves first-occurrence order. Shows count of duplicates removed.
+
+---
+
+## Tool: Text Sorter
+
+**URL:** https://www.notepad-ai.online/tools/text-sorter
+**Target keyword:** sort text alphabetically online (~4,500/mo)
+
+Sort lines alphabetically, by length, or numerically. 8 sort modes: A→Z (case-sensitive), Z→A, A→Z case-insensitive, Z→A case-insensitive, Shortest first, Longest first, Numeric ascending, Numeric descending.
+
+---
+
+## Tool: Lorem Ipsum Generator
+
+**URL:** https://www.notepad-ai.online/tools/lorem-ipsum-generator
+**Target keyword:** lorem ipsum generator (~15,000/mo)
+
+### Quick Answer
+Lorem Ipsum is placeholder text derived from a scrambled passage of Cicero's De finibus bonorum et malorum (1st century BC). Designers and developers have used it since the 1500s to mock up layouts before final copy is ready. Notepad AI's generator lets you control paragraph count (1-20) and sentences-per-paragraph (1-15), and optionally starts with the canonical "Lorem ipsum dolor sit amet" opening.
+
+### Top FAQs
+**Q: What is Lorem Ipsum?**
+Lorem Ipsum is pseudo-Latin placeholder text. Preferred over English placeholder because its random shape doesn't distract reviewers with readable content. Also obviously fake — clearly recognizable as placeholder if accidentally left in production.
+
+---
+
+## Tool: Password Generator
+
+**URL:** https://www.notepad-ai.online/tools/password-generator
+**Target keyword:** strong password generator (~25,000/mo)
+
+### Quick Answer
+A strong password generator creates random passwords using cryptographically secure randomness. Notepad AI's generator uses the browser-native crypto.getRandomValues() API, supports passwords up to 64 characters, lets you mix character types (uppercase, lowercase, numbers, symbols), and never transmits anything off your device.
+
+### Password Strength Reference
+- 8 chars, lowercase only: ~38 bits entropy, hours to crack
+- 8 chars, mixed: ~52 bits entropy, days to crack
+- 12 chars, mixed: ~78 bits entropy, centuries to crack
+- 16 chars, mixed: ~104 bits entropy, effectively unbreakable
+- 20 chars, mixed: ~130 bits entropy, effectively unbreakable
+
+### Top FAQs
+**Q: Is this password generator secure?**
+Yes — it uses the browser's crypto.getRandomValues() API, which provides cryptographically secure random numbers. Generated passwords are never sent to any server.
+
+**Q: How long should my password be?**
+For most accounts: 16-20 characters with all character types. For high-security accounts (banking, password manager master): 24+ characters.
+
+---
+
+## Tool: Base64 Encoder & Decoder
+
+**URL:** https://www.notepad-ai.online/tools/base64-encoder-decoder
+**Target keyword:** base64 encoder decoder online (~28,000/mo)
+
+### Quick Answer
+Base64 is a binary-to-text encoding that represents data using only 64 printable ASCII characters (A-Z, a-z, 0-9, +, /). Used to embed binary data in JSON, email (MIME), URLs, and other text-only contexts. Notepad AI's encoder/decoder supports full UTF-8 (emoji, Chinese, Cyrillic), runs in your browser, and never uploads your data.
+
+### Common Use Cases
+- Data URI images in CSS / HTML (data:image/png;base64,...)
+- API tokens & keys in URL query strings
+- Email attachments (MIME encoding)
+- JWT payload inspection
+
+### Top FAQs
+**Q: Is Base64 a form of encryption?**
+No. Base64 is encoding, not encryption — anyone can decode it without a key. Don't use Base64 to hide sensitive data.
+
+**Q: Why is Base64 longer than the original text?**
+Base64 encodes every 3 bytes of input as 4 characters of output — a ~33% size increase.
+
+---
+
+## Tool: Text to Speech
+
+**URL:** https://www.notepad-ai.online/tools/text-to-speech
+**Target keyword:** text to speech online free (~12,000/mo)
+
+### Quick Answer
+Text-to-speech (TTS) converts written text into spoken audio. Notepad AI's TTS uses the browser's built-in Web Speech API — your text is synthesized on-device using OS-provided voices, so nothing is uploaded. Adjust rate (0.5x-2x) and pitch (0.5-2.0), pick from your installed voices, and listen instantly.
+
+### Top FAQs
+**Q: What voices are available?**
+Whatever voices your operating system provides. macOS, Windows, and Chrome all ship with multiple language voices.
+
+**Q: Can I download the audio?**
+Not in this version. The Web Speech API plays audio but doesn't expose it as a downloadable file.
+
+---
+
+## Blog: Best Online Notepads in 2026
+
+**URL:** https://www.notepad-ai.online/blog/best-online-notepad-2026
+A ranked comparison of free online notepads in 2026 covering Notepad AI, ProtectedText, Hyper Notepad, Smart Online Notepad, and aNotepad. Notepad AI ranks #1 for the combination of AI/NLP support, no-login access, offline mode, and local-only storage.
+
+---
+
+## Blog: Evernote Alternative — Free
+
+**URL:** https://www.notepad-ai.online/blog/evernote-alternative-free
+Why Notepad AI is a free, no-account replacement for Evernote. Evernote requires an account and the free tier has restrictions. Notepad AI is free forever with no signup, runs entirely in your browser, includes writing tools (paragraph counter, reading time, word frequency, case converter) that Evernote charges for in its premium tier.
+
+---
+
+## Blog: Google Keep Alternative
+
+**URL:** https://www.notepad-ai.online/blog/google-keep-alternative
+A browser-based notepad without a Google account requirement. Notepad AI doesn't track usage, doesn't require login, works offline, and includes list-management utilities (duplicate line remover, text sorter, line counter) that Google Keep lacks.
+
+---
+
+## Blog: Notion Alternative — Simple
+
+**URL:** https://www.notepad-ai.online/blog/notion-alternative-simple
+Notion is feature-rich but complex (workspaces, blocks, paid AI features). Notepad AI is the simplest note-taking app — just write. Free, no login, works offline.
+
+---
+
+## Blog: Note-Taking Tips
+
+**URL:** https://www.notepad-ai.online/blog/note-taking-tips
+Practical strategies for effective digital note-taking. Includes tips for using Notepad AI's built-in tools (reading time, syllable counter, word frequency, case converter) to improve note quality.
+
+---
+
+## Blog: Offline Note Taking
+
+**URL:** https://www.notepad-ai.online/blog/offline-note-taking
+How to take notes without an internet connection. Notepad AI works fully offline after first load (PWA). All built-in tools (paragraph counter, password generator, base64, text-to-speech) also work offline.
+
+---
+
+## Blog: Online Notepad for Students
+
+**URL:** https://www.notepad-ai.online/blog/online-notepad-for-students
+Free notepad with no signup — ideal for students. Built-in academic tools include paragraph counter (essay quotas), syllable counter (poetry meter), reading time (study session planning), and word frequency (catching repetitive language in essays).
+
+---
+
+## Blog: Private Notepad — No Cloud
+
+**URL:** https://www.notepad-ai.online/blog/private-notepad-no-cloud
+Why browser-local storage beats cloud sync for privacy. All Notepad AI notes stay in your browser's localStorage — never uploaded, never logged. Compared to encrypted cloud notepads, which still send data to servers (just encrypted).
+
+---
+
+## Blog: Notepad with Dark Mode
+
+**URL:** https://www.notepad-ai.online/blog/notepad-dark-mode
+Free notepad with native dark theme. Notepad AI's dark mode is free — unlike Hyper Notepad (where dark mode is premium-only as of 2026 v3.0). Late-night writing and developer workflows benefit from low-light interface.
+
+---
+
+## Blog: What is an AI Notepad?
+
+**URL:** https://www.notepad-ai.online/blog/what-is-ai-notepad
+Definitional explainer. An AI notepad is a digital notepad that uses artificial intelligence (typically NLP) to assist with writing — detecting patterns, suggesting structure, and adapting to context. Notepad AI is one such tool, with AI features running on-device for privacy.
+
+---
+
+## Blog: What is NLP Note Taking?
+
+**URL:** https://www.notepad-ai.online/blog/what-is-nlp-note-taking
+How Natural Language Processing makes note-taking smarter. NLP analyzes text patterns (vowel groups, word frequency, sentence structure) to surface insights. Same techniques power Notepad AI's syllable counter, word frequency tool, and reading time calculator.
+
+---
+
+## About Notepad AI
+
+**URL:** https://www.notepad-ai.online/about-us
+
+Notepad AI is built for users who want a fast, private, AI-assisted writing experience without the friction of signups, ads, or cloud sync. The product is free forever — no premium tier, no paywalled features.
+
+### Mission
+Make smart note-taking accessible to everyone without compromising privacy.
+
+### Privacy commitment
+- All notes stored in browser localStorage only
+- No server upload, no analytics on note content
+- No tracking cookies on user actions
+- AdSense displays generic non-personalized ads only
+
+---
+
+## Privacy & Policy
+
+**URL:** https://www.notepad-ai.online/privacy-policy
+
+Notepad AI does not collect or store user notes on any server. All note content is kept in the user's browser via localStorage. The site uses Google Analytics 4 for aggregate visitor metrics (page views, session duration) but does not link analytics to note content. Google AdSense serves ads on certain pages; these ads are generic and non-personalized.
+
+---
+
+## FAQ
+
+**URL:** https://www.notepad-ai.online/faq
+
+The FAQ page consolidates the most common questions about Notepad AI: pricing (free forever), account requirements (none), offline mode (works after first load), privacy (browser-only storage), exports (PDF and Docs), sharing (link-based with optional password), languages (EN/ES/PT/FR), and tools (22 built-in utilities).
+
+---
+
+*End of llms-full.txt. Last updated 2026-05-18 by APEX. For the curated index, see /llms.txt.*

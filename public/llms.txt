@@ -1,0 +1,90 @@
+# Notepad AI
+
+> Notepad AI is a free AI-powered online notepad that uses Natural Language Processing (NLP) to help users write, organize, and save notes intelligently. Works completely offline after initial load, requires no login or account creation, and stores all data locally in your browser for complete privacy. Available in English, Spanish, Portuguese, and French. Updated for 2026.
+
+Notepad AI ships with 22 free built-in tools (counters, case converters, text cleaners, generators, encoders) — every tool runs entirely in your browser with no signup, no upload, no tracking. All content on this site is free and accessible without an account.
+
+## Core Product
+
+- [Notepad AI — Free AI Notepad Online](https://www.notepad-ai.online/): The main notepad. AI/NLP-powered editor with autosave, offline mode, PDF/Docs export, and local-only storage. No login required.
+- [Features](https://www.notepad-ai.online/features): Full feature list — NLP-assisted writing, real-time autosave, works offline, no login, PDF/Docs export, note sharing, password protection, mobile responsive.
+- [How It Works](https://www.notepad-ai.online/how-it-works): Step-by-step guide to using Notepad AI.
+- [AI Notepad Explained](https://www.notepad-ai.online/ai-notepad): What makes Notepad AI different from a plain text editor.
+- [Mobile](https://www.notepad-ai.online/mobile): Using Notepad AI on phone and tablet.
+- [Offline Mode](https://www.notepad-ai.online/offline): How Notepad AI works without an internet connection (PWA).
+- [Text Editor](https://www.notepad-ai.online/text-editor): The text editor interface details.
+- [Share Notes](https://www.notepad-ai.online/share): Share notes with a unique link, optionally password-protected.
+- [Password Protect Notes](https://www.notepad-ai.online/password-protect): Encrypt shared notes with a password.
+- [Text to PDF](https://www.notepad-ai.online/text-to-pdf): Export notes to PDF format in-browser.
+- [Text to Docs](https://www.notepad-ai.online/text-to-docs): Export notes to Word/Docs format in-browser.
+
+## Tools — Counters (9 tools)
+
+- [Word Counter](https://www.notepad-ai.online/tools/word-counter): Count words and characters in real-time.
+- [Character Counter](https://www.notepad-ai.online/tools/character-counter): Count characters with and without spaces.
+- [Sentence Counter](https://www.notepad-ai.online/tools/sentence-counter): Count sentences detected by punctuation (.!?).
+- [Paragraph Counter](https://www.notepad-ai.online/tools/paragraph-counter): Count paragraphs using web-standard blank-line detection. Targets "free paragraph counter online" — ~9.5K monthly searches.
+- [Line Counter](https://www.notepad-ai.online/tools/line-counter): Count total lines and non-empty lines.
+- [Syllable Counter](https://www.notepad-ai.online/tools/syllable-counter): Count syllables using English vowel-group heuristic with silent-e and 'le' adjustments. Useful for poetry (haiku, sonnet), lyrics, readability checks.
+- [Reading Time Calculator](https://www.notepad-ai.online/tools/reading-time-calculator): Estimate reading time at 200 wpm baseline (Brysbaert 2019 standard).
+- [Speaking Time Calculator](https://www.notepad-ai.online/tools/speaking-time-calculator): Estimate spoken duration at 130 wpm conversational pace. For presentations, podcasts, voiceovers.
+- [Word Frequency Counter](https://www.notepad-ai.online/tools/word-frequency-counter): Top 20 most-frequent words with optional stop-word filter and CSV export.
+
+## Tools — Case Converters (5 tools)
+
+- [Text Case Converter (All-in-One)](https://www.notepad-ai.online/tools/text-case-converter): 6 case modes — UPPERCASE, lowercase, Title Case, Sentence case, aLtErNaTiNg, iNVERSE.
+- [Uppercase Converter](https://www.notepad-ai.online/tools/uppercase-converter): Convert text to ALL CAPS.
+- [Lowercase Converter](https://www.notepad-ai.online/tools/lowercase-converter): Convert text to all lowercase.
+- [Title Case Converter](https://www.notepad-ai.online/tools/title-case-converter): Capitalize the first letter of every word.
+- [Sentence Case Converter](https://www.notepad-ai.online/tools/sentence-case-converter): Capitalize only the first letter of each sentence.
+
+## Tools — Text Cleaners (5 tools)
+
+- [Remove Line Breaks](https://www.notepad-ai.online/tools/remove-line-breaks): Strip line breaks (3 modes — replace with space, remove entirely, preserve paragraph breaks).
+- [Remove Extra Spaces](https://www.notepad-ai.online/tools/remove-extra-spaces): Collapse multiple spaces/tabs into single spaces, trim line whitespace.
+- [Text Reverser](https://www.notepad-ai.online/tools/text-reverser): Reverse text by characters, words, or lines.
+- [Duplicate Line Remover](https://www.notepad-ai.online/tools/duplicate-line-remover): Strip duplicate lines with case-sensitive and trim options.
+- [Text Sorter](https://www.notepad-ai.online/tools/text-sorter): 8 sort modes — alphabetical, length, numeric, ascending and descending.
+
+## Tools — Generators & Encoders (4 tools)
+
+- [Lorem Ipsum Generator](https://www.notepad-ai.online/tools/lorem-ipsum-generator): Adjustable placeholder text generator. Configure paragraph count (1-20) and sentences per paragraph (1-15).
+- [Password Generator](https://www.notepad-ai.online/tools/password-generator): Cryptographically secure password generator using crypto.getRandomValues. Length 6-64 characters with toggleable character types and strength meter.
+- [Base64 Encoder/Decoder](https://www.notepad-ai.online/tools/base64-encoder-decoder): Encode UTF-8 text to Base64 and decode back. Full Unicode support (emoji, Chinese, Cyrillic). Browser-only — no upload.
+- [Text to Speech](https://www.notepad-ai.online/tools/text-to-speech): Read text aloud using the browser's Web Speech API. Adjustable rate and pitch, multiple voices.
+
+## Blog — Notepad AI Articles
+
+- [Best Online Notepads in 2026](https://www.notepad-ai.online/blog/best-online-notepad-2026): Comparison of top free online notepads, ranked by features and privacy.
+- [Evernote Alternative — Free](https://www.notepad-ai.online/blog/evernote-alternative-free): Why Notepad AI is a free, no-account replacement for Evernote.
+- [Google Keep Alternative](https://www.notepad-ai.online/blog/google-keep-alternative): Browser-based notepad without a Google account.
+- [Notion Alternative — Simple](https://www.notepad-ai.online/blog/notion-alternative-simple): The simplest note-taking app — no workspaces, no blocks, no signup.
+- [Note-Taking Tips](https://www.notepad-ai.online/blog/note-taking-tips): Practical strategies for effective digital note-taking.
+- [Offline Note Taking](https://www.notepad-ai.online/blog/offline-note-taking): How to take notes without an internet connection.
+- [Online Notepad for Students](https://www.notepad-ai.online/blog/online-notepad-for-students): Why students benefit from a free, no-login notepad with built-in academic tools.
+- [Private Notepad — No Cloud](https://www.notepad-ai.online/blog/private-notepad-no-cloud): Browser-local storage vs cloud sync — the privacy advantages.
+- [Notepad with Dark Mode](https://www.notepad-ai.online/blog/notepad-dark-mode): Free notepad with native dark theme.
+- [What is an AI Notepad?](https://www.notepad-ai.online/blog/what-is-ai-notepad): Definitional explainer.
+- [What is NLP Note Taking?](https://www.notepad-ai.online/blog/what-is-nlp-note-taking): How Natural Language Processing makes note-taking smarter.
+
+## Multilingual
+
+- [Notepad AI — Spanish (Español)](https://www.notepad-ai.online/es)
+- [Notepad AI — Portuguese (Português)](https://www.notepad-ai.online/pt)
+- [Notepad AI — French (Français)](https://www.notepad-ai.online/fr)
+
+## About
+
+- [About Us](https://www.notepad-ai.online/about-us)
+- [Contact](https://www.notepad-ai.online/contact)
+- [Privacy](https://www.notepad-ai.online/privacy)
+- [Privacy Policy](https://www.notepad-ai.online/privacy-policy)
+- [FAQ](https://www.notepad-ai.online/faq)
+- [Documentation](https://www.notepad-ai.online/docs)
+- [Guides](https://www.notepad-ai.online/guides)
+
+## Optional
+
+- [Full Site Content (llms-full.txt)](https://www.notepad-ai.online/llms-full.txt): Complete page content concatenated as Markdown for AI ingestion.
+- [Sitemap (XML)](https://www.notepad-ai.online/sitemap.xml)
+- [Robots.txt](https://www.notepad-ai.online/robots.txt)

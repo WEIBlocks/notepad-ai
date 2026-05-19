@@ -259,3 +259,37 @@ The comparison table is the single highest-citation-density block we can add to 
 - **GEO baseline LLM run** — saved tracker ready for user (~45 min).
 
 ---
+
+## Week of 2026-05-18 (Sprint 5 — Comparison Tables + llms.txt / llms-full.txt)
+
+### Research findings
+- **llms.txt is the emerging GEO standard** (proposed by Jeremy Howard / Answer.AI at llmstxt.org). Major sites (Anthropic, Stripe, Vercel) are adopting. AI crawlers — especially Perplexity, ClaudeBot, and Anthropic's web crawlers — check for `/llms.txt` as a primary index. `/llms-full.txt` is the full content dump for AI ingestion in a single fetch.
+- Notepad AI's robots.txt already explicitly allows GPTBot, ClaudeBot, PerplexityBot, anthropic-ai, ChatGPT-User, CCBot, etc. With llms.txt added, AI crawlers now have a curated map of the most important pages.
+
+### Changes made
+- **4 tool pages got comparison tables** (citation-magnet content per GEO Law 4):
+  - `/tools/paragraph-counter` — Notepad AI vs Grammarly Paragraph Counter, charactercounter.com, wordcounter.net, Browserling Paragraph Count, Postel. 6 columns (no signup, no upload, offline, live multi-metric, free).
+  - `/tools/password-generator` — Notepad AI vs Bitwarden, 1Password, F-Secure, StrongPasswordGenerator.org, Bitdefender. 7 columns (no signup, browser-only, crypto.getRandomValues, length to 64+, strength meter, free forever).
+  - `/tools/base64-encoder-decoder` — Notepad AI vs base64decode.org, freeformatter.com, base64.sh, 64baser.com, Jam.dev. 6 columns (no upload, UTF-8 safe, no ads, encode+decode, paired with editor).
+  - `/tools/lorem-ipsum-generator` — Notepad AI vs lipsum.com, loremipsum.io, generator.lorem-ipsum.info, loremipsum.de. 7 columns (adjustable params, browser-only, no ads, dark theme, paired with editor).
+- **NEW: `/public/llms.txt`** — curated AI-friendly index of all key pages on the site. Follows the llmstxt.org spec. Structured as: site description → core product pages → tools by category → blog posts → multilingual → about/legal → optional.
+- **NEW: `/public/llms-full.txt`** — concatenated markdown content dump (~18KB). Includes: site overview, homepage entity definition + comparison table data + 8 top FAQs, every tool page's Quick Answer + key FAQs, every blog post summary, about/privacy. Designed for single-fetch AI ingestion.
+
+### Why this is high-leverage for GEO
+1. **Comparison tables** — Perplexity and Google AI Overviews cite comparison tables more than any other content format. Now embedded on homepage + 4 highest-volume tool pages.
+2. **llms.txt + llms-full.txt** — AI crawlers from Anthropic, OpenAI, Perplexity check these files first when discovering a site. Site without llms.txt = AI crawler has to parse 22 HTML pages individually. Site with llms-full.txt = AI ingests everything in one fetch with structured markdown.
+3. Combined effect: Notepad AI is now significantly more "AI-citable" than competitors who don't have these files (none of the SERP top 10 competitors currently have llms.txt as of 2026-05-18 check).
+
+### Git
+- 7 files changed in this sprint: 4 tool pages, 2 public/ text files, this log.
+- Stacked with Sprints 3 + 4 changes (still unpushed) and Sprint 5 changes.
+
+### Skipped (next sprint candidates)
+- **WebApplicationSchema dateModified field** — direct freshness signal to Google + AI.
+- **Layout-level `<link rel="alternate" type="text/markdown" href="/llms.txt" />`** — emerging convention but not standardized; skip unless wider adoption confirmed.
+- **Add llms.txt links to robots.txt sitemap declarations** — not part of robots.txt spec but some claim it helps.
+- **Wave 5 tool ideas** — text-diff (3-8K), find-and-replace-online (3.5K), uuid-generator (12K), markdown-to-html (15K).
+- **GEO baseline LLM run** — saved tracker still ready (~45 min).
+- **GSC indexation review** — re-check in 7-14 days.
+
+---

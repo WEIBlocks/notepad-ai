@@ -77,6 +77,48 @@ export default function LoremIpsumPage() {
           </div>
         </section>
 
+        {/* Comparison Table — GEO Law 4 */}
+        <section className="mb-16">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8 text-center">Lorem Ipsum Generator Comparison (2026)</h2>
+          <p className="text-gray-400 text-center max-w-3xl mx-auto mb-6">
+            Notepad AI vs popular lorem ipsum generators. Updated 2026.
+          </p>
+          <div className="overflow-x-auto bg-[#1A1A1A] rounded-2xl border border-gray-800/50">
+            <table className="w-full border-collapse text-sm">
+              <thead>
+                <tr className="bg-gradient-to-r from-blue-900/30 to-purple-900/30">
+                  <th className="p-4 text-left text-gray-300 border-b border-gray-800 font-semibold">Generator</th>
+                  <th className="p-4 text-center text-gray-300 border-b border-gray-800 font-semibold">Adjustable Paragraphs</th>
+                  <th className="p-4 text-center text-gray-300 border-b border-gray-800 font-semibold">Adjustable Sentences</th>
+                  <th className="p-4 text-center text-gray-300 border-b border-gray-800 font-semibold">Browser-Only</th>
+                  <th className="p-4 text-center text-gray-300 border-b border-gray-800 font-semibold">No Ads</th>
+                  <th className="p-4 text-center text-gray-300 border-b border-gray-800 font-semibold">Dark Theme</th>
+                  <th className="p-4 text-center text-gray-300 border-b border-gray-800 font-semibold">Paired with Editor</th>
+                </tr>
+              </thead>
+              <tbody className="text-gray-300">
+                {[
+                  ["Notepad AI Lorem Ipsum", "✅ 1-20", "✅ 1-15", "✅", "✅", "✅", "✅"],
+                  ["lipsum.com (original)", "✅", "❌ Words only", "✅", "❌", "❌", "❌"],
+                  ["loremipsum.io", "✅", "❌", "✅", "❌ Ads", "❌", "❌"],
+                  ["generator.lorem-ipsum.info", "✅", "✅", "✅", "❌ Ads", "❌", "❌"],
+                  ["loremipsum.de", "✅", "❌", "✅", "❌ Ads", "❌", "❌"],
+                ].map((row, i) => (
+                  <tr key={i} className={`hover:bg-[#0f0f0f] ${i === 0 ? "bg-blue-900/10" : ""}`}>
+                    <td className={`p-4 border-b border-gray-800/50 font-medium ${i === 0 ? "text-white" : "text-gray-300"}`}>{row[0]}</td>
+                    {row.slice(1).map((cell, j) => (
+                      <td key={j} className="p-4 text-center border-b border-gray-800/50 text-sm">{cell}</td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-xs text-gray-500 text-center mt-4">
+            Comparison last verified 2026-05-18.
+          </p>
+        </section>
+
         <section className="mb-16">
           <h2 className="text-2xl font-bold text-white mb-6">Related Tools</h2>
           <div className="grid sm:grid-cols-3 gap-4">
