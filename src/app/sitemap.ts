@@ -126,6 +126,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 		{ url: `${baseUrl}/tools/base64-encoder-decoder`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
 		{ url: `${baseUrl}/tools/text-to-speech`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
 
+		// Wave 5 — Developer & Text Utilities (4 pages)
+		{ url: `${baseUrl}/tools/uuid-generator`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+		{ url: `${baseUrl}/tools/find-and-replace`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+		{ url: `${baseUrl}/tools/text-diff`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+		{ url: `${baseUrl}/tools/markdown-to-html`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+
 		// Resources
 		{
 			url: `${baseUrl}/guides`,

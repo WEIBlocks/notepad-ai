@@ -37,6 +37,8 @@ export const WebApplicationSchema = () => {
     ],
     "screenshot": "https://www.notepad-ai.online/og-image.png",
     "softwareVersion": "2.0",
+    "datePublished": "2026-01-01",
+    "dateModified": "2026-05-18",
     "author": {
       "@type": "Organization",
       "name": "Notepad AI",

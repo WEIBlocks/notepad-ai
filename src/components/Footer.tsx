@@ -33,12 +33,16 @@ export default function Footer() {
     { name: 'Text Reverser', href: '/tools/text-reverser' },
     { name: 'Duplicate Line Remover', href: '/tools/duplicate-line-remover' },
     { name: 'Text Sorter', href: '/tools/text-sorter' },
+    { name: 'Find & Replace', href: '/tools/find-and-replace' },
+    { name: 'Text Diff Checker', href: '/tools/text-diff' },
   ];
 
   const toolsGenerateLinks = [
     { name: 'Lorem Ipsum', href: '/tools/lorem-ipsum-generator' },
     { name: 'Password Generator', href: '/tools/password-generator' },
     { name: 'Base64 Encode/Decode', href: '/tools/base64-encoder-decoder' },
+    { name: 'UUID Generator', href: '/tools/uuid-generator' },
+    { name: 'Markdown to HTML', href: '/tools/markdown-to-html' },
     { name: 'Text to Speech', href: '/tools/text-to-speech' },
     { name: 'Text to PDF', href: '/text-to-pdf' },
     { name: 'Text to Docs', href: '/text-to-docs' },

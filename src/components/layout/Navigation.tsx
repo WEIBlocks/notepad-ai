@@ -45,6 +45,8 @@ const toolCategories = [
 			{ href: "/tools/text-reverser", label: "Text Reverser" },
 			{ href: "/tools/duplicate-line-remover", label: "Duplicate Line Remover" },
 			{ href: "/tools/text-sorter", label: "Text Sorter" },
+			{ href: "/tools/find-and-replace", label: "Find & Replace" },
+			{ href: "/tools/text-diff", label: "Text Diff Checker" },
 		],
 	},
 	{
@@ -54,6 +56,8 @@ const toolCategories = [
 			{ href: "/tools/password-generator", label: "Password Generator" },
 			{ href: "/tools/base64-encoder-decoder", label: "Base64 Encode/Decode" },
 			{ href: "/tools/text-to-speech", label: "Text to Speech" },
+			{ href: "/tools/uuid-generator", label: "UUID Generator" },
+			{ href: "/tools/markdown-to-html", label: "Markdown to HTML" },
 		],
 	},
 ];

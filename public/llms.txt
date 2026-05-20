@@ -52,6 +52,13 @@ Notepad AI ships with 22 free built-in tools (counters, case converters, text cl
 - [Password Generator](https://www.notepad-ai.online/tools/password-generator): Cryptographically secure password generator using crypto.getRandomValues. Length 6-64 characters with toggleable character types and strength meter.
 - [Base64 Encoder/Decoder](https://www.notepad-ai.online/tools/base64-encoder-decoder): Encode UTF-8 text to Base64 and decode back. Full Unicode support (emoji, Chinese, Cyrillic). Browser-only — no upload.
 - [Text to Speech](https://www.notepad-ai.online/tools/text-to-speech): Read text aloud using the browser's Web Speech API. Adjustable rate and pitch, multiple voices.
+- [UUID Generator](https://www.notepad-ai.online/tools/uuid-generator): Generate up to 100 cryptographically random UUID v4 identifiers using crypto.randomUUID(). Uppercase and no-hyphen options.
+- [Markdown to HTML Converter](https://www.notepad-ai.online/tools/markdown-to-html): Convert Markdown to clean semantic HTML — headings, bold, italic, links, lists, code blocks. Browser-only.
+
+## Tools — Developer & Text Utilities
+
+- [Find and Replace](https://www.notepad-ai.online/tools/find-and-replace): Find and replace text with case-sensitive and regex options, live match counts, capture-group support.
+- [Text Diff Checker](https://www.notepad-ai.online/tools/text-diff): Compare two texts line-by-line using an LCS algorithm. Added lines highlighted green, removed lines red. Browser-only — safe for sensitive documents.
 
 ## Blog — Notepad AI Articles
 

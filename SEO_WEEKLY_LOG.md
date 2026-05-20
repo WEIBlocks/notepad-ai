@@ -285,11 +285,33 @@ The comparison table is the single highest-citation-density block we can add to 
 - Stacked with Sprints 3 + 4 changes (still unpushed) and Sprint 5 changes.
 
 ### Skipped (next sprint candidates)
-- **WebApplicationSchema dateModified field** — direct freshness signal to Google + AI.
 - **Layout-level `<link rel="alternate" type="text/markdown" href="/llms.txt" />`** — emerging convention but not standardized; skip unless wider adoption confirmed.
-- **Add llms.txt links to robots.txt sitemap declarations** — not part of robots.txt spec but some claim it helps.
-- **Wave 5 tool ideas** — text-diff (3-8K), find-and-replace-online (3.5K), uuid-generator (12K), markdown-to-html (15K).
 - **GEO baseline LLM run** — saved tracker still ready (~45 min).
 - **GSC indexation review** — re-check in 7-14 days.
+
+---
+
+## Week of 2026-05-18 (Sprint 6 — Wave 5 Tools + Schema Freshness)
+
+### Changes made
+- **4 new tool pages built** (aggregate ~38K/mo addressable volume):
+  - `/tools/uuid-generator` (12K/mo) — UUID v4 generator using crypto.randomUUID(). Config: count 1-100, uppercase toggle, hyphen toggle. Widget: UuidGeneratorTool.
+  - `/tools/find-and-replace` (3.5K/mo) — find & replace with case-sensitive + regex modes, live match count, capture-group support. Widget: FindAndReplaceTool.
+  - `/tools/text-diff` (3-8K/mo) — line-by-line diff using LCS algorithm, green/red highlighting, add/remove counts. Widget: TextDiffTool.
+  - `/tools/markdown-to-html` (15K/mo) — Markdown → HTML converter. Widget: MarkdownToHtmlTool + markdownToHtml.ts helper (handles headings, bold, italic, inline code, fenced code blocks, links, images, lists, blockquotes, hr). HTML-escaped output.
+- **Wired into all discovery surfaces:** sitemap.ts (4 URLs, priority 0.9), Navigation dropdown (Text Cleaners gets find-replace + text-diff; Generators gets uuid + markdown-to-html), Footer (Convert&Clean + Generate columns), llms.txt (new "Developer & Text Utilities" section + 2 added to Generators).
+- **WebApplicationSchema freshness:** added `datePublished: 2026-01-01` and `dateModified: 2026-05-18` to the sitewide schema in SchemaMarkup.tsx. Renders on every page via root layout — explicit freshness signal to Google + AI engines.
+
+### Tool count
+Site now has **26 tool pages** (3 original + 19 Wave 1-4 + 4 Wave 5). Total addressable tool-page volume: ~203K/mo.
+
+### Git
+- ~12 files changed: 5 widgets, 4 pages, sitemap, Navigation, Footer, SchemaMarkup, llms.txt.
+
+### Skipped (next sprint candidates)
+- **Multilingual tool mirroring** — top 5 highest-volume tools (base64, password, lorem, markdown-to-html, text-to-speech) to /es, /pt, /fr. ~80-130K/mo additional addressable. Requires translated content.
+- **GEO baseline LLM run** — user (~45 min).
+- **GSC indexation review** — 7-14 days out.
+- **Two-way internal linking** — tool pages currently link to blog posts via "Related Tools"; could add explicit blog cross-links from tool pages.
 
 ---
