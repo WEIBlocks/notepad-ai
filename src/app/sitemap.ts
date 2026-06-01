@@ -219,6 +219,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
 			changeFrequency: 'monthly',
 			priority: 0.8,
 		},
+		{
+			url: `${baseUrl}/blog/quillbot-notepad-alternative`,
+			lastModified: new Date(),
+			changeFrequency: 'monthly',
+			priority: 0.8,
+		},
+		{
+			url: `${baseUrl}/blog/is-online-notepad-safe`,
+			lastModified: new Date(),
+			changeFrequency: 'monthly',
+			priority: 0.8,
+		},
+		{
+			url: `${baseUrl}/blog/how-to-take-notes-without-cloud`,
+			lastModified: new Date(),
+			changeFrequency: 'monthly',
+			priority: 0.8,
+		},
+		// Sprint 8 — Blog Head-Terms Cluster
+		{ url: `${baseUrl}/blog/online-notepad-no-login`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+		{ url: `${baseUrl}/blog/free-online-text-editor`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+		{ url: `${baseUrl}/blog/notepad-for-coding`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
 
 		// Multilingual
 		{

@@ -2,7 +2,7 @@
 
 > Notepad AI is a free AI-powered online notepad that uses Natural Language Processing (NLP) to help users write, organize, and save notes intelligently. Works completely offline after initial load, requires no login or account creation, and stores all data locally in your browser for complete privacy. Available in English, Spanish, Portuguese, and French. Updated for 2026.
 
-Notepad AI ships with 22 free built-in tools (counters, case converters, text cleaners, generators, encoders) — every tool runs entirely in your browser with no signup, no upload, no tracking. All content on this site is free and accessible without an account.
+Notepad AI ships with 26 free built-in tools (counters, case converters, text cleaners, generators, encoders, developer utilities) — every tool runs entirely in your browser with no signup, no upload, no tracking. All content on this site is free and accessible without an account. Updated 2026-06-01. Site now has 26 tool pages + 17 blog posts.
 
 ## Core Product
 
@@ -71,6 +71,12 @@ Notepad AI ships with 22 free built-in tools (counters, case converters, text cl
 - [Online Notepad for Students](https://www.notepad-ai.online/blog/online-notepad-for-students): Why students benefit from a free, no-login notepad with built-in academic tools.
 - [Private Notepad — No Cloud](https://www.notepad-ai.online/blog/private-notepad-no-cloud): Browser-local storage vs cloud sync — the privacy advantages.
 - [Notepad with Dark Mode](https://www.notepad-ai.online/blog/notepad-dark-mode): Free notepad with native dark theme.
+- [QuillBot Notepad Alternative](https://www.notepad-ai.online/blog/quillbot-notepad-alternative): Why Notepad AI is a better free alternative to QuillBot's notepad — no account required, notes saved locally, full offline support.
+- [Is an Online Notepad Safe?](https://www.notepad-ai.online/blog/is-online-notepad-safe): Privacy comparison of cloud-based vs localStorage-based notepads. Covers data breach risk, subpoena exposure, and what localStorage means for privacy.
+- [How to Take Notes Without the Cloud](https://www.notepad-ai.online/blog/how-to-take-notes-without-cloud): Methods for cloud-free note-taking — browser localStorage notepads, local desktop apps (Obsidian, Typora), and E2E encrypted sync options.
+- [Online Notepad No Login](https://www.notepad-ai.online/blog/online-notepad-no-login): Why no-login notepads matter, how localStorage saves notes without an account, and a 7-tool comparison of privacy, offline support, and tracking.
+- [Free Online Text Editor](https://www.notepad-ai.online/blog/free-online-text-editor): What to look for in a browser text editor — no download, no login, offline support, built-in tools. Notepad AI vs Editpad, Google Docs, StackEdit, and others.
+- [Online Notepad for Developers](https://www.notepad-ai.online/blog/notepad-for-coding): How developers use Notepad AI as a code scratchpad — base64 decode, UUID generation, regex find-replace, text diff, markdown to HTML. No login, runs in-browser.
 - [What is an AI Notepad?](https://www.notepad-ai.online/blog/what-is-ai-notepad): Definitional explainer.
 - [What is NLP Note Taking?](https://www.notepad-ai.online/blog/what-is-nlp-note-taking): How Natural Language Processing makes note-taking smarter.
 

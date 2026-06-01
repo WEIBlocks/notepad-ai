@@ -315,3 +315,99 @@ Site now has **26 tool pages** (3 original + 19 Wave 1-4 + 4 Wave 5). Total addr
 - **Two-way internal linking** — tool pages currently link to blog posts via "Related Tools"; could add explicit blog cross-links from tool pages.
 
 ---
+
+## Week of 2026-05-25 (Sprint 7 — Blog Content Cluster: QuillBot + Privacy + Cloud-Free)
+
+### Sprint decision
+Programmatic burst is complete (26 tool pages, ~203K/mo aggregate). This sprint shifts focus to the content cluster — three blog posts that have been queued for 3+ sprints, targeting competitor, privacy, and cloud-free note-taking queries. Combined est. volume: ~8K/mo with high conversion intent.
+
+### Research findings
+- **`quillbot-notepad-alternative`** has been queued since Sprint 1 (April 13) and repeatedly skipped. With QuillBot consistently identified as the #1 AI notepad competitor, this post directly intercepts users considering QuillBot's notepad. Key differentiator: QuillBot notepad requires an account to save notes — Notepad AI never does. This is the most differentiated fact in the comparison.
+- **`is-online-notepad-safe`** (2.1K/mo) — privacy/trust content. Targeting users evaluating whether to use an online notepad for sensitive writing. localStorage architecture is Notepad AI's clearest competitive advantage vs cloud-based tools. The post includes a 7-row privacy risk matrix that is AI-citation-ready.
+- **`how-to-take-notes-without-cloud`** (3.1K/mo) — cloud-free positioning. Targets users actively seeking offline-first alternatives. Notepad AI is the simplest option (no setup, just open browser) compared to Obsidian/Typora (require download). Post covers all three methods with comparison table.
+- **GEO signal:** All three posts contain comparison tables and Quick Answer blocks — both high-citation formats for AI engines (Perplexity, Google AI Overviews).
+
+### Changes made
+- `src/app/blog/quillbot-notepad-alternative/page.tsx` — **NEW.** ~1,400 words. Targets "quillbot notepad alternative" (est. 2.8K/mo). Sections: Quick Answer (GEO), Why QuillBot Frustrates Users (4 pain points), What Notepad AI Does Differently, 13-row feature comparison table (including account req, note persistence, cloud sync, offline, tracking), Who Should Switch (5 personas), How to Switch (4 steps), 7 FAQs, free tools grid, internal links to evernote-alternative, notepad-dark-mode, private-notepad-no-cloud, best-online-notepad-2026.
+- `src/app/blog/is-online-notepad-safe/page.tsx` — **NEW.** ~1,500 words. Targets "is online notepad safe" (est. 2.1K/mo). Sections: Quick Answer, Two Types of Online Notepads (cloud vs localStorage side-by-side), What Is localStorage, 7-row Privacy Risk Matrix (Notepad AI 🟢, Keep/Evernote/Notion/QuillBot 🟡), Why Notepad AI Is Private, Tips for Safer Note-Taking (5 tips), 7 FAQs, related tools grid, internal links to private-notepad-no-cloud, quillbot-notepad-alternative, offline-note-taking.
+- `src/app/blog/how-to-take-notes-without-cloud/page.tsx` — **NEW.** ~1,600 words. Targets "how to take notes without cloud" (est. 3.1K/mo). Sections: Quick Answer, Why People Avoid the Cloud (6 reasons), Method 1 (localStorage browser notepad — 4 steps), Method 2 (desktop apps: Obsidian, Typora, Logseq), Method 3 (E2E encrypted: Standard Notes), 5-row comparison table, Limitations to know (3 warnings), 7 FAQs, related tools grid, internal links to private-notepad-no-cloud, is-online-notepad-safe, offline-note-taking.
+- `src/app/sitemap.ts` — Added 3 new blog post entries (priority 0.8, monthly changefreq).
+- `public/llms.txt` — Added 3 new blog entries with summaries. Updated tool count to 26. Added 2026-05-25 date.
+- `public/llms-full.txt` — Added 3 new blog sections (Quick Answer + key fact each). Updated header to 26 tools + 14 blogs + 2026-05-25 date.
+
+### New pages created
+- `/blog/quillbot-notepad-alternative` — target keyword: "quillbot notepad alternative", est. volume: 2.8K/mo
+- `/blog/is-online-notepad-safe` — target keyword: "is online notepad safe", est. volume: 2.1K/mo
+- `/blog/how-to-take-notes-without-cloud` — target keyword: "how to take notes without cloud", est. volume: 3.1K/mo
+
+Total blog posts: **14** (was 11).
+Combined new addressable volume from this sprint: **~8K/mo**.
+
+### Git
+- **6 files written:** 3 new page.tsx files + sitemap.ts + llms.txt + llms-full.txt
+- **Git commit BLOCKED** — stale `.git/index.lock` file from previous automated run cannot be removed from sandbox (Operation not permitted on mounted FUSE filesystem). Same recurring issue.
+- **USER ACTION REQUIRED.** Push via:
+  ```bash
+  bash /Users/usamalatif/Desktop/SEO\ Agents/weekly-push.sh "APEX sprint 7 — blog cluster (quillbot-alternative, is-notepad-safe, no-cloud notes) + llms update"
+  ```
+  This script automatically clears the lock file and commits + pushes.
+
+### Skipped (next sprint candidates)
+- **Multilingual tool mirroring** — top 5 highest-volume tools (base64, password, lorem, markdown-to-html, text-to-speech) to /es, /pt, /fr. Aggregate ~80-130K/mo additional addressable volume. This is the single largest remaining opportunity.
+- **GEO citation baseline run** — 20-query check across Perplexity / ChatGPT / Claude / Gemini. Tracker saved at `notepad-ai-geo-baseline-2026-05-18.md`. User runs manually (~45 min).
+- **GSC indexation review** — Check how many of the 26 tool pages + new blog posts got indexed. Use URL Inspection → Request Indexing for any stuck pages. Sprint 6 tools (uuid, find-replace, text-diff, markdown-to-html) haven't been pushed yet — still pending A7.
+- **Two-way tool→blog internal linking** — Tool pages link to other tools but not to relevant blog posts. A future sprint could add "Related Reading" sections to high-traffic tool pages.
+- **`/blog/online-notepad-no-login`** — broad head-term blog post directly targeting the main product niche. Highest-value blog post not yet written. (**COMPLETED in Sprint 8**)
+
+---
+
+## Week of 2026-06-01 (Sprint 8 — Blog Head-Terms Cluster)
+
+### Sprint decision
+Programmatic burst complete (26 tools). Sprint 7 blog posts (quillbot-alternative, is-notepad-safe, no-cloud notes) are written and staged — still pending the user's A8 push. This sprint continues the blog content buildout with three posts targeting the primary product-niche head terms that were repeatedly skipped. `/blog/online-notepad-no-login` was explicitly flagged as "highest-value blog post not yet written" in Sprint 7 skipped items. Combined est. volume: ~15-20K/mo.
+
+### Research findings
+- **SERP check (2026-06-01):** notepad-ai.online only shows 3 pages indexed in Google (homepage, /features, /mobile) — all tool pages and blog posts from Sprints 3-7 are still unindexed because they haven't been pushed. A8 push is the single most important unblocked action.
+- **"online notepad no login" SERP** dominated by hypernotepad, anotepad, protectedtext, onlinenotepad.net — no Notepad AI blog content appearing. This is a top-priority content gap.
+- **"free online text editor" SERP** — onlinenotepad.net has a dedicated `/online-text-editor/` page ranking well. Opportunity for Notepad AI to compete in this adjacent "text editor" query space (different intent from "notepad").
+- **Developer scratchpad queries** — no content yet. Our Wave 5 tools (base64, UUID, find-replace, text-diff, markdown-to-html) are exactly the dev micro-tasks these queries target. A developer-focused blog post creates a content→tool funnel for the highest-volume dev tools.
+- **PAA signals gathered:** "What is the best online notepad with no login?", "Can I use an online notepad without signing up?", "Can I use an online text editor for coding?", "What is the difference between an online notepad and a word processor?" — all addressed in the 3 new posts.
+
+### Changes made
+- `src/app/blog/online-notepad-no-login/page.tsx` — **NEW.** ~1,500 words. Targets "online notepad no login" and variants. Sections: Quick Answer (GEO), Why No-Login Matters (4 pain points), How localStorage Works (step-by-step), 7-tool Comparison Table (Notepad AI vs Hyper Notepad/aNotepad/ProtectedText/Google Keep/Notion/QuillBot — covers login, storage, offline, tracking, built-in tools), Who Benefits Most (6 persona cards), How to Use (5 steps), 8 FAQs, free tools grid (9 tools), related reading (4 posts). Internal links to /blog/private-notepad-no-cloud, /blog/is-online-notepad-safe, /blog/how-to-take-notes-without-cloud, /blog/quillbot-notepad-alternative.
+- `src/app/blog/free-online-text-editor/page.tsx` — **NEW.** ~1,400 words. Targets "free online text editor" / "online text editor no download" (est. ~5-8K/mo). Sections: Quick Answer, What Is a Free Online Text Editor, What to Look For (6 feature cards), 7-tool Comparison Table (Notepad AI vs Editpad/OnlineNotepad.net/Google Docs/VS Code web/StackEdit/Calmly Writer — covers download, login, offline, tools, markdown, dark theme), Full 26-tool inventory organized in 3 columns (Counters/Converters/Generators), How to Use (5 steps), 8 FAQs, related tools grid (9 tools), related reading (4 posts). Schema: BreadcrumbSchema + FAQSchema.
+- `src/app/blog/notepad-for-coding/page.tsx` — **NEW.** ~1,700 words. Targets "online notepad for developers" / "code scratchpad online" (est. ~3-5K/mo). Unique developer-audience angle. Sections: Quick Answer, Developer Scratchpad Problem, 8 Dev-Useful Tools (Base64/UUID/Find-Replace/Text-Diff/Markdown-to-HTML/Text-Sorter/Duplicate-Line-Remover/Lorem-Ipsum — each with use case + technical detail), Comparison Table (Notepad AI vs CodePen/Replit/Pastebin/CyberChef/VS Code browser — type, login, install, dev utilities, offline, free), 4 Developer Workflows (step-by-step: paste→decode, generate test data, diff configs, bulk transform), 8 FAQs, tool grid (8 tools), related reading.
+- `src/app/sitemap.ts` — Added 3 new blog entries (online-notepad-no-login priority 0.9; free-online-text-editor + notepad-for-coding priority 0.8, monthly changefreq).
+- `public/llms.txt` — Added 3 new blog entries with summaries. Updated tool count to 26 tools + 17 blogs. Updated date to 2026-06-01.
+- `public/llms-full.txt` — Added 3 new blog sections (Quick Answer + key fact each). Updated header to 26 tools + 17 blogs + 2026-06-01 date.
+
+### New pages created
+- `/blog/online-notepad-no-login` — target keyword: "online notepad no login", est. volume: ~6-10K/mo
+- `/blog/free-online-text-editor` — target keyword: "free online text editor", est. volume: ~5-8K/mo
+- `/blog/notepad-for-coding` — target keyword: "online notepad for developers / code scratchpad online", est. volume: ~3-5K/mo
+
+Total blog posts: **17** (was 14 staged/unstaged).
+Combined new addressable volume from this sprint: **~14-23K/mo**.
+
+### Note on push status
+Sprint 7 blog posts (quillbot-alternative, is-online-notepad-safe, how-to-take-notes-without-cloud) remain untracked in git — same as previous sprint. Sprint 8 posts are also untracked. All 6 blog posts from Sprints 7+8 plus the sitemap/llms changes are ready to be committed and pushed via A8 push script. They will stack naturally.
+
+### Git
+- **6 new untracked files:** sprint 7's 3 posts + sprint 8's 3 posts (all in src/app/blog/)
+- **4 modified tracked files:** SEO_WEEKLY_LOG.md, public/llms.txt, public/llms-full.txt, src/app/sitemap.ts
+- **Git commit BLOCKED** — no node_modules in sandbox, stale lock files may exist. User must push via weekly-push.sh (same script as A8).
+- **USER ACTION REQUIRED.** Push via:
+  ```bash
+  bash /Users/usamalatif/Desktop/SEO\ Agents/weekly-push.sh "APEX sprint 8 — blog head-terms cluster (online-notepad-no-login, free-text-editor, notepad-for-coding)"
+  ```
+  This script clears lock files, commits all staged/untracked changes, and pushes.
+
+### Skipped (next sprint candidates)
+- **Multilingual tool mirroring** — /es, /pt, /fr for top 5 tools. Still the single largest remaining volume opportunity (~80-130K/mo). Ready to scope as a sprint if user confirms translated content is acceptable via AI generation.
+- **GEO citation baseline run** — user task, ~45 min, tracker at `notepad-ai-geo-baseline-2026-05-18.md`.
+- **GSC indexation review** — check coverage for all 26 tool pages. None are indexed yet because A8 push is pending.
+- **Two-way tool→blog internal linking** — add "Related Reading" sections to high-traffic tool pages linking back to relevant blog posts.
+- **`/blog/best-notepad-app-for-writing`** — writing audience, competes with Google Keep/Notion/Apple Notes roundups.
+- **`/blog/online-notepad-for-work`** — work/productivity angle, different from student and developer posts.
+
+---
