@@ -84,7 +84,7 @@ export default function AIActions({ getSelectionOrAll, applyResult }: AIActionsP
       if (!res.ok) {
         throw new Error(data?.error || "AI request failed");
       }
-      if (typeof data.remaining === "number" && typeof data.limit === "number") {
+      if (typeof data.remaining === "number" && data.remaining >= 0 && typeof data.limit === "number") {
         setDailyStatus({ remaining: data.remaining, limit: data.limit });
       }
       if (data.result.trim() === selection.text.trim()) {
