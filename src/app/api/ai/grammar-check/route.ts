@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import OpenAI from 'openai';
+import { checkAndIncrementAIUsage, getClientIp } from '@/utils/aiRateLimit';
 
 // Keep requests small and cheap. Users pick a passage (or we use the whole
 // note if nothing is selected) — this cap keeps a single request affordable
@@ -25,6 +26,15 @@ export async function POST(req: Request) {
       return NextResponse.json(
         { error: `That's too long for AI Check (max ${MAX_CHARS} characters). Select a shorter passage.` },
         { status: 400 }
+      );
+    }
+
+    const ip = getClientIp(req);
+    const usage = await checkAndIncrementAIUsage(ip);
+    if (!usage.allowed) {
+      return NextResponse.json(
+        { error: `Daily AI limit reached (${usage.limit}/day). Try again tomorrow.` },
+        { status: 429 }
       );
     }
 
@@ -54,7 +64,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'AI returned an empty response, try again.' }, { status: 502 });
     }
 
-    return NextResponse.json({ result });
+    return NextResponse.json({ result, remaining: usage.remaining, limit: usage.limit });
   } catch (error) {
     console.error('Error in /api/ai/grammar-check:', error);
     return NextResponse.json({ error: 'Failed to check grammar. Try again in a moment.' }, { status: 500 });

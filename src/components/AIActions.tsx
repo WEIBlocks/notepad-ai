@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom";
 import { toast } from "react-hot-toast";
 import { SparklesIcon, XMarkIcon } from "@heroicons/react/24/outline";
@@ -17,10 +17,19 @@ interface AIActionsProps {
 type PendingAction = "grammar" | "rewrite";
 type Tone = "formal" | "casual" | "concise";
 
+// Client-side cooldown between requests, so a mis-click or impatient double-tap
+// can't fire a second request while the first is barely underway. The real cap
+// (a fixed number of AI actions per IP per day) is enforced server-side in the
+// API routes — this is just a UX guard, not the actual limit.
+const COOLDOWN_MS = 4000;
+
 export default function AIActions({ getSelectionOrAll, applyResult }: AIActionsProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [loading, setLoading] = useState<PendingAction | null>(null);
   const [tone, setTone] = useState<Tone>("concise");
+  const [cooldownMsLeft, setCooldownMsLeft] = useState(0);
+  const [dailyStatus, setDailyStatus] = useState<{ remaining: number; limit: number } | null>(null);
+  const cooldownEndRef = useRef(0);
   const [preview, setPreview] = useState<{
     action: PendingAction;
     original: string;
@@ -29,7 +38,26 @@ export default function AIActions({ getSelectionOrAll, applyResult }: AIActionsP
     length: number;
   } | null>(null);
 
+  // Tick the cooldown display down once a second while it's active.
+  useEffect(() => {
+    if (cooldownMsLeft <= 0) return;
+    const id = setInterval(() => {
+      const left = cooldownEndRef.current - Date.now();
+      setCooldownMsLeft(left > 0 ? left : 0);
+    }, 250);
+    return () => clearInterval(id);
+  }, [cooldownMsLeft > 0]);
+
+  function startCooldown() {
+    cooldownEndRef.current = Date.now() + COOLDOWN_MS;
+    setCooldownMsLeft(COOLDOWN_MS);
+  }
+
+  const onCooldown = cooldownMsLeft > 0;
+  const disabled = loading !== null || onCooldown;
+
   async function runAction(action: PendingAction) {
+    if (disabled) return;
     const selection = getSelectionOrAll();
     setMenuOpen(false);
 
@@ -56,6 +84,9 @@ export default function AIActions({ getSelectionOrAll, applyResult }: AIActionsP
       if (!res.ok) {
         throw new Error(data?.error || "AI request failed");
       }
+      if (typeof data.remaining === "number" && typeof data.limit === "number") {
+        setDailyStatus({ remaining: data.remaining, limit: data.limit });
+      }
       if (data.result.trim() === selection.text.trim()) {
         toast.success(action === "grammar" ? "No issues found — looks good!" : "Nothing to change.");
         return;
@@ -71,6 +102,7 @@ export default function AIActions({ getSelectionOrAll, applyResult }: AIActionsP
       toast.error(e instanceof Error ? e.message : "Something went wrong");
     } finally {
       setLoading(null);
+      startCooldown();
     }
   }
 
@@ -85,7 +117,7 @@ export default function AIActions({ getSelectionOrAll, applyResult }: AIActionsP
     <div className="relative">
       <button
         onClick={() => setMenuOpen((v) => !v)}
-        disabled={loading !== null}
+        disabled={disabled}
         className="p-1 sm:p-2 md:p-3 hover:bg-[#151823] rounded-lg transition-colors text-gray-300 hover:text-blue-400 disabled:opacity-50 flex items-center gap-1"
         title="AI Actions"
       >
@@ -94,6 +126,9 @@ export default function AIActions({ getSelectionOrAll, applyResult }: AIActionsP
           <span className="hidden sm:inline text-xs text-gray-400">
             {loading === "grammar" ? "Checking…" : "Rewriting…"}
           </span>
+        )}
+        {!loading && onCooldown && (
+          <span className="hidden sm:inline text-xs text-gray-500">{Math.ceil(cooldownMsLeft / 1000)}s</span>
         )}
       </button>
 
@@ -104,9 +139,15 @@ export default function AIActions({ getSelectionOrAll, applyResult }: AIActionsP
             <p className="text-xs text-gray-400 mb-3">
               Uses OpenAI on the selected text (or the whole note if nothing's selected). Nothing is sent unless you tap a button below.
             </p>
+            {dailyStatus && (
+              <p className="text-xs text-gray-500 mb-3">
+                {dailyStatus.remaining} of {dailyStatus.limit} AI actions left today
+              </p>
+            )}
             <button
               onClick={() => runAction("grammar")}
-              className="w-full text-left px-3 py-2 rounded-md text-sm text-gray-200 hover:bg-[#151823] hover:text-blue-400 transition-colors mb-1"
+              disabled={disabled}
+              className="w-full text-left px-3 py-2 rounded-md text-sm text-gray-200 hover:bg-[#151823] hover:text-blue-400 transition-colors mb-1 disabled:opacity-50 disabled:hover:bg-transparent disabled:hover:text-gray-200"
             >
               Check grammar &amp; spelling
             </button>
@@ -129,7 +170,8 @@ export default function AIActions({ getSelectionOrAll, applyResult }: AIActionsP
             </div>
             <button
               onClick={() => runAction("rewrite")}
-              className="w-full text-left px-3 py-2 rounded-md text-sm text-gray-200 hover:bg-[#151823] hover:text-blue-400 transition-colors"
+              disabled={disabled}
+              className="w-full text-left px-3 py-2 rounded-md text-sm text-gray-200 hover:bg-[#151823] hover:text-blue-400 transition-colors disabled:opacity-50 disabled:hover:bg-transparent disabled:hover:text-gray-200"
             >
               Rewrite ({tone})
             </button>

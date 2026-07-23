@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import OpenAI from 'openai';
+import { checkAndIncrementAIUsage, getClientIp } from '@/utils/aiRateLimit';
 
 const MAX_CHARS = 6000;
 
@@ -39,6 +40,15 @@ export async function POST(req: Request) {
       );
     }
 
+    const ip = getClientIp(req);
+    const usage = await checkAndIncrementAIUsage(ip);
+    if (!usage.allowed) {
+      return NextResponse.json(
+        { error: `Daily AI limit reached (${usage.limit}/day). Try again tomorrow.` },
+        { status: 429 }
+      );
+    }
+
     const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
     const model = process.env.OPENAI_MODEL || 'gpt-5-nano';
 
@@ -61,7 +71,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'AI returned an empty response, try again.' }, { status: 502 });
     }
 
-    return NextResponse.json({ result });
+    return NextResponse.json({ result, remaining: usage.remaining, limit: usage.limit });
   } catch (error) {
     console.error('Error in /api/ai/rewrite:', error);
     return NextResponse.json({ error: 'Failed to rewrite text. Try again in a moment.' }, { status: 500 });
