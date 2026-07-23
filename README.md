@@ -98,6 +98,10 @@ AWS_SECRET_ACCESS_KEY=your_aws_secret_key
 AWS_REGION=your_aws_region
 NEXTAUTH_SECRET=your_nextauth_secret
 NEXTAUTH_URL=http://localhost:3000
+
+# AI Actions (grammar check + rewrite) — see src/app/api/ai/*
+OPENAI_API_KEY=your_openai_api_key
+OPENAI_MODEL=gpt-5-nano
 ```
 
 4. Run the development server:

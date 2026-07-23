@@ -39,6 +39,7 @@ const loadMammoth = () => import("mammoth");
 const loadConfetti = () => import("canvas-confetti");
 import SaveModal from './SaveModel';
 import ShareModal from './ShareModel';
+import AIActions from './AIActions';
 
 // Dynamically import ReactQuill - CSS loaded separately via useEffect
 const ReactQuill = dynamic(
@@ -121,6 +122,25 @@ export default function Editor({
 	const [searchText, setSearchText] = useState("");
 	const quillRef = useRef<any>(null);
 	const findInputRef = useRef<HTMLInputElement>(null);
+
+	// AI Actions helpers: operate on the current selection, or the whole note if nothing is selected.
+	const getAISelectionOrAll = () => {
+		if (!quillRef.current) return null;
+		const quill = quillRef.current.getEditor();
+		const range = quill.getSelection();
+		if (range && range.length > 0) {
+			return { text: quill.getText(range.index, range.length), index: range.index, length: range.length };
+		}
+		const length = Math.max(quill.getLength() - 1, 0); // exclude Quill's trailing newline
+		return { text: quill.getText(0, length), index: 0, length };
+	};
+
+	const applyAIResult = (index: number, length: number, newText: string) => {
+		if (!quillRef.current) return;
+		const quill = quillRef.current.getEditor();
+		quill.deleteText(index, length, 'user');
+		quill.insertText(index, newText, 'user');
+	};
 	const [highlightPositions, setHighlightPositions] = useState<HighlightPosition[]>([]);
 	const searchParams = useSearchParams();
 	const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -1066,6 +1086,8 @@ export default function Editor({
     >
       <PrinterIcon className="h-4 w-4 sm:h-5 sm:w-5" />
     </button>
+    {/* AI Actions: grammar check + rewrite (opt-in, sends selected/whole-note text to OpenAI) */}
+    <AIActions getSelectionOrAll={getAISelectionOrAll} applyResult={applyAIResult} />
     {/* Export */}
     <ExportButton content={content} documentName={documentName} />
     {/* Fullscreen */}
