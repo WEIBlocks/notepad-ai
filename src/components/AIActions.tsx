@@ -118,18 +118,19 @@ export default function AIActions({ getSelectionOrAll, applyResult }: AIActionsP
       <button
         onClick={() => setMenuOpen((v) => !v)}
         disabled={disabled}
-        className="p-1 sm:p-2 md:p-3 hover:bg-[#151823] rounded-lg transition-colors text-gray-300 hover:text-blue-400 disabled:opacity-50 flex items-center gap-1"
+        className="flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-400 hover:to-purple-400 text-white text-xs sm:text-sm font-medium shadow-sm shadow-purple-500/30 transition-colors disabled:opacity-50"
         title="AI Actions"
       >
-        <SparklesIcon className="h-4 w-4 sm:h-5 sm:w-5" />
-        {loading && (
-          <span className="hidden sm:inline text-xs text-gray-400">
-            {loading === "grammar" ? "Checking…" : "Rewriting…"}
-          </span>
-        )}
-        {!loading && onCooldown && (
-          <span className="hidden sm:inline text-xs text-gray-500">{Math.ceil(cooldownMsLeft / 1000)}s</span>
-        )}
+        <SparklesIcon className="h-4 w-4 flex-shrink-0" />
+        <span>
+          {loading
+            ? loading === "grammar"
+              ? "Checking…"
+              : "Rewriting…"
+            : onCooldown
+            ? `${Math.ceil(cooldownMsLeft / 1000)}s`
+            : "AI"}
+        </span>
       </button>
 
       {menuOpen && (
@@ -137,7 +138,7 @@ export default function AIActions({ getSelectionOrAll, applyResult }: AIActionsP
           <div className="fixed inset-0 z-40" onClick={() => setMenuOpen(false)} />
           <div className="absolute right-0 top-full mt-2 z-50 w-64 bg-[#1a1f2e] border border-[#2a3142] rounded-lg shadow-2xl p-3">
             <p className="text-xs text-gray-400 mb-3">
-              Uses OpenAI on the selected text (or the whole note if nothing's selected). Nothing is sent unless you tap a button below.
+              Uses AI on the selected text (or the whole note if nothing's selected). Nothing is sent unless you tap a button below.
             </p>
             {dailyStatus && (
               <p className="text-xs text-gray-500 mb-3">
