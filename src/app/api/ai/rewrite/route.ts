@@ -63,7 +63,7 @@ export async function POST(req: Request) {
         },
         { role: 'user', content: text },
       ],
-      temperature: 0.5,
+      // gpt-5-nano only supports the default temperature (1) — don't set it explicitly.
     });
 
     const result = completion.choices[0]?.message?.content?.trim();
@@ -74,15 +74,6 @@ export async function POST(req: Request) {
     return NextResponse.json({ result, remaining: usage.remaining, limit: usage.limit });
   } catch (error) {
     console.error('Error in /api/ai/rewrite:', error);
-    // TEMP-DEBUG: surfacing the real error message in the response body so it's
-    // visible in the browser's Network tab, since server-side logs for this
-    // route aren't showing console.error output. Remove `debug` once diagnosed.
-    return NextResponse.json(
-      {
-        error: 'Failed to rewrite text. Try again in a moment.',
-        debug: error instanceof Error ? { message: error.message, name: error.name } : String(error),
-      },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Failed to rewrite text. Try again in a moment.' }, { status: 500 });
   }
 }
