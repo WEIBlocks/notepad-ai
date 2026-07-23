@@ -82,7 +82,12 @@ export default function AIActions({ getSelectionOrAll, applyResult }: AIActionsP
       });
       const data = await res.json();
       if (!res.ok) {
-        throw new Error(data?.error || "AI request failed");
+        // TEMP-DEBUG: append the server's debug detail (if present) so the
+        // real cause shows up in the toast without needing devtools.
+        const debugSuffix = data?.debug
+          ? ` (${typeof data.debug === "string" ? data.debug : data.debug.message || JSON.stringify(data.debug)})`
+          : "";
+        throw new Error((data?.error || "AI request failed") + debugSuffix);
       }
       if (typeof data.remaining === "number" && data.remaining >= 0 && typeof data.limit === "number") {
         setDailyStatus({ remaining: data.remaining, limit: data.limit });

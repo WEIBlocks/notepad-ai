@@ -74,6 +74,15 @@ export async function POST(req: Request) {
     return NextResponse.json({ result, remaining: usage.remaining, limit: usage.limit });
   } catch (error) {
     console.error('Error in /api/ai/rewrite:', error);
-    return NextResponse.json({ error: 'Failed to rewrite text. Try again in a moment.' }, { status: 500 });
+    // TEMP-DEBUG: surfacing the real error message in the response body so it's
+    // visible in the browser's Network tab, since server-side logs for this
+    // route aren't showing console.error output. Remove `debug` once diagnosed.
+    return NextResponse.json(
+      {
+        error: 'Failed to rewrite text. Try again in a moment.',
+        debug: error instanceof Error ? { message: error.message, name: error.name } : String(error),
+      },
+      { status: 500 }
+    );
   }
 }
